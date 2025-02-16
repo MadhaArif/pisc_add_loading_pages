@@ -5,7 +5,7 @@ import EventListMain from '../components/event-grid';
 const EventList = () => {
     return (
         <Wrapper>
-            <SEO pageTitle={'Event List'} />
+            <SEO pageTitle={'Upcoming Events'} />
             <EventListMain />
         </Wrapper>
     )

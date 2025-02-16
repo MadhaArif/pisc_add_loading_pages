@@ -5,7 +5,7 @@ import QueryMain from '../components/queries';
 export default function Faq() {
     return (
         <Wrapper>
-            <SEO pageTitle={'Faq'} />
+            <SEO pageTitle={'Client queries'} />
             <QueryMain />
         </Wrapper>
     )
