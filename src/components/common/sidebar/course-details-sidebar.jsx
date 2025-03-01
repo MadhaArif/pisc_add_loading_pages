@@ -2,7 +2,7 @@ import React from 'react';
 import { Books } from '../../../svg';
 
 const CourseDetailsSidebar = ({ course }) => {
-    const { img, certificate, instructor, duration, language } = course || {};
+    const { img, certificate, instructor, duration, language, timing, form_link, lesson } = course || {};
 
     return (
         <>
@@ -12,36 +12,41 @@ const CourseDetailsSidebar = ({ course }) => {
                         <div className="content">
                             <h4 className="widget-title">Course Includes:</h4>
                             <ul className="course-item">
-                                <li>
+                                {instructor && <li>
                                     <span className="label"><i className="icon-62"></i>Instrutor:</span>
                                     <span className="value">{instructor}</span>
-                                </li>
+                                </li>}
 
-                                <li>
+                                {duration && <li>
                                     <span className="label"><i className="icon-61"></i>Duration:</span>
                                     <span className="value">{duration}</span>
-                                </li>
+                                </li>}
 
-                                <li>
+                                {lesson && <li>
                                     <span className="label">
                                         <Books />
                                         Lessons:</span>
-                                    <span className="value">8</span>
-                                </li>
+                                    <span className="value">{lesson}</span>
+                                </li>}
 
-                                <li>
+                                {language && <li>
                                     <span className="label"><i className="icon-59"></i>Language:</span>
                                     <span className="value">{language}</span>
-                                </li>
+                                </li>}
 
-                                <li>
+                                {timing && <li>
+                                    <span className="label"><i className="icon-61"></i>Class Time:</span>
+                                    <span className="value">{timing}</span>
+                                </li>}
+
+                                {certificate && <li>
                                     <span className="label"><i className="icon-64"></i>Certificate:</span>
                                     <span className="value">{certificate}</span>
-                                </li>
+                                </li>}
                             </ul>
 
                             <div className="read-more-btn">
-                                <a href="/contact-us" className="edu-btn">Enroll Now <i className="icon-4"></i></a>
+                                <a href={form_link} target='_blank' className="edu-btn">Enroll Now <i className="icon-4"></i></a>
                             </div>
                         </div>
                     </div>

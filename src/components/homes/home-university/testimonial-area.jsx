@@ -2,61 +2,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import { useEffect, useState } from "react";
 
-const testimonial_data = [
-    {
-        img: '/assets/images/testimonial/testimonial-01.png',
-        desc: 'Lorem ipsum dolor amet consec tur elit adicing sed do usmod zx tempor enim minim veniam quis nostrud exer citation.',
-        ratings: <>
-            <i className="icon-23"></i>
-            <i className="icon-23"></i>
-            <i className="icon-23"></i>
-            <i className="icon-23"></i>
-            <i className="icon-23"></i>
-        </>,
-        name: 'Ray Sanchez',
-        title: 'Student'
-    },
-    {
-        img: '/assets/images/testimonial/testimonial-02.png',
-        desc: 'Lorem ipsum dolor amet consec tur elit adicing sed do usmod zx tempor enim minim veniam quis nostrud exer citation.',
-        ratings: <>
-            <i className="icon-23"></i>
-            <i className="icon-23"></i>
-            <i className="icon-23"></i>
-            <i className="icon-23"></i>
-            <i className="icon-23"></i>
-        </>,
-        name: 'Thomas Lopez',
-        title: 'Designer'
-    },
-    {
-        img: '/assets/images/testimonial/testimonial-03.png',
-        desc: 'Lorem ipsum dolor amet consec tur elit adicing sed do usmod zx tempor enim minim veniam quis nostrud exer citation.',
-        ratings: <>
-            <i className="icon-23"></i>
-            <i className="icon-23"></i>
-            <i className="icon-23"></i>
-            <i className="icon-23"></i>
-            <i className="icon-23"></i>
-        </>,
-        name: 'Amber Page',
-        title: 'Developer'
-    },
-    {
-        img: '/assets/images/testimonial/testimonial-04.png',
-        desc: 'Lorem ipsum dolor amet consec tur elit adicing sed do usmod zx tempor enim minim veniam quis nostrud exer citation.',
-        ratings: <>
-            <i className="icon-23"></i>
-            <i className="icon-23"></i>
-            <i className="icon-23"></i>
-            <i className="icon-23"></i>
-            <i className="icon-23"></i>
-        </>,
-        name: 'Robert Tapp',
-        title: 'Content Creator'
-    }
-]
-
 export default function TestimonialArea() {
     const [loop, setLoop] = useState(false);
     const [testimonial, setTestimonial] = useState([]);
@@ -80,7 +25,9 @@ export default function TestimonialArea() {
 
         fetchData();
     }, []);
+
     useEffect(() => setLoop(true), [])
+    
     return (
         <div className="testimonial-area-1 section-gap-equal">
             <div className="container">

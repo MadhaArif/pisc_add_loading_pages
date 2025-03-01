@@ -14,12 +14,12 @@ const CourseBreadcrumb = ({ course }) => {
                         <li className="breadcrumb-item">
                         </li>
                     </ul>
-                    <div className="page-title">
+                    {title && <div className="page-title">
                         <h1 className="title">{title}</h1>
-                    </div>
+                    </div>}
                     <ul className="course-meta">
-                        <li><i className="icon-58"></i>by {instructor}</li>
-                        <li><i className="icon-59"></i>{language}</li>
+                        {instructor && <li><i className="icon-58"></i>by {instructor}</li>}
+                        {language && <li><i className="icon-59"></i>{language}</li>}
                     </ul>
                 </div>
             </div>

@@ -9,7 +9,7 @@ const index = ({event}) => {
         <div className='sticky-header'>
             <div id="main-wrapper" className="main-wrapper">
                 <HeaderTwo no_top_bar={true} />
-                <BreadcrumbFour title={event?.title} date={event?.date} time={event?.time} category={event?.category} />
+                <BreadcrumbFour location={event?.location} title={event?.title} date={event?.date} time={event?.time} category={event?.category} />
                 <EventDetailsArea event={event}/>
                 <Footer />
             </div>

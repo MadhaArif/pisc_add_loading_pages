@@ -4,6 +4,7 @@ import SearchPopup from '../../components/common/popup-modal/search-popup';
 import OffCanvas from '../../components/common/sidebar/off-canvas';
 import useSticky from '../../hooks/use-sticky';
 import MainMenu from './component/main-menu';
+import HeaderTopRight from "./component/header-top-right";
 
 const HeaderTwo = ({ style_3, no_topBar = false }) => {
     const { sticky } = useSticky();
@@ -13,6 +14,7 @@ const HeaderTwo = ({ style_3, no_topBar = false }) => {
         <>
             <header className={`edu-header header-style-${style_3 ? '3' : '2'} ${no_topBar ? 'no-topbar' : ''}`}>
                 <div id="edu-sticky-placeholder"></div>
+                <HeaderTopRight />
 
                 <div className={`header-mainmenu ${sticky ? 'edu-sticky' : ''}`}>
                     <div className="container">

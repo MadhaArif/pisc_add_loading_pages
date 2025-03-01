@@ -10,19 +10,26 @@ const social_share = [
 
 const HeaderTopRight = () => {
     return (
-        <ul className="header-info">
-            <li><Link href="/sign-in"><a>Login</a></Link></li>
-            <li><Link href="/sign-in"><a>Register</a></Link></li>
-            <li><a href="tel:+011235641231"><i className="icon-phone"></i>Call: 123 4561 5523</a></li>
-            <li><a href="mailto:info@edublink.com" rel="noreferrer" target="_blank"><i className="icon-envelope"></i>Email: info@edublink.com</a></li>
-            <li className="social-icon">
-                {social_share.map((social, i) => (
-                    <a key={i} href={social.link} target={social.target ? social.target : ''} className={`${social.color}`}>
-                        <i className={social.icon}></i>
-                    </a>
-                ))}
-            </li>
-        </ul>
+        <section style={{ background: '#F0F4F5', padding: '10px 0' }}>
+            <section className='container' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div>
+                    <span>
+                        <a href="#">⏰ 10am - 10pm</a>
+                    </span>
+                </div>
+
+                <div>
+
+                    <span>
+                        <a href="tel:+923166474545"><i className="icon-phone"></i>&nbsp;+92 316 6474545</a>
+                    </span>
+                    &nbsp; &nbsp; &nbsp; &nbsp;
+                    <span>
+                        <a href="mailto:info@professionalitskillscollege.com" rel="noreferrer" target="_blank"><i className="icon-envelope"></i>&nbsp;info@professionalitskillscollege.com</a>
+                    </span>
+                </div>
+            </section>
+        </section>
     )
 }
 

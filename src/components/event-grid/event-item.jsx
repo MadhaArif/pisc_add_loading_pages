@@ -2,12 +2,13 @@ import Link from 'next/link';
 import React from 'react';
 
 const EventItem = ({ event }) => {
-    const [id, title, category, date, time, bullets, sm_desc, sm_desc_2, event_meta, img] = event || [];
+    const [id, title, category, date, time, bullets, sm_desc, sm_desc_2, img, form_link, contact, location, detail_img] = event || [];
     
+    debugger;
     return (
         <Link href={{
             pathname: `/event-details`, query: {
-                id, title, category, date, time, bullets, sm_desc, sm_desc_2, event_meta, img
+                id, title, category, date, time, bullets, sm_desc, sm_desc_2, img, form_link, contact, location, detail_img
             }
         }}>
             <div className="inner">
@@ -30,7 +31,7 @@ const EventItem = ({ event }) => {
                     </h5>
                     <p>{sm_desc}</p>
                     <ul className="event-meta">
-                        <li><i className="icon-40"></i>{event_meta}</li>
+                        <li><i className="icon-40"></i>{location}</li>
                     </ul>
                     <div className="read-more-btn">
                         <a className="edu-btn btn-small btn-secondary">
