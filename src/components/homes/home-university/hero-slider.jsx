@@ -20,7 +20,7 @@ const HeroSlider = () => {
                     `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`
                 );
                 const result = await response.json();
-                setSlider(result?.values);
+                result?.values.shift() &&setSlider(result?.values);
             } catch (error) {
                 console.error("Error fetching data: ", error);
             }
@@ -30,6 +30,7 @@ const HeroSlider = () => {
     }, []);
     useEffect(() => setLoop(true), [])
     const { mouseDirection, mouseReverse } = useMouseMoveUI();
+
     return (
         <div className="hero-banner hero-style-3 bg-image">
             <Swiper

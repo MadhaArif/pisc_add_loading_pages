@@ -27,7 +27,7 @@ export default function TestimonialArea() {
     }, []);
 
     useEffect(() => setLoop(true), [])
-    
+
     return (
         <div className="testimonial-area-1 section-gap-equal">
             <div className="container">
@@ -38,7 +38,7 @@ export default function TestimonialArea() {
                                 <span className="pre-title">Testimonials</span>
                                 <h2 className="title">What Our Students Have To Say</h2>
                                 <span className="shape-line"><i className="icon-19"></i></span>
-                                <p>Lorem ipsum dolor sit amet consectur adipiscing elit sed eiusmod tempor incididunt labore dolore magna aliquaenim ad minim.</p>
+                                <p>Discover how PISC has helped transform careers through practical, industry-relevant training. Our students share their experiences of gaining valuable digital skills.</p>
                             </div>
                         </div>
                     </div>

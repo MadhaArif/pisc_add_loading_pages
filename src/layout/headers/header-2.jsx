@@ -23,8 +23,8 @@ const HeaderTwo = ({ style_3, no_topBar = false }) => {
                                 <div className="logo">
                                     <Link href="/">
                                         <a>
-                                            <img className="logo-light" src={style_3 ? '/assets/images/logo/logo-dark.png' : "/assets/images/logo/logo-dark-2.png"} alt="Corporate Logo" />
-                                            <img className="logo-dark" src={style_3 ? '/assets/images/logo/logo-white.png' : "/assets/images/logo/logo-light-2.png"} alt="Corporate Logo" />
+                                            <img className="logo-light" style={{ width: '100px' }} src={style_3 ? '/assets/images/logo/logo-white.svg' : "/assets/images/logo/logo-white.svg"} alt="Corporate Logo" />
+                                            <img className="logo-dark" style={{ width: '100px' }} src={style_3 ? '/assets/images/logo/logo-dark.svg' : "/assets/images/logo/logo-dark.svg"} alt="Corporate Logo" />
                                         </a>
                                     </Link>
                                 </div>

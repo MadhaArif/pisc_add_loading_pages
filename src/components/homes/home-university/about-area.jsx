@@ -18,12 +18,12 @@ const tabs = {
         {
             show:true,
             id:'about-edu',
-            desc:"Welcome to PISC! we're committed to empowering students with the skills they need to thrive in the ever-evolving world of technology. With a focus on computer short courses, we aim to provide practical and up-to-date knowledge that helps our students stay ahead in today's competitive job market. Our experienced instructors bring real-world insights and hands-on learning to the classroom, ensuring that each course is both engaging and relevant.",
+            desc:"PISC is your gateway to mastering in-demand tech skills through expertly designed computer short courses. We focus on practical, up-to-date knowledge that aligns with industry needs, ensuring you stay ahead in today's competitive job market. Our experienced instructors bring real-world expertise and hands-on learning to every session, making complex concepts easy to understand and apply. Whether you're looking to boost your career, switch industries, or gain new digital skills, PISC provides the tools, guidance, and support to help you succeed.",
             feature_list: []
         },
         {
             id:'about-mission',
-            desc:"Our mission is to provide high-quality, affordable, and hands-on computer short courses that equip students with the technical expertise and problem-solving abilities required in today's fast-paced digital landscape. We are committed to:",
+            desc:"Our mission is to provide high-quality, affordable, and immersive computer short courses that equip students with cutting-edge technical skills and critical problem-solving abilities, preparing them to excel in today's dynamic digital landscape. We are committed to:",
             feature_list:[
                 'Delivering up-to-date, industry-relevant curriculum.',
                 'Fostering a dynamic and inclusive learning environment.',
@@ -32,7 +32,7 @@ const tabs = {
         },
         {
             id:'about-vision',
-            desc:"We envision a future where technology education is accessible to everyone, empowering individuals with the digital skills needed to thrive in the modern world. We strive to be a leading institution in computer education, bridging the gap between learning and industry demands through innovative, practical, and career-oriented training",
+            desc:"We envision a future where technology education is universally accessible, empowering individuals with the digital skills necessary to thrive in an ever-evolving world. Our aim is to become a pioneering institution in computer education, seamlessly connecting academic learning with real-world industry needs through innovative, practical, and career-driven training.",
             feature_list: [
                 'Making technology education accessible to everyone.',
                 'Preparing students for successful careers by providing industry-relevant knowledge and mentorship.'
