@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { motion } from 'framer-motion';
 import { useMouseMoveUI } from '../../contexts/mouse-move-context';
 import ContactUsForm from '../forms/contact-us-form';
@@ -6,6 +6,32 @@ import FooterSocial from '../../layout/footers/component/footer-social';
 
 const ContactUsArea = () => {
     const { mouseDirection, mouseReverse } = useMouseMoveUI();
+     const [contact, setContact] = useState({ address: null, phone: null, phone_2: null, email: null });
+        const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
+        const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
+        const RANGE = "contact-info";
+    
+        // get data from google excel sheet
+        useEffect(() => {
+            const fetchData = async () => {
+                try {
+                    const response = await fetch(
+                        `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`
+                    );
+                    const result = await response.json();
+                    result.values.shift();
+                    const [address, phone, phone_2, email] = result?.values[0]
+                    setContact({ address, phone, phone_2, email });
+                } catch (error) {
+                    console.error("Error fetching data: ", error);
+                }
+            };
+    
+            fetchData();
+        }, []);
+    
+        const {address, phone, phone_2, email} = contact
+
     return (
         <section className="contact-us-area">
             <div className="container">
@@ -16,18 +42,19 @@ const ContactUsArea = () => {
                             <ul className="address-list">
                                 <li>
                                     <h5 className="title">Address</h5>
-                                    <p>Sheikh Jamal Ghulzar road, Near to the Jawa Barost tokay wala chowk Shadbagh road, Lahore 54000</p>
+                                    <p>{address}</p>
                                 </li>
                                 <li>
                                     <h5 className="title">Email</h5>
-                                    <p><a href="mailto:edublink@example.com">edublink@example.com</a></p>
+                                    <p><a href="">{email}</a></p>
                                 </li>
                                 <li>
                                     <h5 className="title">Phone</h5>
-                                    <p><a href="tel:+923166474545">+92 316 6474545</a></p>
+                                    <p style={{marginBottom: '5px'}}>{phone}</p>
+                                    <p>{phone_2}</p>
                                 </li>
                             </ul>
-                            <ul className="social-share">
+                            <ul className="social-share icon-transparent">
                                 <FooterSocial />
                             </ul>
                         </div>

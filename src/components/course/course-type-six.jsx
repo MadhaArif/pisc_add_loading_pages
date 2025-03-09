@@ -22,7 +22,7 @@ const CourseTypeSix = ({ course, color }) => {
                         </div>
                     </div>
 
-                    <div className="content" style={{ background: color ? '#f7f5f2' : 'white' }}>
+                    <div className="content">
                         <span className="course-level">{level}</span>
                         <h5 className="title">
                             <a>{title}</a>

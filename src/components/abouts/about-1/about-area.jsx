@@ -5,7 +5,7 @@ import { useMouseMoveUI } from '../../../contexts/mouse-move-context';
 const AboutArea = () => {
     const { mouseDirection, mouseReverse } = useMouseMoveUI();
     return (
-        <div className="section-gap-large edu-about-area about-style-7">
+        <div className="gap-top-equal edu-about-area about-style-7">
             <div className="container">
                 <div className="row g-5 align-items-center">
                     <div className="col-lg-7">
@@ -79,6 +79,24 @@ const AboutArea = () => {
                                         <li>Preparing students for successful careers by providing industry-relevant knowledge and mentorship</li>
                                     </ul>
                                 </p>
+                            </div>
+                        </div>
+
+                        <div className="row gap-top-equal">
+                            <div className="col-lg-6">
+                                <h2 className="title">CEO</h2>
+                                <p style={{ margin: 0 }}>
+                                    We envision a future where technology education is universally accessible, empowering individuals with the digital skills necessary to thrive in an ever-evolving world. Our aim is to become a pioneering institution in computer education, seamlessly connecting academic learning with real-world industry needs through innovative, practical, and career-driven training.
+                                    <ul>
+                                        <li>Making technology education accessible to everyone.</li>
+                                        <li>Fostering an innovative and inclusive learning environment that encourages creativity and growth.</li>
+                                        <li>Preparing students for successful careers by providing industry-relevant knowledge and mentorship</li>
+                                    </ul>
+                                </p>
+                            </div>
+
+                            <div className="col-lg-6">
+                                <img style={{ width: '100%' }} src="/assets/images/ceo.jpg" alt="Image" />
                             </div>
                         </div>
                     </div>

@@ -1,13 +1,9 @@
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import FooterSocial from "./component/footer-social";
 
-const footer_contents = {
-    logoLight: '/assets/images/logo/logo-dark.svg',
-    logoDark: '/assets/images/logo/logo-white.svg',
+const { desc, widgets } = {
     desc: "We envision a future where technology education is accessible to everyone, empowering individuals with the digital skills needed to thrive in the modern world. We strive to be a leading institution in computer education, bridging the gap between learning and industry demands through innovative, practical, and career-oriented training. we aim to provide practical and up-to-date knowledge that helps our students stay ahead in today's competitive job market",
-    add: 'Sheikh Jamal Ghulzar road, Near to the Jawa Barost tokay wala chowk Shadbagh road, Lahore 54000',
-    call: '+92 316 6474545',
-    email: 'info@professionalitskillscollege.com',
     widgets: [
         {
             col: '2',
@@ -22,12 +18,35 @@ const footer_contents = {
             ]
         }
     ]
-
 }
 
-const { logoDark, logoLight, desc, add, call, email, widgets } = footer_contents;
-
 const Footer = ({ style_2, dark_bg, home_4 }) => {
+    const [contact, setContact] = useState({ address: null, phone: null, phone_2: null, email: null });
+    const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
+    const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
+    const RANGE = "contact-info";
+
+    // get data from google excel sheet
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(
+                    `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`
+                );
+                const result = await response.json();
+                result.values.shift();
+                const [address, phone, phone_2, email] = result?.values[0]
+                setContact({ address, phone, phone_2, email });
+            } catch (error) {
+                console.error("Error fetching data: ", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const {address, phone, phone_2, email} = contact
+
     return (
         <footer className={`edu-footer ${style_2 ? style_2 : dark_bg ? 'footer-dark bg-image footer-style-3' : "footer-lighten bg-image footer-style-1"}`}>
             <div className={`footer-top ${style_2 ? "footer-top-2" : ""}`}>
@@ -39,15 +58,15 @@ const Footer = ({ style_2, dark_bg, home_4 }) => {
                                     <Link href={'/'}>
                                         <a>
                                             {!dark_bg && <>
-                                                {!style_2 && <img className="logo-light" src={logoLight} alt="Corporate Logo" />}
-                                                <img style={{width: '100px'}} className="logo-dark" src={logoDark} alt="Corporate Logo" />
+                                                {!style_2 && <img style={{ width: '100px' }} className="logo-light" src='/assets/images/logo/logo-white.svg' alt="Corporate Logo" />}
+                                                <img style={{ width: '100px' }} className="logo-dark" src='/assets/images/logo/logo-dark.svg' alt="Corporate Logo" />
                                             </>}
                                         </a>
                                     </Link>
 
                                     <Link href={'/'}>
                                         <a>
-                                            {dark_bg && <img style={{ width: '100px' }}  className="logo-light" src={home_4 ? '/assets/images/logo/logo-white.svg' : '/assets/images/logo/logo-white.svg'} alt="Corporate Logo" />}
+                                            {dark_bg && <img style={{ width: '100px' }} className="logo-light" src={home_4 ? '/assets/images/logo/logo-white.svg' : '/assets/images/logo/logo-white.svg'} alt="Corporate Logo" />}
                                         </a>
                                     </Link>
                                 </div>
@@ -76,9 +95,10 @@ const Footer = ({ style_2, dark_bg, home_4 }) => {
                                     <div className="input-group footer-subscription-form">
                                         <div className="widget-information">
                                             <ul className="information-list">
-                                                <li><span>Address:</span>{add}</li>
-                                                <li><span>Phone:</span><a href="tel:+923166474545">{call}</a></li>
-                                                <li><span>Email:</span><a href="mailto:info@edublink.com" rel="noreferrer" target="_blank">{email}</a></li>
+                                                {address && <li><span>Address:</span>{address}</li>}
+                                                {phone && <li><span>Phone:</span>{phone}</li>}
+                                                {phone_2 && <li><span>Phone:</span>{phone_2}</li>}
+                                                {email && <li><span>Email:</span>{email}</li>}
                                             </ul>
                                         </div>
                                     </div>
@@ -103,7 +123,7 @@ const Footer = ({ style_2, dark_bg, home_4 }) => {
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer >
     )
 }
 

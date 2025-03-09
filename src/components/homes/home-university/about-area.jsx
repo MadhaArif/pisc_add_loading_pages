@@ -51,7 +51,7 @@ const AboutArea = () => {
                         <div className="about-content">
                             <div className="section-title section-left">
                                 <span className="pre-title">About Us</span>
-                                <h2 className="title">We Provide Best <span className="color-primary">Education</span> Services For You</h2>
+                                <h2 className="title">We Equip You with <span className="color-primary">Top Digital</span> Skills.</h2>
                                 <span className="shape-line">
                                     <i className="icon-19"></i>
                                 </span>

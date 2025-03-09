@@ -14,10 +14,8 @@ const index = () => {
                 <HeaderTwo no_top_bar={true} />
                 <Breadcrumb title="About us" subtitle="Course Style 2" />
                 <AboutArea/>
-                <BrandArea/>
-                <Courses />
                 <Testimonial/>
-                <CounterArea/>
+                <BrandArea />
                 <Footer />
             </div>
         </div>

@@ -8,6 +8,7 @@ const MainMenu = () => {
                 <li className=""><Link href="/about">About</Link></li>
                 <li className=""><Link href="/course">Courses</Link></li>
                 <li className=""><Link href="/event">Upcoming Events</Link></li>
+                <li className=""><Link href="/gallery">Gallery</Link></li>
                 <li className=""><Link href="/contact-us">Contact</Link></li>
         </ul>
     )

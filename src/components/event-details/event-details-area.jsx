@@ -2,13 +2,6 @@ import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 
 const EventDetailsArea = ({ event }) => {
-    const handleWhatsAppClick = () => {
-        const phoneNumber = '923166474545';
-        const message = `I am interested to join ${event?.title} event. Which will be held on ${event?.date} at ${event?.event_meta}`;
-        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-        window.open(whatsappURL, '_blank');
-    };
-
     const { push } = useRouter();
 
     useEffect(() => {

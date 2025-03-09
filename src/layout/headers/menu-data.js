@@ -20,6 +20,11 @@ const menu_data = [
         mega_menu: false,
     },
     {
+        title: 'Gallery',
+        link: '/gallery',
+        mega_menu: false,
+    },
+    {
         title: 'Contact',
         link: '/contact-us',
         mega_menu: false,

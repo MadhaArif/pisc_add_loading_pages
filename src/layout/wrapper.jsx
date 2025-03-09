@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import { ToastContainer } from 'react-toastify';
 import { get_cart_courses } from '../redux/features/cart-slice';
 import { get_wishlist_products } from '../redux/features/wishlist-slice';
-import ScrollToTop from '../ui/scroll-to-top';
 
 export default function Wrapper({ children }) {
     const router = useRouter();
@@ -31,6 +30,12 @@ export default function Wrapper({ children }) {
         dispatch(get_cart_courses());
     }, [dispatch]);
 
+    const handleWhatsAppClick = () => {
+            const phoneNumber = '923166474545';
+            const whatsappURL = `https://wa.me/${phoneNumber}`;
+            window.open(whatsappURL, '_blank');
+        };
+
     return (
         <>
             {loading ? (
@@ -40,7 +45,7 @@ export default function Wrapper({ children }) {
             ) : (   
                 <>
                     { children }
-                    < ScrollToTop />
+                        <img onClick={handleWhatsAppClick} style={{zIndex: 100, width: '70px', cursor: 'pointer', position: 'fixed', bottom: '50px', right: '30px'}} src="/assets/images/whatsapp.svg" />
                     <ToastContainer />
                 </>
             )}

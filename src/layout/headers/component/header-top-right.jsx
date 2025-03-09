@@ -1,32 +1,50 @@
-import Link from 'next/link';
-import React from 'react';
-
-const social_share = [
-    { link: 'http://facebook.com', target: '_blank', icon: 'icon-facebook' },
-    { link: 'http://twitter.com', target: '_blank', icon: 'icon-twitter' },
-    { link: 'https://www.linkedin.com/', target: '_blank', icon: 'icon-linkedin2' },
-    { link: 'https://www.instagram.com/', target: '_blank', icon: 'icon-instagram' }
-]
+import React, { useState, useEffect } from 'react';
 
 const HeaderTopRight = () => {
+    const [contact, setContact] = useState({ address: null, phone: null, phone_2: null, email: null, timing: null });
+    const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
+    const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
+    const RANGE = "contact-info";
+
+    // get data from google excel sheet
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(
+                    `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`
+                );
+                const result = await response.json();
+                result.values.shift();
+                const [address, phone, phone_2, email, timing] = result?.values[0]
+                setContact({ address, phone, phone_2, email, timing });
+            } catch (error) {
+                console.error("Error fetching data: ", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const { address, phone, phone_2, email, timing } = contact
+
     return (
-        <section style={{ background: '#F0F4F5', padding: '10px 0' }}>
+
+        <section style={{ padding: '10px 0' }}>
             <section className='container' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
-                    <span>
-                        <a href="#">⏰ 10am - 10pm</a>
-                    </span>
+                    {timing && <p style={{marginBottom: 0}}>
+                        ⏰ {timing}
+                    </p>}
                 </div>
 
-                <div>
-
-                    <span>
-                        <a href="tel:+923166474545"><i className="icon-phone"></i>&nbsp;+92 316 6474545</a>
-                    </span>
+                <div style={{display: 'flex'}}>
+                    {phone  && <p style={{ marginBottom: 0 }}>
+                        <i className="icon-phone"></i>&nbsp;&nbsp; {phone}
+                    </p>}
                     &nbsp; &nbsp; &nbsp; &nbsp;
-                    <span>
-                        <a href="mailto:info@professionalitskillscollege.com" rel="noreferrer" target="_blank"><i className="icon-envelope"></i>&nbsp;info@professionalitskillscollege.com</a>
-                    </span>
+                    {email && <p style={{ marginBottom: 0 }}>
+                        <i className="icon-envelope"></i>&nbsp;&nbsp; {email}
+                    </p>}
                 </div>
             </section>
         </section>

@@ -74,7 +74,9 @@ export default function TestimonialArea() {
                                             <div className="content">
                                                 <p>{desc}</p>
                                                 <div className="rating-icon">
-                                                    {ratings}
+                                                    {Array.from({ length: ratings }, (_, index) => (
+                                                        <i key={index} className="icon-23" />
+                                                    ))}
                                                 </div>
                                                 <h5 className="title">{name}</h5>
                                                 <span className="subtitle">{title}</span>
