@@ -29,20 +29,20 @@ const HeaderTopRight = () => {
 
     return (
 
-        <section style={{ padding: '10px 0' }}>
+        <section style={{ padding: '10px 0', background: '#183B4E' }}>
             <section className='container' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
-                    {timing && <p style={{marginBottom: 0}}>
+                    {timing && <p className='mb-0' style={{ color: '#fff' }}>
                         ⏰ {timing}
                     </p>}
                 </div>
 
                 <div style={{display: 'flex'}}>
-                    {phone  && <p style={{ marginBottom: 0 }}>
+                    {phone && <p className='mb-0' style={{ color: '#fff' }}>
                         <i className="icon-phone"></i>&nbsp;&nbsp; {phone}
                     </p>}
-                    &nbsp; &nbsp; &nbsp; &nbsp;
-                    {email && <p style={{ marginBottom: 0 }}>
+
+                    {email && <p className='mb-0 d-none d-lg-block ms-5' style={{ color: '#fff' }}>
                         <i className="icon-envelope"></i>&nbsp;&nbsp; {email}
                     </p>}
                 </div>

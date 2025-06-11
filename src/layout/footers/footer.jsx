@@ -112,12 +112,12 @@ const Footer = ({ style_2, dark_bg, home_4 }) => {
                 </div>
             </div>
 
-            <div className="copyright-area">
+            <div className="copyright-area" style={{ background: '#183B4E' }}>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
-                            <div className="inner text-center">
-                                <p>Copyright {new Date().getFullYear()} PISC Designed By <a href="https://www.cadresol.com" rel="noreferrer" target="_blank">Cadresol</a>. All Rights Reserved</p>
+                            <div className="text-center">
+                                <p style={{ color: '#F3F3E0' }}>Copyright {new Date().getFullYear()} PISC Designed By <a href="https://www.cadresol.com" rel="noreferrer" target="_blank" style={{ color: '#F3F3E0', fontWeight: 'bold'}} >Cadresol</a>. All Rights Reserved</p>
                             </div>
                         </div>
                     </div>
