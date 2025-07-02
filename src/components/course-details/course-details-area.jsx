@@ -16,11 +16,29 @@ const CourseDetailsArea = ({ course }) => {
         <section className="edu-section-gap course-details-area">
             <div className="container">
                 <div className="row row--30">
-                    <div style={{ marginBottom: '70px' }}>
+                    <div className="col-lg-8">
+                        <div className="course-details-content">
+                            <div className="tab-content" id="myTabContent">
+                                <div className="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                                    <div className="course-overview">
+                                        <h3 className="heading-title">Course Description</h3>
+                                        {/* Desc */}
+                                        {course_desc && <p>{course_desc}</p>}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="col-lg-4">
+                        <CourseDetailsSidebar course={course} />
+                    </div>
+
+                    <div style={{ margin: '70px 0' }}>
                         <img src={`assets/images/course/${detail_img}`} alt="Event" />
                     </div>
 
-                    <div className="col-lg-8">
+                    <div className="col-lg-12">
                         <div className="course-details-content">
                             <div className="tab-content" id="myTabContent">
                                 <div className="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
@@ -41,10 +59,6 @@ const CourseDetailsArea = ({ course }) => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div className="col-lg-4">
-                        <CourseDetailsSidebar course={course} />
                     </div>
                 </div>
             </div>
