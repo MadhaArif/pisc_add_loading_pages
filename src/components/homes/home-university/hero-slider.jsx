@@ -2,8 +2,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, EffectFade, Autoplay } from "swiper";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion } from 'framer-motion';
-import { useMouseMoveUI } from '../../../contexts/mouse-move-context';
 
 const HeroSlider = () => {
     const [loop, setLoop] = useState(false);
@@ -29,7 +27,6 @@ const HeroSlider = () => {
         fetchData();
     }, []);
     useEffect(() => setLoop(true), [])
-    const { mouseDirection, mouseReverse } = useMouseMoveUI();
 
     return (
         <div className="hero-banner hero-style-3 bg-image">
@@ -60,14 +57,14 @@ const HeroSlider = () => {
                     const [id, src, subtitle, title, sm_text, btn_text ] = item;
                     return (
                         <SwiperSlide key={id}>
-                            <img data-transform-origin='center center' src={src} className="swiper-lazy" alt="image" />
+                            <img data-transform-origin='center center' src={'/assets/images/course/second.jpg'} className="swiper-lazy" alt="image" />
                             <div className="thumbnail-bg-content">
                                 <div className="container edublink-animated-shape">
                                     <div className="row">
                                         <div className="col-7">
                                             <div className="banner-content">
                                                 <span className="subtitle" data-sal="slide-up" data-sal-duration="1000">{subtitle}</span>
-                                                <h1 className="title" data-sal-delay="100" data-sal="slide-up" data-sal-duration="1000">
+                                                <h1 style={{fontWeight: 700, fontSize: '65px'}} className="title" data-sal-delay="100" data-sal="slide-up" data-sal-duration="1000">
                                                     {title}
                                                 </h1>
                                                 <p data-sal-delay="200" data-sal="slide-up" data-sal-duration="1000">{sm_text}</p>
@@ -84,18 +81,9 @@ const HeroSlider = () => {
                         </SwiperSlide>
                     )
                 })}
-
-                <div className="hero-slider-bg-controls">
-                    <div className="swiper-slide-controls slide-prev">
-                        <i className="icon-west"></i>
-                    </div>
-                    <div className="swiper-slide-controls slide-next">
-                        <i className="icon-east"></i>
-                    </div>
-                </div>
             </Swiper>
 
-            <ul className="shape-group">
+            {/* <ul className="shape-group">
                 <motion.li className="shape-1 scene" data-sal-delay="1000" data-sal="fade" data-sal-duration="1000"
                     animate={ {
                         x: mouseReverse(25).x,
@@ -115,7 +103,7 @@ const HeroSlider = () => {
                 <li className="shape-3">
                     <img src="/assets/images/others/shape-25.png" alt="Shape" />
                 </li>
-            </ul>
+            </ul> */}
         </div>
     )
 }

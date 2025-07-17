@@ -5,7 +5,7 @@ const Theme = () => {
     return (
         <>  
             <div className="dark-light-wrapper">
-                <label htmlFor="dark-light-checkbox" className="dark-light-label">
+                {/* <label htmlFor="dark-light-checkbox" className="dark-light-label">
                     <input type="checkbox" className="dark-light-checkbox" id="dark-light-checkbox" />
                     <p 
                         className="switcher swith-to-light"
@@ -31,7 +31,7 @@ const Theme = () => {
                             ></i>
                         </div>
                     </div>
-                </label>
+                </label> */}
             </div>
         </>
     )

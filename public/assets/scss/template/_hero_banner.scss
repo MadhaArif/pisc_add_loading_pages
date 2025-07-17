@@ -572,10 +572,7 @@
         min-height: 715px;
         position: relative;
         z-index: 1;
-        mask-image: url(../../images/others/mask-01.png);
-        -webkit-mask-repeat: no-repeat;
-        -webkit-mask-size: cover;
-        -webkit-mask-position: center;
+
         @media #{$md-layout} {
             min-height: 100%;
         }
@@ -590,7 +587,6 @@
                 content: "";
                 height: 100%;
                 width: 100%;
-                background: linear-gradient( 90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 80%);
                 position: absolute;
                 top: 0;
                 bottom: 0;
@@ -618,7 +614,7 @@
         .thumbnail-bg-content {
             
             .banner-content {
-                max-width: 560px;
+                max-width: 760px;
                 position: absolute;
                 left: 0;
                 bottom: 280px;

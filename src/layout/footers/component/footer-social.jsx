@@ -21,9 +21,9 @@ const FooterSocial = () => {
                 );
                 const result = await response.json();
                 result?.values.shift();
-                const [facebook, twitter, linked_in, youtube, instagram] = result?.values[0];
+                const [facebook, twitter, linked_in, youtube, instagram, tiktok] = result?.values[0];
                 setSocial({
-                    facebook, twitter, instagram, linked_in, youtube
+                    facebook, twitter, instagram, linked_in, youtube, tiktok
                 });
             } catch (error) {
                 console.error("Error fetching data: ", error);
@@ -33,7 +33,7 @@ const FooterSocial = () => {
         fetchData();
     }, []);
 
-   const {facebook, youtube, instagram, linked_in, twitter} = social
+   const {facebook, youtube, instagram, linked_in, twitter, tiktok} = social
 
     const social_share = [
         { link: facebook, target: '_blank', icon: 'icon-facebook', color: 'color-fb' },
@@ -41,6 +41,7 @@ const FooterSocial = () => {
         { link: linked_in, target: '_blank', icon: 'icon-linkedin2', color: 'color-linkd' },
         { link: youtube, target: '_blank', icon: 'icon-youtube', color: 'color-yt' },
         { link: instagram, target: '_blank', icon: 'icon-instagram', color: 'color-ig' },
+        { link: tiktok, target: '_blank', icon: 'icon-tiktok', color: 'color-ig' },
     ]
 
     return (

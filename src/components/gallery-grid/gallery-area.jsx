@@ -14,11 +14,11 @@ const gallery_items = [
     { img: '/assets/images/gallery/gallery-08.jpg', category: 'Health' }
 ]
 
-const uniqueItems = gallery_items.filter( (arr, index, self) =>
-    index === self.findIndex( ( i ) => ( i.img === arr.img && i.State === arr.State ) )
+const uniqueItems = gallery_items.filter((arr, index, self) =>
+    index === self.findIndex((i) => (i.img === arr.img && i.State === arr.State))
 )
 
-const uniq_categories = ['All', ...new Set( gallery_items.map( item => item.category ) ) ]
+const uniq_categories = ['All', ...new Set(gallery_items.map(item => item.category))]
 
 const GalleryArea = () => {
     const [items, setItems] = useState(uniqueItems);
@@ -50,10 +50,10 @@ const GalleryArea = () => {
             <div className="edu-gallery-area edu-section-gap">
                 <div className="container">
                     <div className="isotope-wrapper">
-                        <div className="isotop-button button-transparent isotop-filter">
+                        <div className="isotop-button isotop-filter">
                             {uniq_categories.map((c, i) => (
                                 <button key={i} onClick={() => handleCategory(c)}
-                                className={`${category === c ? 'is-checked' : ''}`}>
+                                    className={`${category === c ? 'is-checked' : ''}`}>
                                     <span className="filter-text">{c}</span>
                                 </button>
                             ))}
@@ -63,7 +63,7 @@ const GalleryArea = () => {
                                 <div className="row g-5">
                                     {items.map((item, i) => (
                                         <div key={i} className="col-lg-4 col-md-6" style={{ cursor: 'pointer' }}>
-                                            <div onClick={()=> handleImagePopup(i)} className="edu-popup-image edu-gallery-grid w-100">
+                                            <div onClick={() => handleImagePopup(i)} className="edu-popup-image edu-gallery-grid w-100">
                                                 <div className="thumbnail">
                                                     <img className='w-100' src={item.img} alt="Gallery Image" />
                                                 </div>

@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+* {
+    font-family: "Ubuntu", sans-serif !important;
+}
+
 @import '~bootstrap/scss/bootstrap';
 @import "swiper/css/bundle";
 @import 'react-toastify/dist/ReactToastify.css';

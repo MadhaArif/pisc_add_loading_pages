@@ -28,13 +28,12 @@ const CourseTwoArea = () => {
         <div className="edu-course-area course-area-1 gap-tb-text">
             <div className="container">
                 <div className="row g-5">
-                    {courses.length > 1 ? courses.shift() && courses?.map((course) => {
-                        return (
+                    {courses.length > 1 ? courses.shift() && courses?.map((course) => (
                             <div key={course[0]} className="col-md-6 col-lg-4">
                                 <CourseTypeSix course={course} color classes="course-box-shadow" />
                             </div>
                         )
-                    }) : <img style={{width: '200px', margin: '0 auto'}} src='/assets/images/loader.gif' />}
+                    ) : <img style={{width: '200px', margin: '0 auto'}} src='/assets/images/loader.gif' />}
                 </div>
             </div>
         </div>

@@ -347,6 +347,16 @@
 .icon-youtube:before {
   content: "\ea9d";
 }
+
+.icon-tiktok {
+  display: inline-block;
+  width: 18px;
+    height: 18px;
+    background-image: url('https://images.seeklogo.com/logo-png/42/2/tiktok-black-icon-logo-png_seeklogo-429281.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .icon-linkedin2:before {
   content: "\eaca";
 }

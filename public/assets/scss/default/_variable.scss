@@ -3,17 +3,18 @@
 -------------------------*/
 :root {
     //Themes colors
-    --color-primary: #183B4E;
-    --color-secondary: #DDA853;
+    --color-primary: #1a2e39;
+    --color-secondary: #f8b81f;
     --color-textSecondary: #ff5b5c;
     --color-tertiary: #f8b81f;
     --color-dark: #111212;
+    --color-dark-gd: #f8b71f69;
     --color-heading: #181818;
     --dark-color-heading: #ffffff;
     --color-border: #e5e5e5;
     --dark-color-border: #282f3a;
-    --color-body: #808080;
-    --gradient-primary: linear-gradient(-90deg, #31b978 0%, #1ab69d 100%);
+    --color-body: var(--color-primary);
+    --gradient-primary: linear-gradient(-90deg, #1a2e39 0%, #1a2e396e 100%);
     --bg-color: #EAF0F2;
     --dark-bg-color: #020b17;
     --cta-color-bg:#F0F4F5;
@@ -24,9 +25,9 @@
     --color-white: #ffffff;
     --color-black: #000000;
     --footer-text: #181818;
-    --dark-footer-text: #808080;
+    --dark-footer-text: var(--color-primary);
     --edu-btn-color: #ffffff;
-    --color-title: #bababa;
+    --color-title: var(--color-primary);
 
     // Lighten Color
 

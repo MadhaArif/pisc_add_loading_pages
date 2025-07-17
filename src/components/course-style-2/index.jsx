@@ -8,7 +8,7 @@ const index = () => {
         <div className='sticky-header'>
             <div id="main-wrapper" className="main-wrapper">
                 <HeaderTwo no_top_bar />
-                <BreadcrumbThree title="Courses" subtitle="Course Style 2" />
+                <BreadcrumbThree title="Digital Skills Program" subtitle="Course Style 2" />
                 <CourseTwoArea/>
                 <Footer />
             </div>

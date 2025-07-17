@@ -25,7 +25,7 @@ const CourseTypeSix = ({ course, color }) => {
                     <div className="content">
                         <span className="course-level">{level}</span>
                         <h5 className="title">
-                            <a>{title}</a>
+                            <a style={{ fontSize: '25px' }}>{title}</a>
                         </h5>
                         <p>{short_desc}</p>
 

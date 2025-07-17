@@ -12,7 +12,6 @@ const index = () => {
         <div className='sticky-header'>
             <div id="main-wrapper" className="main-wrapper">
                 <HeaderTwo no_top_bar={true} />
-                <Breadcrumb title="About us" subtitle="Course Style 2" />
                 <AboutArea/>
                 <Testimonial/>
                 <BrandArea />

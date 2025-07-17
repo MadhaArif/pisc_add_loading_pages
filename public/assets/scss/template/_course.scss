@@ -410,13 +410,13 @@
         }
         .content {
             padding: 30px 30px 30px;
-            background-color: var(--color-white);
+            background-color: whitesmoke;
             border-radius: 0 0 4px 4px;
             position: relative;
             transition: var(--transition);
             .course-level {
-                color: var(--color-secondary);
-                background-color: rgba(238, 74, 98, .15);
+                color: var(--color-white);
+                background-color: var(--color-primary);
                 margin-bottom: 17px;
             }
             .title {
@@ -437,8 +437,7 @@
         }
         &:hover {
             &:before {
-                background-color: rgba(255,91,92,.3);
-            }
+background-color: var(--color-primary);            }
             .thumbnail {
                 margin-bottom: -75px;
                 a {
@@ -1625,7 +1624,7 @@ body .tpd-size-medium .tpd-content {
     }
     button {
         text-align: center;
-        font-size: 14px;
+        font-size: 16px;
         font-weight: var(--p-medium);
         text-transform: uppercase;
         color: var(--color-heading);
@@ -1642,26 +1641,6 @@ body .tpd-size-medium .tpd-content {
             padding: 0 25px;
             height: 50px;
             font-size: 12px;
-        }
-        &:after {
-            content: "";
-            width: 0;
-            height: 0;
-            border-left: 7px solid transparent;
-            border-right: 7px solid transparent;
-            border-top: 10px solid var(--color-secondary);
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-            visibility: hidden;
-            opacity: 0;
-            transition: var(--transition);
-            z-index: -1;
-            @media #{$large-mobile} {
-                display: none;
-            }
         }
         &:hover, 
         &.is-checked {

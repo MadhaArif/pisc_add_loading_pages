@@ -11,7 +11,7 @@
 .hero-banner {
     &.hero-style-8 {
         min-height: 790px;
-        background-color: var(--color-white);
+        // background-color: var(--color-white);
         position: relative;
 
         @media #{$md-layout} {

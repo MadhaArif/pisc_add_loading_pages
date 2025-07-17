@@ -29,14 +29,14 @@ export default function TestimonialArea() {
     useEffect(() => setLoop(true), [])
 
     return (
-        <div className="testimonial-area-1 section-gap-equal">
+        <div style={{background: 'whitesmoke'}} className="testimonial-area-1 section-gap-equal">
             <div className="container">
                 <div className="row g-lg-5">
                     <div className="col-lg-5">
                         <div className="testimonial-heading-area">
                             <div className="section-title section-left" data-sal-delay="50" data-sal="slide-up" data-sal-duration="800">
                                 <span className="pre-title">Testimonials</span>
-                                <h2 className="title">What Our Students Have To Say</h2>
+                                <h2 className="title" style={{ fontSize: '45px' }}>What Our Students Have To Say</h2>
                                 <span className="shape-line"><i className="icon-19"></i></span>
                                 <p>Discover how PISC has helped transform careers through practical, industry-relevant training. Our students share their experiences of gaining valuable digital skills.</p>
                             </div>
