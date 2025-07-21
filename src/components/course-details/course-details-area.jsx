@@ -3,7 +3,7 @@ import CourseDetailsSidebar from '../common/sidebar/course-details-sidebar';
 import { useRouter } from 'next/router';
 
 const CourseDetailsArea = ({ course }) => {
-    const { course_desc, course_desc_2, learn_list, course_desc_3, detail_img, title } = course || {};
+    const { course_desc, course_desc_2, learn_list, course_desc_3, detail_img, title, form_link } = course || {};
     const { push } = useRouter();
 
     useEffect(() => {
@@ -24,6 +24,10 @@ const CourseDetailsArea = ({ course }) => {
                                         <h3 className="heading-title" style={{ fontSize: '45px' }}>{title}</h3>
                                         {/* Desc */}
                                         {course_desc && <p>{course_desc}</p>}
+                                        
+                                        <div className="read-more-btn">
+                                            <a href={form_link} target='_blank' className="edu-btn">Enroll Now <i className="icon-4"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -34,8 +38,8 @@ const CourseDetailsArea = ({ course }) => {
                         <CourseDetailsSidebar course={course} />
                     </div>
 
-                    <div style={{ margin: '70px 0' }}>
-                        <img src={`assets/images/course/${detail_img}`} alt="Event" />
+                    <div className='col-12' style={{ margin: '70px 0' }}>
+                        <img style={{ height: '500px' }} src={`assets/images/course/${detail_img}`} alt="Event" />
                     </div>
 
                     <div className="col-lg-12">
@@ -43,7 +47,9 @@ const CourseDetailsArea = ({ course }) => {
                             <div className="tab-content" id="myTabContent">
                                 <div className="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
                                     <div className="course-overview">
-                                        <h3 className="heading-title" style={{fontSize: '25px'}}>Course Description</h3>
+                                        <h3 className="heading-title" style={{ fontSize: '40px' }}>What's included in {title} Course | PISC College</h3>
+
+                                        <h3 className="heading-title" style={{ fontSize: '25px' }}>Introduction of the {title}</h3>
                                         {/* Desc 2 */}
                                         {course_desc_2 && <p className="mb--60">{course_desc_2}</p>}
                                         <h5 className="title" style={{ fontSize: '25px' }}>What You'll Learn?</h5>
@@ -51,6 +57,7 @@ const CourseDetailsArea = ({ course }) => {
                                         {learn_list && <ul className="mb--60">
                                             {learn_list && JSON.parse(learn_list?.replace(/'/g, '"'))?.map((l, i) => <li key={i}>{l}</li>)}
                                         </ul>}
+                                        <h3 className="heading-title" style={{ fontSize: '25px' }}>Why Join PISC College</h3>
                                         {/* Desc 3 */}
                                         {course_desc_3 && <p>{course_desc_3}</p>}
                                     </div>

@@ -26,7 +26,6 @@ const EventArea = ({ event_2 }) => {
 
         fetchData();
     }, []);
-    debugger
 
     return (
         <div className={`edu-event-area ${event_2 ? 'event-area-2' : 'event-area-1 gap-large-text'}`}>

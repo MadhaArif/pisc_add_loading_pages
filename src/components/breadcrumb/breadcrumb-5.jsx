@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { useMouseMoveUI } from '../../contexts/mouse-move-context';
 
 const CourseBreadcrumb = ({ course }) => {
-    debugger;
     const { title, instructor, language } = course || {};
     const { mouseDirection, mouseReverse } = useMouseMoveUI();
     return (

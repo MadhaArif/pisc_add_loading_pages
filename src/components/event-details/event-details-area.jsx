@@ -10,7 +10,6 @@ const EventDetailsArea = ({ event }) => {
         }
     }, [])
 
-    debugger;
 
     return (
         <section className="event-details-area edu-section-gap">

@@ -45,7 +45,7 @@ const Footer = ({ style_2, dark_bg, home_4 }) => {
         fetchData();
     }, []);
 
-    const {address, phone, phone_2, email} = contact
+    const { address, phone, phone_2, email } = contact
 
     return (
         <footer className={`edu-footer ${style_2 ? style_2 : dark_bg ? 'footer-dark bg-image footer-style-3' : "footer-lighten bg-image footer-style-1"}`}>
@@ -57,10 +57,7 @@ const Footer = ({ style_2, dark_bg, home_4 }) => {
                                 <div className="logo">
                                     <Link href={'/'}>
                                         <a>
-                                            {!dark_bg && <>
-                                                {!style_2 && <img style={{ width: '100px' }} className="logo-light" src='/assets/images/logo/logo-white.svg' alt="Corporate Logo" />}
-                                                <img style={{ width: '100px' }} className="logo-dark" src='/assets/images/logo/logo-dark.svg' alt="Corporate Logo" />
-                                            </>}
+                                            {!dark_bg &&  <img style={{ width: '100px' }} className="logo-light" src='/assets/images/logo/logo-dark.svg' alt="Corporate Logo" />}
                                         </a>
                                     </Link>
 
@@ -71,17 +68,17 @@ const Footer = ({ style_2, dark_bg, home_4 }) => {
                                     </Link>
                                 </div>
 
-                                <p className="description">{desc}</p>
+                                <p className="description" style={{color: 'white'}}>{desc}</p>
                             </div>
                         </div>
 
                         {widgets.map((w, i) => (
                             <div key={i} className={`col-lg-${w.col} col-sm-6`}>
                                 <div className={`edu-footer-widget ${w.class}`}>
-                                    <h4 className="widget-title" style={{fontSize: '25px'}}>{w.widget_title}</h4>
+                                    <h4 className="widget-title" style={{ fontSize: '25px' }}>{w.widget_title}</h4>
                                     <div className="inner">
                                         <ul className="footer-link link-hover">
-                                            {w.footer_links.map((l, i) => <li key={i}><Link href={`/${l.link}`}><a>{l.title}</a></Link></li>)}
+                                            {w.footer_links.map((l, i) => <li key={i} style={{color: 'white'}}><Link href={`/${l.link}`}><a>{l.title}</a></Link></li>)}
                                         </ul>
                                     </div>
                                 </div>
@@ -90,15 +87,15 @@ const Footer = ({ style_2, dark_bg, home_4 }) => {
 
                         <div className="col-lg-4 col-md-6">
                             <div className="edu-footer-widget">
-                                <h4 className="widget-title" style={{ fontSize: '25px'}}>Contacts</h4>
+                                <h4 className="widget-title" style={{ fontSize: '25px', color: 'white' }}>Contacts</h4>
                                 <div className="inner">
                                     <div className="input-group footer-subscription-form">
                                         <div className="widget-information">
                                             <ul className="information-list">
-                                                {address && <li><span>Address:</span>{address}</li>}
-                                                {phone && <li><span>Phone:</span>{phone}</li>}
-                                                {phone_2 && <li><span>Phone:</span>{phone_2}</li>}
-                                                {email && <li><span>Email:</span>{email}</li>}
+                                                {address && <li style={{ color: 'white' }}><strong style={{ marginRight: '10px' }}>Address:</strong>{address}</li>}
+                                                {phone && <li style={{ color: 'white' }}><strong style={{ marginRight: '10px' }}>Mobile:</strong>{phone}</li>}
+                                                {phone_2 && <li style={{ color: 'white' }}><strong style={{ marginRight: '10px' }}>Phone:</strong>{phone_2}</li>}
+                                                {email && <li style={{ color: 'white' }}><strong style={{ marginRight: '10px' }}>Email:</strong>{email}</li>}
                                             </ul>
                                         </div>
                                     </div>
@@ -112,12 +109,12 @@ const Footer = ({ style_2, dark_bg, home_4 }) => {
                 </div>
             </div>
 
-            <div className="copyright-area" style={{ background: '#1a2e39' }}>
+            <div className="copyright-area" style={{ background: '#002147', borderTop: '1px solid gray' }}>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="text-center">
-                                <p style={{ color: '#F3F3E0' }}>Copyright {new Date().getFullYear()} PISC Designed By <a href="https://www.cadresol.com" rel="noreferrer" target="_blank" style={{ color: '#F3F3E0', fontWeight: 'bold'}} >Cadresol</a>. All Rights Reserved</p>
+                                <p style={{ color: 'white' }}>Copyright {new Date().getFullYear()} PISC Designed By <a href="https://www.cadresol.com" rel="noreferrer" target="_blank" >Cadresol</a>. All Rights Reserved</p>
                             </div>
                         </div>
                     </div>

@@ -6,8 +6,8 @@ const CourseDetailsSidebar = ({ course }) => {
 
     return (
         <>
-            <div className={`course-sidebar-3`}>
-                <div className="edu-course-widget widget-course-summery">
+            <div className={`course-sidebar-3`} >
+                <div className="edu-course-widget widget-course-summery" style={{ border: '10px solid #F8B81F', background: 'rgb(205, 209, 228, .2)' }}>
                     <div className="inner">
                         <div className="content">
                             <h4 className="widget-title">Course Includes:</h4>
@@ -28,26 +28,7 @@ const CourseDetailsSidebar = ({ course }) => {
                                         Lessons:</span>
                                     <span className="value">{lesson}</span>
                                 </li>}
-
-                                {language && <li>
-                                    <span className="label"><i className="icon-59"></i>Language:</span>
-                                    <span className="value">{language}</span>
-                                </li>}
-
-                                {timing && <li>
-                                    <span className="label"><i className="icon-61"></i>Class Time:</span>
-                                    <span className="value">{timing}</span>
-                                </li>}
-
-                                {certificate && <li>
-                                    <span className="label"><i className="icon-64"></i>Certificate:</span>
-                                    <span className="value">{certificate}</span>
-                                </li>}
                             </ul>
-
-                            <div className="read-more-btn">
-                                <a href={form_link} target='_blank' className="edu-btn">Enroll Now <i className="icon-4"></i></a>
-                            </div>
                         </div>
                     </div>
                 </div>

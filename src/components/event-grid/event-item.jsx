@@ -4,7 +4,6 @@ import React from 'react';
 const EventItem = ({ event }) => {
     const [id, title, category, date, time, bullets, sm_desc, sm_desc_2, img, form_link, contact, location, detail_img] = event || [];
     
-    debugger;
     return (
         <Link href={{
             pathname: `/event-details`, query: {
