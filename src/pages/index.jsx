@@ -18,10 +18,10 @@ export default function Home() {
     return (
         <>
             <Wrapper>
-                <div style={{margin: '100px 0 0'}} class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div style={{ margin: '100px 0 0' }} class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <button type="button" style={{ position: 'absolute', right: '0' }} class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style={{ position: 'absolute', right: '-50px', color: 'var(--color-secondary) !important' }}></button>
 
                             <div class="modal-body">
                                 <img style={{ width: '100%' }} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR57yWF0rardMppBwn0mWOJyjiaiElkflKFAA&s" alt="" />

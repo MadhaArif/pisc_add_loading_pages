@@ -33,7 +33,7 @@ const ContactUsArea = () => {
         const {address, phone, phone_2, email} = contact
 
     return (
-        <section className="contact-us-area">
+        <section className="contact-us-area" style={{background: 'var(--color-smoke)'}}>
             <div className="container">
                 <div className="row g-5">
                     <div className="col-xl-6 col-lg-6">
@@ -69,24 +69,6 @@ const ContactUsArea = () => {
                             {/* form start */}
                             <ContactUsForm />
                             {/* form end */}
-                            <ul className="shape-group">
-                                <motion.li className="shape-1 scene"
-                                    animate={ {
-                                        x: mouseReverse(30).x,
-                                        y: mouseReverse(30).y
-                                    } }
-                                >
-                                    <img src="/assets/images/about/shape-13.png" alt="Shape" />
-                                </motion.li>
-                                <motion.li className="shape-2 scene"
-                                    animate={ {
-                                        x: mouseDirection(30).x,
-                                        y: mouseDirection(30).y
-                                    } }
-                                >
-                                    <img src="/assets/images/counterup/shape-02.png" alt="Shape" />
-                                </motion.li>
-                            </ul>
                         </div>
                     </div>
                 </div>

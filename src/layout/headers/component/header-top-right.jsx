@@ -29,7 +29,7 @@ const HeaderTopRight = () => {
 
     return (
 
-        <section style={{ padding: '10px 0', background: '#183B4E' }}>
+        <section style={{ padding: '10px 0', background: 'var(--color-primary)' }}>
             <section className='container' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
                     {timing && <p className='mb-0' style={{ color: '#fff' }}>

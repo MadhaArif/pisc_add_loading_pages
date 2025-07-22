@@ -5,7 +5,7 @@ import { useMouseMoveUI } from '../../../contexts/mouse-move-context';
 const tabs = {
     title:[
         {
-            active:true,target:'about-edu',title:'About EduBlink'
+            active:true,target:'about-edu',title:'About us'
         },
         {
             target:'about-mission',title:'Our Mission'
@@ -81,47 +81,10 @@ const AboutArea = () => {
                         <div className="about-image-gallery">
                             <img className="main-img-1" data-sal-delay="100" data-sal="slide-up" data-sal-duration="800" src="/assets/images/about/about-04.webp" alt="About Image" />
                             <img className="main-img-2" data-sal-delay="100" data-sal="slide-left" data-sal-duration="800" src="/assets/images/about/about-05.webp" alt="About Image" />
-                            <ul className="shape-group">
-                                <motion.li className="shape-1 scene" data-sal-delay="500" data-sal="fade" data-sal-duration="200"
-                                    animate={ {
-                                        x: mouseReverse(30).x,
-                                        y: mouseReverse(30).y
-                                    } }
-                                >
-                                    <img src="/assets/images/about/shape-13.png" alt="Shape" />
-                                </motion.li>
-                                <motion.li className="shape-2 scene" data-sal-delay="500" data-sal="fade" data-sal-duration="200"
-                                    animate={ {
-                                        x: mouseDirection(30).x,
-                                        y: mouseDirection(30).y
-                                    } }
-                                >
-                                    <img src="/assets/images/about/shape-39.png" alt="Shape" />
-                                </motion.li>
-                                <motion.li className="shape-3 scene" data-sal-delay="500" data-sal="fade" data-sal-duration="200"
-                                    animate={ {
-                                        x: mouseReverse(30).x,
-                                        y: mouseReverse(30).y
-                                    } }
-                                >
-                                    <img src="/assets/images/about/shape-07.png" alt="Shape" />
-                                </motion.li>
-                                <li className="shape-4" data-sal-delay="500" data-sal="fade" data-sal-duration="200">
-                                    <span></span>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <ul className="shape-group">
-                <li className="shape-5">
-                    <img className="rotateit" src="/assets/images/about/shape-13.png" alt="Shape" />
-                </li>
-                <li className="shape-6">
-                    <span></span>
-                </li>
-            </ul>
         </div>
     )
 }

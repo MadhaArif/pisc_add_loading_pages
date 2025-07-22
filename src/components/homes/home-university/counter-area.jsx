@@ -36,7 +36,7 @@ const counter_data = [
 
 const CounterArea = ({home_3 = false,home_8=false}) => {
     return (
-        <div className={`${home_3?'counterup-area-1 gap-lg-bottom-equal' : home_8 ? 'counterup-area-3 gap-bottom-equal':'counterup-area-5 edu-section-gap'}`}>
+        <div style={{ background: 'var(--color-smoke)' }} className={`edu-section-gap`}>
             <div className="container">
                 <div className="row g-5">
                     {counter_data.map((c, i) => (

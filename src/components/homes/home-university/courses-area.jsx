@@ -26,7 +26,7 @@ const CoursesArea = () => {
     }, []);
 
     return (
-        <div className="edu-course-area course-area-3 section-gap-large bg-lighten04">
+        <div className="edu-course-area course-area-3 section-gap-large ">
             <div className="container">
                 <div className="section-title section-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                     <span className="pre-title">Popular Courses</span>

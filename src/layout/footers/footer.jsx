@@ -57,7 +57,7 @@ const Footer = ({ style_2, dark_bg, home_4 }) => {
                                 <div className="logo">
                                     <Link href={'/'}>
                                         <a>
-                                            {!dark_bg &&  <img style={{ width: '100px' }} className="logo-light" src='/assets/images/logo/logo-dark.svg' alt="Corporate Logo" />}
+                                            {!dark_bg && <img style={{ width: '100px' }} className="logo-light" src='/assets/images/logo/logo-dark.svg' alt="Corporate Logo" />}
                                         </a>
                                     </Link>
 
@@ -68,7 +68,7 @@ const Footer = ({ style_2, dark_bg, home_4 }) => {
                                     </Link>
                                 </div>
 
-                                <p className="description" style={{color: 'white'}}>{desc}</p>
+                                <p className="description" style={{ color: 'white' }}>{desc}</p>
                             </div>
                         </div>
 
@@ -78,7 +78,7 @@ const Footer = ({ style_2, dark_bg, home_4 }) => {
                                     <h4 className="widget-title" style={{ fontSize: '25px' }}>{w.widget_title}</h4>
                                     <div className="inner">
                                         <ul className="footer-link link-hover">
-                                            {w.footer_links.map((l, i) => <li key={i} style={{color: 'white'}}><Link href={`/${l.link}`}><a>{l.title}</a></Link></li>)}
+                                            {w.footer_links.map((l, i) => <li key={i} style={{ color: 'white' }}><Link href={`/${l.link}`}><a>{l.title}</a></Link></li>)}
                                         </ul>
                                     </div>
                                 </div>
@@ -92,10 +92,17 @@ const Footer = ({ style_2, dark_bg, home_4 }) => {
                                     <div className="input-group footer-subscription-form">
                                         <div className="widget-information">
                                             <ul className="information-list">
-                                                {address && <li style={{ color: 'white' }}><strong style={{ marginRight: '10px' }}>Address:</strong>{address}</li>}
-                                                {phone && <li style={{ color: 'white' }}><strong style={{ marginRight: '10px' }}>Mobile:</strong>{phone}</li>}
-                                                {phone_2 && <li style={{ color: 'white' }}><strong style={{ marginRight: '10px' }}>Phone:</strong>{phone_2}</li>}
-                                                {email && <li style={{ color: 'white' }}><strong style={{ marginRight: '10px' }}>Email:</strong>{email}</li>}
+                                                {address && <li style={{ color: 'white' }}>
+                                                    <i className="ri-home-university-fill" style={{ color: 'var(--color-secondary)' }}></i>&nbsp;&nbsp;
+                                                    <strong style={{ marginRight: '10px' }}>Address:</strong>{address}</li>}
+                                                {phone && <li style={{ color: 'white' }}>
+                                                    <i className="icon-phone" style={{ color: 'var(--color-secondary)' }}></i>&nbsp;&nbsp; 
+                                                    <strong style={{ marginRight: '10px' }}>Mobile:</strong>{phone}</li>}
+                                                {phone_2 && <li style={{ color: 'white' }}>
+                                                    <i className="icon-phone" style={{ color: 'var(--color-secondary)' }}></i>&nbsp;&nbsp; 
+                                                    <strong style={{ marginRight: '10px' }}>Phone:</strong>{phone_2}</li>}
+                                                {email && <li style={{ color: 'white' }}><i className="icon-envelope" style={{ color: 'var(--color-secondary)' }}></i>&nbsp;&nbsp; 
+                                                <strong style={{ marginRight: '10px' }}>Email:</strong>{email}</li>}
                                             </ul>
                                         </div>
                                     </div>
@@ -109,7 +116,7 @@ const Footer = ({ style_2, dark_bg, home_4 }) => {
                 </div>
             </div>
 
-            <div className="copyright-area" style={{ background: '#002147', borderTop: '1px solid gray' }}>
+            <div className="copyright-area" style={{ background: 'var(--color-primary)', borderTop: '1px solid gray' }}>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
