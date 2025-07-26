@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function TestimonialArea() {
     const [loop, setLoop] = useState(false);
@@ -39,6 +40,10 @@ export default function TestimonialArea() {
                                 <h2 className="title" style={{ fontSize: '45px' }}>What Our Students Have To Say</h2>
                                 <span className="shape-line"><i className="icon-19"></i></span>
                                 <p>Discover how PISC has helped transform careers through practical, industry-relevant training. Our students share their experiences of gaining valuable digital skills.</p>
+                                <Link href="/gallery">
+                                    <a className="edu-btn btn-primary">Successful Stories <i className="icon-4"></i>
+                                    </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

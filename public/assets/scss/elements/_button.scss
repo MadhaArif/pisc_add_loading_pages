@@ -121,22 +121,33 @@ button {
             }
         }
 
-        &.btn-secondary {
-            background: var(--color-secondary);
-            color: var(--color-white);
-
-            &:hover {
-                background: var(--color-secondary-opacity);
-            }
-        }
-
         &.btn-secondary1 {
             background: var(--color-secondary);
             color: var(--color-white);
 
             &:hover {
-                color: var(--color-heading);
-                background: var(--color-white);
+                color: var(--color-primary);
+                background: white
+            }
+        }
+       
+        &.btn-secondary {
+            background: var(--color-secondary);
+            color: var(--color-white);
+
+            &:hover {
+                color: var(--color-white);
+                background: var(--color-primary)
+            }
+        }
+
+        &.btn-primary {
+            background: var(--color-primary);
+            color: var(--color-white);
+
+            &:hover {
+                color: var(--color-white);
+                background: var(--color-secondary)
             }
         }
 

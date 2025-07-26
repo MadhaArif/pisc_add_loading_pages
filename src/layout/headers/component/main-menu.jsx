@@ -1,15 +1,43 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const MainMenu = () => {
+    const router = useRouter();
+
+    const menuItems = [
+        { name: 'Home', path: '/' },
+        { name: 'About us', path: '/about' },
+        { name: 'Courses', path: '/course' },
+        { name: 'Upcoming Events', path: '/event' },
+        { name: 'Gallery', path: '/gallery' },
+        { name: 'Contact us', path: '/contact-us' },
+    ];
+
     return (
         <ul className="mainmenu">
-                <li className=""><Link href="/">Home</Link></li>
-                <li className=""><Link href="/about">About us</Link></li>
-                <li className=""><Link href="/course">Courses us</Link></li>
-                <li className=""><Link href="/event">Upcoming Events</Link></li>
-                <li className=""><Link href="/gallery">Gallery</Link></li>
-                <li className=""><Link href="/contact-us">Contact</Link></li>
+            {menuItems.map(({ name, path }) => (
+                <li key={path}>
+                    <Link href={path}>
+                        <a
+                            style={{
+                                color:
+                                    router.pathname === path
+                                        ? 'var(--color-secondary)'
+                                        : 'var(--color-primary)',
+                                fontWeight: 'bold',
+                                textDecoration: 'none',
+                                borderTop: router.pathname === path
+                                    && '5px solid var(--color-secondary)',     
+                                position: router.pathname === path && 'relative',
+                                top: router.pathname === path && '-5px',
+                            }}
+                        >
+                            {name}
+                        </a>
+                    </Link>
+                </li>
+            ))}
         </ul>
     )
 }

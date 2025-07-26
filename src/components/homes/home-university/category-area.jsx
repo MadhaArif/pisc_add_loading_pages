@@ -11,12 +11,12 @@ const categories = [
     {
         icon:<SkilledLecturers/>,
         title:'Affordable & Flexible Programs',
-        text:'We offer budget-friendly courses with flexible class timings to fit your schedule.',
+        text:'We offer budget-friendly courses with flexible timings to fit your schedule.',
         color:'color-secondary-style'
     },
     {
         icon:<BookLibrary/>,
-        title:'Career-Oriented Training',
+        title:'Career-Oriented Training Programs',
         text:'Our program is industry-oriented and updated to meet market demands.',
         color:'color-extra02-style'
     }

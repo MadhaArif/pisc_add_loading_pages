@@ -36,12 +36,12 @@ const counter_data = [
 
 const CounterArea = ({home_3 = false,home_8=false}) => {
     return (
-        <div style={{ background: 'var(--color-smoke)' }} className={`edu-section-gap`}>
+        <div style={{ background: 'var(--color-primary)' }} className={`edu-section-gap`}>
             <div className="container">
                 <div className="row g-5">
                     {counter_data.map((c, i) => (
                         <div key={i} className="col-lg-3 col-sm-6" data-sal-delay={c.delay} data-sal="slide-up" data-sal-duration="800">
-                            <div className={`edu-counterup counterup-style-${home_3?'1':'5'} ${!home_3&&c.color}`}>
+                            <div style={{ background: 'white' }} className={`edu-counterup counterup-style-${home_3?'1':'5'} ${!home_3&&c.color}`}>
                                 <h2 className={`counter-item count-number ${home_3&&c.color}`}>
                                     <span className="odometer">
                                         <Counter number={parseFloat(c.count)} text={c.text} decimal={c.decimal} />

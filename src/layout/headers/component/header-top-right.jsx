@@ -39,11 +39,11 @@ const HeaderTopRight = () => {
 
                 <div style={{display: 'flex'}}>
                     {phone && <p className='mb-0' style={{ color: '#fff' }}>
-                        <i className="icon-phone"></i>&nbsp;&nbsp; {phone}
+                        <i className="icon-phone" style={{ color: 'var(--color-secondary)' }}></i>&nbsp;&nbsp; {phone}
                     </p>}
 
                     {email && <p className='mb-0 d-none d-lg-block ms-5' style={{ color: '#fff' }}>
-                        <i className="icon-envelope"></i>&nbsp;&nbsp; {email}
+                        <i className="icon-envelope" style={{color: 'var(--color-secondary)'}}></i>&nbsp;&nbsp; {email}
                     </p>}
                 </div>
             </section>

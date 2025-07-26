@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { useMouseMoveUI } from '../../contexts/mouse-move-context';
 
@@ -13,7 +12,7 @@ const BreadcrumbFour = ({ title, date, time, category, location }) => {
                         {title && <h1 className="title">{title}</h1>}
                     </div>
                     <ul className="course-meta">
-                        {date && <li><i className="icon-27"></i>{date}</li>}
+                        {date && <li style={{color: 'white'}}><i className="icon-27"></i>{date}</li>}
                         {time && <li><i className="icon-33"></i>{time}</li>}
                         {location && <li><i className="icon-40"></i>{location}</li>}
                     </ul>

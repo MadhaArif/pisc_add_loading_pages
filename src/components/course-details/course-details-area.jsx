@@ -7,10 +7,18 @@ const CourseDetailsArea = ({ course }) => {
     const { push } = useRouter();
 
     useEffect(() => {
-        if (!course?.course_desc ) {
+        if (!course?.course_desc) {
             push('/course')
         }
     }, [])
+
+    const emphasizeInitials = (text) => {
+        return text.split(' ').map(word => {
+            const firstChar = word.charAt(0);
+            const rest = word.slice(1);
+            return `<span style="font-size:60px">${firstChar}</span>${rest}`;
+        }).join(' ');
+    };
 
     return (
         <section className="edu-section-gap course-details-area">
@@ -21,10 +29,10 @@ const CourseDetailsArea = ({ course }) => {
                             <div className="tab-content" id="myTabContent">
                                 <div className="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
                                     <div className="course-overview">
-                                        <h3 className="heading-title" style={{ fontSize: '45px' }}>{title}</h3>
+                                        <h3 className="heading-title" style={{ fontSize: '45px', fontWeight: '500' }} dangerouslySetInnerHTML={{ __html: emphasizeInitials(title) }} />
                                         {/* Desc */}
                                         {course_desc && <p>{course_desc}</p>}
-                                        
+
                                         <div className="read-more-btn">
                                             <a href={form_link} target='_blank' className="edu-btn">Enroll Now <i className="icon-4"></i></a>
                                         </div>

@@ -39,7 +39,7 @@ const HeaderTwo = ({ style_3, no_topBar = false }) => {
                             <div className="header-right">
                                 <ul className="header-action">
                                     <li className="header-btn">
-                                        <a href="/contact-us" className="edu-btn btn-medium">
+                                        <a href="/contact-us" className="edu-btn btn-primary">
                                             Inquire us <i className="icon-4"></i>
                                         </a>
                                     </li>
