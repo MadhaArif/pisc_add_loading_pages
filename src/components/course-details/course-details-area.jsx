@@ -13,11 +13,11 @@ const CourseDetailsArea = ({ course }) => {
     }, [])
 
     const emphasizeInitials = (text) => {
-        return text.split(' ').map(word => {
-            const firstChar = word.charAt(0);
-            const rest = word.slice(1);
+        return text?.split(' ')?.map(word => {
+            const firstChar = word?.charAt(0);
+            const rest = word?.slice(1);
             return `<span style="font-size:60px">${firstChar}</span>${rest}`;
-        }).join(' ');
+        })?.join(' ');
     };
 
     return (
