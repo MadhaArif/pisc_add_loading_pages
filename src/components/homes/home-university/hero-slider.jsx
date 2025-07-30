@@ -58,6 +58,7 @@ const HeroSlider = () => {
                     return (
                         <SwiperSlide key={id}>
                             <img data-transform-origin='center center' src={'/assets/images/course/second.jpg'} className="swiper-lazy" alt="image" />
+                            
                             <div className="thumbnail-bg-content">
                                 <div className="container edublink-animated-shape">
                                     <div className="row">
@@ -82,28 +83,6 @@ const HeroSlider = () => {
                     )
                 })}
             </Swiper>
-
-            {/* <ul className="shape-group">
-                <motion.li className="shape-1 scene" data-sal-delay="1000" data-sal="fade" data-sal-duration="1000"
-                    animate={ {
-                        x: mouseReverse(25).x,
-                        y: mouseReverse(25).y
-                    } }
-                >
-                    <img src="/assets/images/others/shape-10.png" alt="Shape" />
-                </motion.li>
-                <motion.li className="shape-2 scene" data-sal-delay="1000" data-sal="fade" data-sal-duration="1000"
-                    animate={ {
-                        x: mouseDirection(25).x,
-                        y: mouseDirection(25).y
-                    } }
-                >
-                    <img src="/assets/images/others/shape-11.png" alt="Shape" />
-                </motion.li>
-                <li className="shape-3">
-                    <img src="/assets/images/others/shape-25.png" alt="Shape" />
-                </li>
-            </ul> */}
         </div>
     )
 }

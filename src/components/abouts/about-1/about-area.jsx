@@ -1,15 +1,11 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useMouseMoveUI } from '../../../contexts/mouse-move-context';
 
 const AboutArea = () => {
-    const { mouseDirection, mouseReverse } = useMouseMoveUI();
     return (
         <div className="gap-top-equal about-style-7">
             <div className="container gap-bottom-equal">
                 <div className=" row g-5 align-items-center">
-                    <div className="col-lg-7">
-                        <div className="about-content">
+                    <div className="col-lg-6">
+                        <div style={{ paddingRight: '0' }} className="about-content">
                             <div className="section-title section-left" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                                 <span className="pre-title">About us</span>
                                 <h2 className="title" style={{ fontSize: '45px' }}>Who We Are</h2>
@@ -20,22 +16,22 @@ const AboutArea = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-5">
+                    <div className="col-lg-6">
                         <div className="about-image-gallery">
-                            <img className="main-img-1" src="/assets/images/about/about-11.webp" alt="About Image" />
+                            <img style={{ width: '100%' }} className="main-img-1" src="/assets/images/about/about-11.webp" alt="About Image" />
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="gap-top-equal gap-bottom-equal" style={{ background: 'whiteSmoke' }}>
+            <div className="gap-top-equal gap-bottom-equal" style={{ background: 'var(--color-smoke)' }}>
                 <div className="container">
-                    <div className="row">
-                        <div className="col-lg-6">
+                    <div className="row gx-5">
+                        <div className="col-lg-6" style={{borderRight: '3px solid var(--color-secondary)'}}>
                             <div className="section-title section-left" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                                 <h2 className="title" style={{ fontSize: '45px' }}>Our <span className="color-secondary">Mission</span></h2>
                                 <span className="shape-line"><i className="icon-19"></i></span>
-                                <p>
+                                <p style={{ textAlign: 'justify' }}> 
                                     Our mission is to provide high-quality, affordable, and immersive computer short courses that equip students with cutting-edge technical skills and critical problem-solving abilities, preparing them to excel in today's dynamic digital landscape. We are committed to:                                    <ul>
                                         <li>Delivering up-to-date, industry-relevant curriculum.</li>
                                         <li>Fostering a dynamic and inclusive learning environment.</li>
@@ -45,11 +41,12 @@ const AboutArea = () => {
                                 </p>
                             </div>
                         </div>
+
                         <div className="col-lg-6">
                             <div className="section-title section-left" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                                 <h2 className="title" style={{ fontSize: '45px' }}>Our <span className="color-secondary">Vision</span></h2>
                                 <span className="shape-line"><i className="icon-19"></i></span>
-                                <p>
+                                <p style={{ textAlign: 'justify' }}>
                                     We envision a future where technology education is universally accessible, empowering individuals with the digital skills necessary to thrive in an ever-evolving world. Our aim is to become a pioneering institution in computer education, seamlessly connecting academic learning with real-world industry needs through innovative, practical, and career-driven training.
                                     <ul>
                                         <li>Making technology education accessible to everyone.</li>
@@ -65,14 +62,17 @@ const AboutArea = () => {
 
             <div className="gap-top-equal gap-bottom-equal">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-lg-6">
+                    <div className="row gx-5">
+                        <div className="col-lg-7">
                             <div className="section-title section-left" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                                 <h2 className="title" style={{ fontSize: '45px' }}>About <span className="color-secondary">CEO</span></h2>
                                 <span className="shape-line"><i className="icon-19"></i></span>
-                                <p>
+                                <p style={{ textAlign: 'justify' }}>
                                     We envision a future where technology education is universally accessible, empowering individuals with the digital skills necessary to thrive in an ever-evolving world. Our aim is to become a pioneering institution in computer education, seamlessly connecting academic learning with real-world industry needs through innovative, practical, and career-driven training.
                                     <ul>
+                                        <li>Making technology education accessible to everyone.</li>
+                                        <li>Fostering an innovative and inclusive learning environment that encourages creativity and growth.</li>
+                                        <li>Preparing students for successful careers by providing industry-relevant knowledge and mentorship</li>
                                         <li>Making technology education accessible to everyone.</li>
                                         <li>Fostering an innovative and inclusive learning environment that encourages creativity and growth.</li>
                                         <li>Preparing students for successful careers by providing industry-relevant knowledge and mentorship</li>
@@ -80,8 +80,8 @@ const AboutArea = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="col-lg-6">
-                            <img style={{ width: '100%' }} src="/assets/images/ceo.jpg" alt="Image" />
+                        <div className="col-lg-5">
+                            <img style={{ width: '100%', height: '100%' }} src="/assets/images/ceo.jpg" alt="Image" />
                         </div>
                     </div>
                 </div>

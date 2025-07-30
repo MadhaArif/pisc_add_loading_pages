@@ -87,7 +87,7 @@ const Footer = ({ style_2, dark_bg, home_4 }) => {
 
                         <div className="col-lg-4 col-md-6">
                             <div className="edu-footer-widget">
-                                <h4 className="widget-title" style={{ fontSize: '25px', color: 'white' }}>Contacts</h4>
+                                <h4 className="widget-title" style={{ fontSize: '25px', color: 'white' }}>Contact Us</h4>
                                 <div className="inner">
                                     <div className="input-group footer-subscription-form">
                                         <div className="widget-information">

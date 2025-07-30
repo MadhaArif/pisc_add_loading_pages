@@ -9,9 +9,9 @@ const brands = [
     '/assets/images/brand/brand-06.png'
 ]
 
-const BrandArea = ({about_p_2}) => {
+const BrandArea = () => {
     return (
-        <div className={`edu-brand-area ${about_p_2 ? 'brand-area-5' :'brand-area-4 gap-top-equal gap-bottom-equal'}`}>
+        <div style={{ background: 'var(--color-smoke)' }} className={`edu-brand-area section-gap-equal`}>
             <div className="container">
                 <div className="brand-grid-wrap brand-style-2">
                     {brands.map((img, i) => (

@@ -53,22 +53,37 @@ const CourseTwoArea = () => {
     return (
         <div className="edu-course-area course-area-1 gap-tb-text">
             <div className="container">
-                {/* Search + Reset */}
                 <div className="row mb-5 justify-content-end">
                     <div className="col-md-4">
-                        <input
-                            style={{
-                                background: 'var(--color-smoke)',
-                                height: 'auto',
-                                padding: '10px 20px',
-                                outline: 'none'
-                            }}
-                            type="text"
-                            placeholder="Search courses by name..."
-                            className="form-control"
-                            value={searchTerm}
-                            onChange={handleSearch}
-                        />
+                        <div style={{ position: 'relative' }}>
+                            <input
+                                type="text"
+                                placeholder="Search courses by name..."
+                                className="form-control"
+                                value={searchTerm}
+                                onChange={handleSearch}
+                                style={{
+                                    background: 'var(--color-smoke)',
+                                    padding: '10px 40px 10px 20px',
+                                    height: 'auto',
+                                    outline: 'none'
+                                }}
+                            />
+                            <i
+                                className="bi bi-search"
+                                style={{
+                                    zIndex: 10,
+                                    position: 'absolute',
+                                    top: '50%',
+                                    right: '15px',
+                                    transform: 'translateY(-50%)',
+                                    color: '#888',
+                                    pointerEvents: 'none',
+                                    fontSize: '16px',
+                                    cursor: 'pointer'
+                                }}
+                            ></i>
+                        </div>
                     </div>
                     <div className="col-md-2">
                         <button

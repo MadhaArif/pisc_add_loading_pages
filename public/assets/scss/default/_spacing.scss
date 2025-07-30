@@ -22,12 +22,12 @@
 }
 
 .section-gap-equal {
-    padding: 120px 0;
+    padding: 95px 0;
     @media #{$md-layout} {
-        padding: 100px 0;
+        padding: 80px 0;
     }
     @media #{$sm-layout} {
-        padding: 80px 0;
+        padding: 65px 0;
     }
 }
 
@@ -52,22 +52,22 @@
 }
 
 .gap-top-equal {
-    padding-top: 120px;
+    padding-top: 95px;
     @media #{$md-layout} {
-        padding-top: 100px;
+        padding-top: 80px;
     }
     @media #{$sm-layout} {
-       padding-top: 80px;
+       padding-top: 65px;
     }
 }
 
 .gap-bottom-equal {
-    padding-bottom: 120px;
+    padding-bottom: 95px;
     @media #{$md-layout} {
-       padding-bottom: 100px;
+       padding-bottom: 80px;
     }
     @media #{$sm-layout} {
-       padding-bottom: 80px;
+       padding-bottom: 65px;
     }
 }
 

@@ -7,11 +7,11 @@ const MainMenu = () => {
 
     const menuItems = [
         { name: 'Home', path: '/' },
-        { name: 'About us', path: '/about' },
+        { name: 'About Us', path: '/about' },
         { name: 'Courses', path: '/course' },
         { name: 'Upcoming Events', path: '/event' },
         { name: 'Gallery', path: '/gallery' },
-        { name: 'Contact us', path: '/contact-us' },
+        { name: 'Contact Us', path: '/contact-us' },
     ];
 
     return (

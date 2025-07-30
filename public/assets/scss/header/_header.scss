@@ -17,10 +17,12 @@
         }
         // z-index: 99; required, conflict issue with z-10 class 
         &.edu-sticky {
+            border-radius: 50px;
+            width: 90%;
             position: fixed;
             top: 0;
             right: 0;
-            left: 0;
+            left: 5%;
             z-index: 99;
             background-color: var(--color-white);
             animation: headerSticky .95s ease forwards;

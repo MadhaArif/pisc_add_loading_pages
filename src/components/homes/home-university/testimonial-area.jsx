@@ -35,7 +35,7 @@ export default function TestimonialArea() {
                 <div className="row g-lg-5">
                     <div className="col-lg-5">
                         <div className="testimonial-heading-area">
-                            <div className="section-title section-left" data-sal-delay="50" data-sal="slide-up" data-sal-duration="800">
+                            <div className="section-title section-left" style={{marginBottom: '0'}} data-sal-delay="50" data-sal="slide-up" data-sal-duration="800">
                                 <span className="pre-title">Testimonials</span>
                                 <h2 className="title" style={{ fontSize: '45px' }}>What Our Students Have To Say</h2>
                                 <span className="shape-line"><i className="icon-19"></i></span>
@@ -73,7 +73,7 @@ export default function TestimonialArea() {
                                     <SwiperSlide key={i}>
                                         <div className="testimonial-grid">
                                             <div className="thumbnail">
-                                                <img src={img} alt="Testimonial" />
+                                                <img style={{width: '95px',}} src={img} alt="Testimonial" />
                                                 <span className="qoute-icon"><i className="icon-26"></i></span>
                                             </div>
                                             <div className="content">
