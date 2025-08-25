@@ -96,13 +96,13 @@ const Footer = ({ style_2, dark_bg, home_4 }) => {
                                                     <i className="ri-home-university-fill" style={{ color: 'var(--color-secondary)' }}></i>&nbsp;&nbsp;
                                                     <strong style={{ marginRight: '10px' }}>Address:</strong>{address}</li>}
                                                 {phone && <li style={{ color: 'white' }}>
-                                                    <i className="icon-phone" style={{ color: 'var(--color-secondary)' }}></i>&nbsp;&nbsp; 
+                                                    <i className="icon-phone" style={{ color: 'var(--color-secondary)' }}></i>&nbsp;&nbsp;
                                                     <strong style={{ marginRight: '10px' }}>Mobile:</strong>{phone}</li>}
                                                 {phone_2 && <li style={{ color: 'white' }}>
-                                                    <i className="icon-phone" style={{ color: 'var(--color-secondary)' }}></i>&nbsp;&nbsp; 
+                                                    <i className="icon-phone" style={{ color: 'var(--color-secondary)' }}></i>&nbsp;&nbsp;
                                                     <strong style={{ marginRight: '10px' }}>Phone:</strong>{phone_2}</li>}
-                                                {email && <li style={{ color: 'white' }}><i className="icon-envelope" style={{ color: 'var(--color-secondary)' }}></i>&nbsp;&nbsp; 
-                                                <strong style={{ marginRight: '10px' }}>Email:</strong>{email}</li>}
+                                                {email && <li style={{ color: 'white' }}><i className="icon-envelope" style={{ color: 'var(--color-secondary)' }}></i>&nbsp;&nbsp;
+                                                    <strong style={{ marginRight: '10px' }}>Email:</strong>{email}</li>}
                                             </ul>
                                         </div>
                                     </div>

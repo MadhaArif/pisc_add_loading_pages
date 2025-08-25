@@ -14,9 +14,8 @@ const HeaderTwo = ({ style_3, no_topBar = false }) => {
         <>
             <header className={`edu-header header-style-${style_3 ? '3' : '2'} ${no_topBar ? 'no-topbar' : ''}`}>
                 <div id="edu-sticky-placeholder"></div>
-                <HeaderTopRight />
-
                 <div className={`header-mainmenu ${sticky ? 'edu-sticky' : ''}`}>
+                    <HeaderTopRight />
                     <div className="container">
                         <div className="header-navbar">
                             <div className="header-brand">

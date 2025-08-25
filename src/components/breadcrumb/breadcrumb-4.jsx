@@ -1,55 +1,63 @@
-import { motion } from 'framer-motion';
-import { useMouseMoveUI } from '../../contexts/mouse-move-context';
-
 const BreadcrumbFour = ({ title, date, time, category, location }) => {
-    const { mouseDirection, mouseReverse } = useMouseMoveUI();
     return (
-        <div className="edu-breadcrumb-area breadcrumb-style-4">
-            <div className="container">
-                <div className="breadcrumb-inner">
-                    <div className="page-title">
-                        {category && <span className="pre-title">{category}</span>}
-                        {title && <h1 className="title">{title}</h1>}
+        <div className="breadcrumb-video-wrapper position-relative">
+            {/* Background Video */}
+            <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-100 h-100 position-absolute top-0 start-0 object-fit-cover"
+            >
+                <source src="/assets/images/particle.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+
+            {/* Overlay Content */}
+            <div className="edu-breadcrumb-area position-relative text-white py-6">
+                <div className="container">
+                    <div className="row justify-content-center text-center">
+                        <div className="col-lg-10">
+                            {/* Category */}
+                            {category && <span className="pre-title d-block mb-2">{category}</span>}
+
+                            {/* Title */}
+                            {title && (
+                                <h1
+                                    className="display-5 fw-bold text-white mb-4"
+                                    style={{ fontSize: '45px' }}
+                                >
+                                    {title}
+                                </h1>
+                            )}
+
+                            {/* Meta Info */}
+                            <ul className="course-meta d-flex justify-content-center gap-4 flex-wrap">
+                                {date && (
+                                    <li className="d-flex align-items-center gap-2">
+                                        <i style={{ color: 'var(--color-secondary)' }} className="icon-27"></i>
+                                        <span style={{color: "white"}}>{date}</span>
+                                    </li>
+                                )}
+                                {time && (
+                                    <li className="d-flex align-items-center gap-2">
+                                        <i style={{ color: 'var(--color-secondary)'}} className="icon-33"></i>
+                                        <span style={{ color: "white" }}>{time}</span>
+                                    </li>
+                                )}
+                                {location && (
+                                    <li className="d-flex align-items-center gap-2">
+                                        <i style={{ color: 'var(--color-secondary)' }} className="icon-40"></i>
+                                        <span style={{ color: "white" }}>{location}</span>
+                                    </li>
+                                )}
+                            </ul>
+                        </div>
                     </div>
-                    <ul className="course-meta">
-                        {date && <li style={{color: 'white'}}><i className="icon-27"></i>{date}</li>}
-                        {time && <li><i className="icon-33"></i>{time}</li>}
-                        {location && <li><i className="icon-40"></i>{location}</li>}
-                    </ul>
                 </div>
             </div>
-
-            <ul className="shape-group">
-                <li className="shape-1">
-                    <span></span>
-                </li>
-                <motion.li className="shape-2 scene"
-                    animate={{
-                        x: mouseReverse(40).x,
-                        y: mouseReverse(40).y
-                    }}
-                >
-                    <img src="/assets/images/about/shape-13.png" alt="shape" /></motion.li>
-                <motion.li className="shape-3 scene"
-                    animate={{
-                        x: mouseDirection(40).x,
-                        y: mouseDirection(40).y
-                    }}
-                >
-                    <img src="/assets/images/about/shape-15.png" alt="shape" /></motion.li>
-                <li className="shape-4">
-                    <span></span>
-                </li>
-                <motion.li className="shape-5 scene"
-                    animate={{
-                        x: mouseReverse(40).x,
-                        y: mouseReverse(40).y
-                    }}
-                >
-                    <img src="/assets/images/about/shape-07.png" alt="shape" />
-                </motion.li>
-            </ul>
         </div>
+
     )
 }
 

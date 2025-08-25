@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const FooterSocial = () => {
+const FooterSocial = ({ black = false }) => {
     const [social, setSocial] = useState({
         facebook: null,
         twitter: null,
@@ -33,7 +33,7 @@ const FooterSocial = () => {
         fetchData();
     }, []);
 
-   const {facebook, youtube, instagram, linked_in, twitter, tiktok} = social
+    const { facebook, youtube, instagram, linked_in, twitter, tiktok } = social
 
     const social_share = [
         { link: facebook, target: '_blank', icon: 'icon-facebook', color: 'color-fb' },
@@ -54,11 +54,25 @@ const FooterSocial = () => {
                             target={social.target ? social.target : ''}
                             className={social.color}
                         >
-                            <i className={social.icon}></i>
+                            {/* Handle TikTok separately */}
+                            {social.icon === 'icon-tiktok' ? (
+                                black ? (
+                                    <i className="icon-tiktok-black"></i>
+                                ) : (
+                                    <i className="icon-tiktok" style={{ color: 'white' }}></i>
+                                )
+                            ) : (
+                                black ? (
+                                    <i className={social.icon}></i>
+                                ) : (
+                                    <i className={social.icon} style={{ color: 'white' }}></i>
+                                )
+                            )}
                         </a>
                     </li>
                 )
             ))}
+
         </>
     )
 }

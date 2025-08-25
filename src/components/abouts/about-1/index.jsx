@@ -14,7 +14,6 @@ const index = () => {
                 <AboutArea/>
                 <Testimonial/>
                 <Team />
-                <BrandArea />
                 <Footer />
             </div>
         </div>

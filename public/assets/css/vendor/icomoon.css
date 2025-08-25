@@ -442,13 +442,11 @@
 
 .icon-facebook:before {
   content: "\ea90";
-  color: white;
 }
 
 
 .icon-instagram:before {
   content: "\ea92";
-    color: white;
 }
 
 .icon-twitter:before {
@@ -457,7 +455,6 @@
 
 .icon-youtube:before {
   content: "\ea9d";
-  color: white;
 }
 
 .icon-tiktok {
@@ -469,9 +466,17 @@
   background-repeat: no-repeat;
 }
 
+.icon-tiktok-black {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-image: url('https://cdn-icons-png.freepik.com/512/2584/2584677.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .icon-linkedin2:before {
   content: "\eaca";
-    color: white;
 }
 
 .icon-pinterest:before {

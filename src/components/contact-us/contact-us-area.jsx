@@ -55,7 +55,7 @@ const ContactUsArea = () => {
                                 </li>
                             </ul>
                             <ul className="social-share icon-transparent">
-                                <FooterSocial />
+                                <FooterSocial black={true} />
                             </ul>
                         </div>
                     </div>

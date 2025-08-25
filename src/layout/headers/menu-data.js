@@ -24,11 +24,11 @@ const menu_data = [
         link: '/gallery',
         mega_menu: false,
     },
-    {
-        title: 'Contact',
-        link: '/contact-us',
-        mega_menu: false,
-    },
+    // {
+    //     title: 'Contact',
+    //     link: '/contact-us',
+    //     mega_menu: false,
+    // },
 ]
 
 export default menu_data;
