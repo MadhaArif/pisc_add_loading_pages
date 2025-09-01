@@ -10,22 +10,36 @@ import AdBanner from './ad-banner';
 import BrandArea from './brand-area';
 
 const index = () => {
-    return (
-        <div className='sticky-header'>
-            <div id="main-wrapper" className="main-wrapper">
-                <HeaderTwo no_topBar />
-                <HeroSlider/>
-                <CategoryArea/>
-                <AboutArea/>
-                <CounterArea home_3={true} />
-                <CoursesArea/>
-                <TestimonialArea/>
-                <AdBanner />
-                <BrandArea />  
-                <Footer />
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className='sticky-header'>
+      <div id='main-wrapper' className='main-wrapper'>
+        <HeaderTwo no_topBar />
+        <HeroSlider />
+        <CategoryArea />
+        <AboutArea />
+        <CounterArea home_3={true} />
+        <CoursesArea />
+        <img
+          style={{ width: '100%', height: '500px' }}
+          src='/assets/images/course/staff.jpg'
+          alt=''
+        />
+        {/* <div className='section-gap-equal'>
+          <div className='container'>
+            <img
+              style={{ width: '100%', height: '350px' }}
+              src='/assets/images/course/staff.jpg'
+              alt=''
+            />
+          </div>
+        </div> */}
+        <TestimonialArea />
+        <AdBanner />
+        <BrandArea />
+        <Footer />
+      </div>
+    </div>
+  );
+};
 
 export default index;
