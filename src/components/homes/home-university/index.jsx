@@ -19,20 +19,18 @@ const index = () => {
         <AboutArea />
         <CounterArea home_3={true} />
         <CoursesArea />
-        <img
-          style={{ width: '100%', height: '500px' }}
-          src='/assets/images/course/staff.jpg'
-          alt=''
-        />
-        {/* <div className='section-gap-equal'>
-          <div className='container'>
-            <img
-              style={{ width: '100%', height: '350px' }}
-              src='/assets/images/course/staff.jpg'
-              alt=''
-            />
-          </div>
-        </div> */}
+
+        <div
+          style={{
+            width: '100%',
+            height: '500px',
+            backgroundImage: 'url("/assets/images/course/staff.jpg")',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed'
+          }}
+        ></div>
         <TestimonialArea />
         <AdBanner />
         <BrandArea />
