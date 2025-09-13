@@ -12,7 +12,7 @@ const SEO = ({ pageTitle, font }) => (
       content='width=device-width, initial-scale=1, shrink-to-fit=no'
     />
     {font && <link href={font} rel='stylesheet' />}
-    <link rel='icon' href='/assets/images/logo-white.svg' />
+    <link rel='icon' href='/logo-white.svg' />
   </Head>
 );
 
