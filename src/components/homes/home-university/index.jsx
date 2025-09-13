@@ -26,7 +26,7 @@ const index = () => {
             height: '500px',
             backgroundImage: 'url("/assets/images/course/staff.jpg")',
             backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
+            backgroundSize: 'contain',
             backgroundPosition: 'center',
             backgroundAttachment: 'fixed'
           }}
