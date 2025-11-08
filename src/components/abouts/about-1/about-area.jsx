@@ -23,7 +23,6 @@ const AboutArea = () => {
         fetchData();
     }, []);
     
-    debugger;
     const img = data.length ? `/assets/images/course/${data[0][0]}` : '/assets/images/about/about-01.jpg';
 
     return (

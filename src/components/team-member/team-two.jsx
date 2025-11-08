@@ -1,28 +1,25 @@
-import Link from 'next/link';
-import React from 'react';
+const TeamTwo = ({ instructor }) => {
+    const [img, name, destination] = instructor;
 
-const TeamTwo = ({ instructor, image_location_path='02' }) => {
     return (
         <div className="edu-team-grid team-style-2">
-            <div className="inner">
+            testing
+            {/* <div className="inner">
                 <div className="thumbnail-wrap">
                     <div className="thumbnail">
-                        <Link href={`/team-details/${instructor.id}`}>
-                            <a>
-                                <img src={`/assets/images/team/team-${image_location_path}/${instructor.img}`} alt="team images" />
-                            </a>
-                        </Link>
+                        <a>
+                            <img src={`/assets/images/course/${img}`} alt="team images" />
+                        </a>
                     </div>
                 </div>
+
                 <div className="content">
                     <h5 className="title">
-                        <Link href={`/team-details/${instructor.id}`}>
-                            <a>{instructor.name}</a>
-                        </Link>
+                        <a>{name || 'name' }</a>
                     </h5>
-                    <span className="designation">{instructor.title}</span>
+                    <span className="designation">{destination || 'destination'}</span>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

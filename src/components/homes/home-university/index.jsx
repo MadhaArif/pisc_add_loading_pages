@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Footer, HeaderTwo } from '../../../layout';
 import CounterArea from './counter-area';
 import AboutArea from './about-area';
@@ -10,6 +10,29 @@ import AdBanner from './ad-banner';
 import BrandArea from './brand-area';
 
 const index = () => {
+  const [data, setData] = useState([]);
+  const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
+  const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
+  const RANGE = "courses";
+
+  // get data from google excel sheet
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`
+        );
+        const result = await response.json();
+        result?.values?.shift()
+        setData(result?.values?.splice(0, 3));
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className='sticky-header'>
       <div id='main-wrapper' className='main-wrapper'>
