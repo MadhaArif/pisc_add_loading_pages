@@ -85,7 +85,7 @@ const AboutArea = () => {
                 </div>
             </div>
 
-            <div className="gap-top-equal gap-bottom-equal">
+            {data.length && <div className="gap-top-equal gap-bottom-equal">
                 <div className="container">
                     <div className="row gx-5">
                         <div className="col-lg-7">
@@ -103,7 +103,7 @@ const AboutArea = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>}
         </div>
     )
 }
