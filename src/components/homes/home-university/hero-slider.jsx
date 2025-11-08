@@ -55,9 +55,11 @@ const HeroSlider = () => {
             >
                 {slider.map((item) => {
                     const [id, src, subtitle, title, sm_text, btn_text ] = item;
+                    const img = `/assets/images/course/${src}`;
+
                     return (
                         <SwiperSlide key={id}>
-                            <img data-transform-origin='center center' src={'/assets/images/course/' + src} className="swiper-lazy" alt="image" />
+                            <img data-transform-origin='center center' src={img} className="swiper-lazy" alt="image" />
                             
                             <div className="thumbnail-bg-content">
                                 <div className="container edublink-animated-shape">
