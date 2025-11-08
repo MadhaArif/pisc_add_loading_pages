@@ -42,7 +42,6 @@ const tabs = {
 }
 
 const AboutArea = () => {
-    const { mouseDirection, mouseReverse } = useMouseMoveUI();
     return (
         <div className="edu-about-area about-style-3">
             <div className="container">
@@ -51,7 +50,7 @@ const AboutArea = () => {
                         <div className="about-content">
                             <div className="section-title section-left">
                                 <span className="pre-title">About Us</span>
-                                <h2 className="title" style={{fontSize: '45px'}}>We Equip You with <span className="color-primary">Top Digital</span> Skills.</h2>
+                                <h2 className="title" style={{fontSize: '45px'}}>We Equip You with Top Digital Skills.</h2>
                                 <span className="shape-line">
                                     <i className="icon-19"></i>
                                 </span>
