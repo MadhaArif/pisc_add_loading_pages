@@ -1,5 +1,31 @@
+import { useEffect, useState } from 'react';
 
 const AboutArea = () => {
+    const [data, setData] = useState([]);
+    const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
+    const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
+    const RANGE = "ceo";
+
+    // get data from google excel sheet
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(
+                    `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`
+                );
+                const result = await response.json();
+                result?.values.shift() && setData(result?.values);
+            } catch (error) {
+                console.error("Error fetching data: ", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+    
+    debugger;
+    const img = data.length ? `/assets/images/course/${data[0][0]}` : '/assets/images/about/about-01.jpg';
+
     return (
         <div className="gap-top-equal about-style-7">
             <div className="container gap-bottom-equal">
@@ -27,11 +53,11 @@ const AboutArea = () => {
             <div className="gap-top-equal gap-bottom-equal" style={{ background: 'var(--color-smoke)' }}>
                 <div className="container">
                     <div className="row gx-5">
-                        <div className="col-lg-6" style={{borderRight: '3px solid var(--color-secondary)'}}>
+                        <div className="col-lg-6" style={{ borderRight: '3px solid var(--color-secondary)' }}>
                             <div className="section-title section-left" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                                 <h2 className="title" style={{ fontSize: '45px' }}>Our <span className="color-secondary">Mission</span></h2>
                                 <span className="shape-line"><i className="icon-19"></i></span>
-                                <p style={{ textAlign: 'justify' }}> 
+                                <p style={{ textAlign: 'justify' }}>
                                     Our mission is to provide high-quality, affordable, and immersive computer short courses that equip students with cutting-edge technical skills and critical problem-solving abilities, preparing them to excel in today's dynamic digital landscape. We are committed to:                                    <ul>
                                         <li>Delivering up-to-date, industry-relevant curriculum.</li>
                                         <li>Fostering a dynamic and inclusive learning environment.</li>
@@ -68,20 +94,13 @@ const AboutArea = () => {
                                 <h2 className="title" style={{ fontSize: '45px' }}>About <span className="color-secondary">CEO</span></h2>
                                 <span className="shape-line"><i className="icon-19"></i></span>
                                 <p style={{ textAlign: 'justify' }}>
-                                    We envision a future where technology education is universally accessible, empowering individuals with the digital skills necessary to thrive in an ever-evolving world. Our aim is to become a pioneering institution in computer education, seamlessly connecting academic learning with real-world industry needs through innovative, practical, and career-driven training.
-                                    <ul>
-                                        <li>Making technology education accessible to everyone.</li>
-                                        <li>Fostering an innovative and inclusive learning environment that encourages creativity and growth.</li>
-                                        <li>Preparing students for successful careers by providing industry-relevant knowledge and mentorship</li>
-                                        <li>Making technology education accessible to everyone.</li>
-                                        <li>Fostering an innovative and inclusive learning environment that encourages creativity and growth.</li>
-                                        <li>Preparing students for successful careers by providing industry-relevant knowledge and mentorship</li>
-                                    </ul>
+                                    {data.length && data[0][1]}
                                 </p>
                             </div>
                         </div>
+
                         <div className="col-lg-5">
-                            <img style={{ width: '100%', height: '100%' }} src="/assets/images/ceo.jpg" alt="Image" />
+                            <img style={{ width: '100%', height: '100%' }} src={img} alt="Image" />
                         </div>
                     </div>
                 </div>
