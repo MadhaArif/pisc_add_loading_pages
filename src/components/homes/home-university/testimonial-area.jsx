@@ -68,12 +68,14 @@ export default function TestimonialArea() {
                         >
                             {testimonial.shift() && testimonial.map((item, i) => {
                                 const [id, img, desc, ratings, name, title] = item;
-
+                                const imgsrc = `/assets/images/course/${img}`;
+                                debugger;
+                                
                                 return (
                                     <SwiperSlide key={i}>
                                         <div className="testimonial-grid">
                                             <div className="thumbnail">
-                                                <img style={{width: '95px',}} src={img} alt="Testimonial" />
+                                                <img style={{width: '95px',}} src={imgsrc} alt="Testimonial" />
                                                 <span className="qoute-icon"><i className="icon-26"></i></span>
                                             </div>
                                             <div className="content">
