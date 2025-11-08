@@ -57,7 +57,7 @@ const HeroSlider = () => {
                     const [id, src, subtitle, title, sm_text, btn_text ] = item;
                     return (
                         <SwiperSlide key={id}>
-                            <img data-transform-origin='center center' src={'/assets/images/course/second.jpg'} className="swiper-lazy" alt="image" />
+                            <img data-transform-origin='center center' src={'/assets/images/course/' + src} className="swiper-lazy" alt="image" />
                             
                             <div className="thumbnail-bg-content">
                                 <div className="container edublink-animated-shape">
@@ -68,6 +68,7 @@ const HeroSlider = () => {
                                                 <h1 style={{fontWeight: 700, fontSize: '65px'}} className="title" data-sal-delay="100" data-sal="slide-up" data-sal-duration="1000">
                                                     {title}
                                                 </h1>
+                                                
                                                 <p data-sal-delay="200" data-sal="slide-up" data-sal-duration="1000">{sm_text}</p>
                                                 <div className="banner-btn" data-sal-delay="400" data-sal="slide-up" data-sal-duration="1000">
                                                     <Link href="/course">
