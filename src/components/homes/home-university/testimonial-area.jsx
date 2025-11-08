@@ -69,7 +69,6 @@ export default function TestimonialArea() {
                             {testimonial.shift() && testimonial.map((item, i) => {
                                 const [id, img, desc, ratings, name, title] = item;
                                 const imgsrc = `/assets/images/course/${img}`;
-                                debugger;
                                 
                                 return (
                                     <SwiperSlide key={i}>
