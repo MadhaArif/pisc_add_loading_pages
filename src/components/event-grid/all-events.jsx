@@ -13,7 +13,7 @@ const AllEvents = ({ items }) => {
                         </div>
                     </div>
                 )
-            }) : <img style={{ width: '200px', margin: '0 auto' }} src='/assets/images/loader.gif' />}
+            }) : <h3 className="view-text text-center">No Upcomming Event</h3>}
         </>
     )
 }

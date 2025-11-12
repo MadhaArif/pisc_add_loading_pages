@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import CourseTypeSix from '../../course/course-type-six';
 
 const CoursesArea = () => {
@@ -30,7 +31,7 @@ const CoursesArea = () => {
             <div className="container">
                 <div className="section-title section-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                     <span className="pre-title">Popular Courses</span>
-                    <h2 className="title" style={{ fontSize: '45px' }}>Digital Skills Program</h2>
+                    <h2 className="title" style={{ fontSize: '45px' }}>Our Top Courses</h2>
                     <span className="shape-line"><i className="icon-19"></i></span>
                 </div>
 
@@ -45,8 +46,15 @@ const CoursesArea = () => {
                         })}
                     </div>
                 </div>
+
+                <div className='text-center mt-5' data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+                    <Link href="/course">
+                        <a className="edu-btn btn-secondary">View all<i className="icon-4"></i>
+                        </a>
+                    </Link>
+                </div>
             </div>
-            
+
             <ul className="shape-group">
                 <li className="shape-1">
                     <img className="d-block-shape-light" src="/assets/images/others/map-shape-3.png" alt="Shape" />

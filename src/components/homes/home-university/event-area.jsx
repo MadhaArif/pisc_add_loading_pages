@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { nanoid } from 'nanoid';
 import EventItem from '../../event-grid/event-item';
@@ -8,7 +8,7 @@ const EventArea = ({ event_2 }) => {
     const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
     const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
     const RANGE = "events";
-    
+
     // get data from google excel sheet
     useEffect(() => {
         const fetchData = async () => {
@@ -18,6 +18,7 @@ const EventArea = ({ event_2 }) => {
                 );
                 const result = await response.json();
                 result?.values?.shift()
+                debugger;
                 setData(result?.values?.splice(0, 3));
             } catch (error) {
                 console.error("Error fetching data: ", error);
@@ -37,7 +38,7 @@ const EventArea = ({ event_2 }) => {
                 </div>
 
                 <div className="row g-5">
-                    {filterData?.length > 1 ? filterData?.map((item) => {
+                    {filterData?.length ? filterData?.map((item) => {
                         return (
                             <div key={nanoid()} className="col-lg-4 col-md-6" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                                 <div className="edu-event event-style-1">
@@ -45,7 +46,7 @@ const EventArea = ({ event_2 }) => {
                                 </div>
                             </div>
                         )
-                    }) : <img style={{ width: '200px', margin: '0 auto' }} src='/assets/images/loader.gif' />}
+                    }) : <h6 className="view-text">No Upcomming Event</h6>}
                 </div>
 
                 <div className="event-view-all-btn" data-sal-delay="150" data-sal="slide-up" data-sal-duration="1200">
