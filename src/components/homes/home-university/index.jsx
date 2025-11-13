@@ -13,7 +13,7 @@ const index = () => {
   const [data, setData] = useState([]);
   const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
   const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
-  const RANGE = "courses";
+  const RANGE = "other";
 
   // get data from google excel sheet
   useEffect(() => {
@@ -47,7 +47,7 @@ const index = () => {
           style={{
             width: '100%',
             height: '500px',
-            backgroundImage: 'url("/assets/images/course/staff.jpg")',
+            backgroundImage: data.length && `url(/assets/images/course/${data[0][3]})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'contain',
             backgroundPosition: 'center',
