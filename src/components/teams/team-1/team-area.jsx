@@ -34,13 +34,13 @@ const TeamArea = () => {
                     <span className="shape-line"><i className="icon-19"></i></span>
                 </div>
 
-                <div className="row g-5">
+                <div className="row g-5" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                     {data.length && data.map((instructor, ind) => {
                         const [img, name, destination] = instructor;
                         const imgSrc = `/assets/images/course/${img}`;
 
                         return (
-                            <div key={ind} className="col-lg-3 col-md-6" data-sal-delay="100" data-sal="slide-up" data-sal-duration="800">
+                            <div key={ind} className="col-lg-3 col-md-6">
                                 <div className="edu-team-grid team-style-2">
                                     <div className="inner">
                                         <div className="thumbnail-wrap">
