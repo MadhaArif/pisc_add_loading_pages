@@ -1,49 +1,57 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ImageLightBox from '../common/popup-modal/image-lightbox';
 
-const gallery_items = [
-    { img: '/assets/images/gallery/gallery-01.jpg', category: 'Education' },
-    { img: '/assets/images/gallery/gallery-03.jpg', category: 'Education' },
-    { img: '/assets/images/gallery/gallery-05.jpg', category: 'Education' },
-    { img: '/assets/images/gallery/gallery-02.jpg', category: 'Marketing' },
-    { img: '/assets/images/gallery/gallery-04.jpg', category: 'Marketing' },
-    { img: '/assets/images/gallery/gallery-07.jpg', category: 'Development' },
-    { img: '/assets/images/gallery/gallery-09.jpg', category: 'Development' },
-    { img: '/assets/images/gallery/gallery-03.jpg', category: 'Health' },
-    { img: '/assets/images/gallery/gallery-06.jpg', category: 'Health' },
-    { img: '/assets/images/gallery/gallery-08.jpg', category: 'Health' }
-]
-
-const uniqueItems = gallery_items.filter((arr, index, self) =>
-    index === self.findIndex((i) => (i.img === arr.img && i.State === arr.State))
-)
-
-const uniq_categories = ['All', ...new Set(gallery_items.map(item => item.category))]
-
 const GalleryArea = () => {
-    const [items, setItems] = useState(uniqueItems);
-    // category
+    const [galleryItems, setGalleryItems] = useState([]);
+    const [items, setItems] = useState([]);
     const [category, setCategory] = useState('All');
-    // photoIndex
     const [photoIndex, setPhotoIndex] = useState(null);
-    // image open state
     const [open, setOpen] = useState(false);
-    // images
-    const images = items.map(item => item.img)
-    // handleCategory
-    const handleCategory = (category) => {
-        setCategory(category)
-        if (category === 'All') {
-            setItems(uniqueItems)
-        } else {
-            setItems(gallery_items.filter(item => item.category === category))
+
+    const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
+    const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
+    const RANGE = "gallery";
+
+    // Fetch data from Google Sheet
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(
+                    `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`
+                );
+                const result = await response.json();
+                result?.values?.shift(); // remove headers
+                setGalleryItems(result?.values || []);
+            } catch (error) {
+                console.error("Error fetching data: ", error);
+            }
+        };
+        fetchData();
+    }, []);
+
+    // 🔥 When galleryItems load, update filtered items automatically
+    useEffect(() => {
+        if (galleryItems.length > 0) {
+            setItems(galleryItems);
         }
-    }
-    // handleImagePopup
+    }, [galleryItems]);
+
+    const uniq_categories = ['All', ...new Set(galleryItems.map(item => item[1]))];
+    const images = items.map(item => `/assets/images/course/${item[0]}`);
+
+    const handleCategory = (category) => {
+        setCategory(category);
+        if (category === 'All') {
+            setItems(galleryItems);
+        } else {
+            setItems(galleryItems.filter(item => item[1] === category));
+        }
+    };
+
     const handleImagePopup = (index) => {
-        setPhotoIndex(index)
-        setOpen(true)
-    }
+        setPhotoIndex(index);
+        setOpen(true);
+    };
 
     return (
         <>
@@ -58,6 +66,7 @@ const GalleryArea = () => {
                                 </button>
                             ))}
                         </div>
+
                         <div className="isotope-list gallery-grid-wrap">
                             <div id="animated-thumbnials" className="edublink-react-gallery-grid">
                                 <div className="row g-5">
@@ -65,7 +74,7 @@ const GalleryArea = () => {
                                         <div key={i} className="col-lg-4 col-md-6" style={{ cursor: 'pointer' }}>
                                             <div onClick={() => handleImagePopup(i)} className="edu-popup-image edu-gallery-grid w-100">
                                                 <div className="thumbnail">
-                                                    <img className='w-100' src={item.img} alt="Gallery Image" />
+                                                    <img className='w-100' src={`/assets/images/course/${item[0]}`} alt="Gallery" />
                                                 </div>
                                                 <div className="zoom-icon">
                                                     <i className="icon-69"></i>
@@ -80,12 +89,16 @@ const GalleryArea = () => {
                 </div>
             </div>
 
-            {/* image light box start */}
-            <ImageLightBox images={images} open={open} setOpen={setOpen}
-                photoIndex={photoIndex} setPhotoIndex={setPhotoIndex} />
-            {/* image light box end */}
+            {/* Lightbox */}
+            <ImageLightBox
+                images={images}
+                open={open}
+                setOpen={setOpen}
+                photoIndex={photoIndex}
+                setPhotoIndex={setPhotoIndex}
+            />
         </>
-    )
-}
+    );
+};
 
 export default GalleryArea;
