@@ -74,7 +74,6 @@ const TeamArea = () => {
                             );
                         })}
                     </Swiper>
-
                 </div>
             </div>
         </div>
