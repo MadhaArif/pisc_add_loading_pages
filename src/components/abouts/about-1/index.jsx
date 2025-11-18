@@ -35,7 +35,7 @@ const index = () => {
             <div id="main-wrapper" className="main-wrapper">
                 <HeaderTwo no_top_bar={true} />
                 <Breadcrumb title="About Us" subtitle="Course Style 2" />
-                <AboutArea img={data.length && data[0][6]}/>
+                <AboutArea imgage={data.length && data[0][6]}/>
                 <Testimonial/>
                 <Team />
                 <Footer />

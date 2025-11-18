@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const AboutArea = ({img}) => {
+const AboutArea = ({imgage}) => {
     const [data, setData] = useState([]);
     const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
     const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
@@ -43,7 +43,7 @@ const AboutArea = ({img}) => {
                     </div>
                     <div className="col-lg-6">
                         <div className="about-image-gallery">
-                            <img style={{ width: '100%' }} className="main-img-1" src={`/assets/images/course/${img}`} alt="About Image" />
+                            <img style={{ width: '100%' }} className="main-img-1" src={`/assets/images/course/${imgage}`} alt="About Image" />
                         </div>
                     </div>
                 </div>
