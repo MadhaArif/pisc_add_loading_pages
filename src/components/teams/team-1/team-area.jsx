@@ -37,7 +37,7 @@ const TeamArea = () => {
 
                 <div className="row g-5" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                     <Swiper
-                        slidesPerView={4}
+                        slidesPerView={3}
                         spaceBetween={0}
                         loop={true}
                         className="home-one-testimonial-activator swiper"
@@ -55,7 +55,7 @@ const TeamArea = () => {
                             const imgSrc = `/assets/images/course/${img}`;
 
                             return (
-                                <SwiperSlide key={ind}>
+                                <SwiperSlide key={ind} style={{ width: "25%" }}>
                                     <div className="edu-team-grid team-style-2">
                                         <div className="inner">
                                             <div className="thumbnail-wrap">
