@@ -40,7 +40,7 @@ const CounterArea = ({ home_3 = false, home_8 = false }) => {
             <div className="container">
                 <div className="row g-5">
                     <div className="section-title section-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                        <h2 className="title" style={{ fontSize: '45px', color: 'white !important' }}>Our Achivements</h2>
+                        <h2 className="title" style={{ fontSize: '45px', color: 'white' }}>Our Achivements</h2>
                         <span className="shape-line"><i className="icon-19"></i></span>
                     </div>
 
