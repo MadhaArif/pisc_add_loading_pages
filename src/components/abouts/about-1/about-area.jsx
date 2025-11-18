@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const AboutArea = () => {
+const AboutArea = ({img}) => {
     const [data, setData] = useState([]);
     const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
     const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
@@ -24,7 +24,7 @@ const AboutArea = () => {
     }, []);
 
     const img = data.length ? `/assets/images/course/${data[0][0]}` : '/assets/images/about/about-01.jpg';
-    debugger;
+
     return (
         <div className="gap-top-equal about-style-7">
             <div className="container gap-bottom-equal">
@@ -43,7 +43,7 @@ const AboutArea = () => {
                     </div>
                     <div className="col-lg-6">
                         <div className="about-image-gallery">
-                            <img style={{ width: '100%' }} className="main-img-1" src="/assets/images/about/about-11.webp" alt="About Image" />
+                            <img style={{ width: '100%' }} className="main-img-1" src={`/assets/images/course/${img}`} alt="About Image" />
                         </div>
                     </div>
                 </div>

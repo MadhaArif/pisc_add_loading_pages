@@ -28,7 +28,6 @@ export default function TestimonialArea() {
     }, []);
 
     useEffect(() => setLoop(true), [])
-
     return (
         <div style={{ background: 'var(--color-smoke)'}} className="testimonial-area-1 section-gap-equal">
             <div className="container">

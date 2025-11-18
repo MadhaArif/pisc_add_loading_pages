@@ -18,7 +18,6 @@ const EventArea = ({ event_2 }) => {
                 );
                 const result = await response.json();
                 result?.values?.shift()
-                debugger;
                 setData(result?.values?.splice(0, 3));
             } catch (error) {
                 console.error("Error fetching data: ", error);

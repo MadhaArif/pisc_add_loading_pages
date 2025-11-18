@@ -23,7 +23,6 @@ const BrandArea = () => {
                 );
                 const result = await response.json();
                 result?.values?.shift()
-                debugger;
                 setData({
                     ...data,
                     brands: [...result?.values?.splice(0, 3)]
