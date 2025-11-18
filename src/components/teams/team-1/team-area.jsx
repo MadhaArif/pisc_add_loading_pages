@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import TeamTwo from "../../../components/team-member/team-two";
+import { Autoplay } from "swiper";
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 const TeamArea = () => {
     const [data, setData] = useState([]);
@@ -16,7 +17,7 @@ const TeamArea = () => {
                 );
                 const result = await response.json();
                 result?.values?.shift()
-                setData(result?.values?.splice(0, 3));
+                setData(result?.values?.splice(0, 20));
             } catch (error) {
                 console.error("Error fetching data: ", error);
             }
@@ -35,33 +36,45 @@ const TeamArea = () => {
                 </div>
 
                 <div className="row g-5" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                    {data.length && data.map((instructor, ind) => {
-                        const [img, name, destination] = instructor;
-                        const imgSrc = `/assets/images/course/${img}`;
+                    <Swiper
+                        slidesPerView={4}
+                        spaceBetween={0}
+                        loop={true}
+                        className="home-one-testimonial-activator swiper"
+                        modules={[Autoplay]}
+                        pagination={false}
+                        grabCursor={true}
+                        speed={1500}
+                        autoplay={{ delay: 3500 }}
+                        breakpoints={{
+                            577: { slidesPerView: 2 }
+                        }}
+                    >
+                        {data.length && data.map((instructor, ind) => {
+                            const [img, name, destination] = instructor;
+                            const imgSrc = `/assets/images/course/${img}`;
 
-                        return (
-                            <div key={ind} className="col-lg-3 col-md-6">
-                                <div className="edu-team-grid team-style-2">
-                                    <div className="inner">
-                                        <div className="thumbnail-wrap">
-                                            <div className="thumbnail">
-                                                <a>
-                                                    <img src={imgSrc} alt="team images" />
-                                                </a>
+                            return (
+                                <SwiperSlide key={ind}>
+                                    <div className="edu-team-grid team-style-2">
+                                        <div className="inner">
+                                            <div className="thumbnail-wrap">
+                                                <div className="thumbnail">
+                                                    <a><img src={imgSrc} alt="team" /></a>
+                                                </div>
+                                            </div>
+
+                                            <div className="content">
+                                                <h5 className="title"><a>{name}</a></h5>
+                                                <span className="designation">{destination}</span>
                                             </div>
                                         </div>
-
-                                        <div className="content">
-                                            <h5 className="title">
-                                                <a>{name || 'name'}</a>
-                                            </h5>
-                                            <span className="designation">{destination || 'destination'}</span>
-                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        )
-                    })}
+                                </SwiperSlide>
+                            );
+                        })}
+                    </Swiper>
+
                 </div>
             </div>
         </div>
