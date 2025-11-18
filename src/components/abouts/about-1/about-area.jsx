@@ -24,6 +24,7 @@ const AboutArea = ({imgage}) => {
     }, []);
 
     const img = data.length ? `/assets/images/course/${data[0][0]}` : '/assets/images/about/about-01.jpg';
+    const detail = data.length ? data[0][1] : 'CEO details not available at the moment.';
 
     return (
         <div className="gap-top-equal about-style-7">
@@ -89,11 +90,11 @@ const AboutArea = ({imgage}) => {
                 <div className="container">
                     <div className="row gx-5">
                         <div className="col-lg-7">
-                            <div className="section-title section-left" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+                            <div className="section-title section-left" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800" style={{opacity: 1}}>
                                 <h2 className="title" style={{ fontSize: '45px' }}>About <span className="color-secondary">CEO</span></h2>
                                 <span className="shape-line"><i className="icon-19"></i></span>
-                                <p style={{ textAlign: 'justify', color: 'black !important' }}>
-                                    {data.length && data[0][1]}
+                                <p style={{ textAlign: 'justify', color: 'black' }}>
+                                    {detail}
                                 </p>
                             </div>
                         </div>

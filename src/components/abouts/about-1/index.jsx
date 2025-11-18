@@ -26,7 +26,7 @@ const index = () => {
             console.error("Error fetching data: ", error);
           }
         };
-    
+
         fetchData();
       }, []);
 
