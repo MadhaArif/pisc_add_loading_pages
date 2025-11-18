@@ -41,7 +41,7 @@ const tabs = {
     ]
 }
 
-const AboutArea = () => {
+const AboutArea = ({img, img2}) => {
     return (
         <div className="edu-about-area about-style-3">
             <div className="container">
@@ -78,8 +78,8 @@ const AboutArea = () => {
                     </div>
                     <div className="col-lg-6">
                         <div className="about-image-gallery">
-                            <img className="main-img-1" data-sal-delay="100" data-sal="slide-up" data-sal-duration="800" src="/assets/images/about/about-04.webp" alt="About Image" />
-                            <img className="main-img-2" data-sal-delay="100" data-sal="slide-left" data-sal-duration="800" src="/assets/images/about/about-05.webp" alt="About Image" />
+                            <img className="main-img-1" style={{width: '390px'}} data-sal-delay="100" data-sal="slide-up" data-sal-duration="800" src={`/assets/images/course/${img}`} alt="About Image" />
+                            <img className="main-img-2" style={{width: '230px'}} data-sal-delay="100" data-sal="slide-left" data-sal-duration="800" src={`/assets/images/course/${img2}`} alt="About Image" />
                         </div>
                     </div>
                 </div>

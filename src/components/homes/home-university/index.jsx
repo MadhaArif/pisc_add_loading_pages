@@ -39,7 +39,7 @@ const index = () => {
         <HeaderTwo no_topBar />
         <HeroSlider />
         <CategoryArea />
-        <AboutArea />
+        <AboutArea img={data.length && data[0][4]} img2={data.length && data[0][5]} />
         <CounterArea home_3={true} />
         <CoursesArea />
 
