@@ -47,7 +47,7 @@ const TeamArea = () => {
                         speed={1500}
                         autoplay={{ delay: 3500 }}
                         breakpoints={{
-                            577: { slidesPerView: 2 }
+                            577: { slidesPerView: 3 }
                         }}
                     >
                         {data.length && data.map((instructor, ind) => {

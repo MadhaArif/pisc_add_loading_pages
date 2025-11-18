@@ -10,7 +10,8 @@ const CourseDetailsArea = ({ course }) => {
     course_desc_3,
     detail_img,
     title,
-    form_link
+    form_link,
+    detail_img_2
   } = course || {};
   const { push } = useRouter();
 
@@ -117,7 +118,7 @@ const CourseDetailsArea = ({ course }) => {
 
                     <img
                       style={{ width: '100%', height: '250px' }}
-                      src='/assets/images/course/staff.jpg'
+                      src={`assets/images/course/${detail_img_2}`}
                       alt=''
                     />
                   </div>
