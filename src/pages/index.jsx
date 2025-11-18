@@ -41,7 +41,7 @@ export default function Home() {
     return (
         <>
             <Wrapper>
-                <div style={{ margin: '100px 0 0' }} class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                {data.length && <div style={{ margin: '100px 0 0' }} class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style={{ position: 'absolute', right: '-50px', color: 'var(--color-secondary) !important' }}></button>
@@ -51,7 +51,7 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>}
 
 
                 <SEO pageTitle={'Home'} />

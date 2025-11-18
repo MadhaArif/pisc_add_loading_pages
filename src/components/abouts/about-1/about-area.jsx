@@ -22,9 +22,9 @@ const AboutArea = () => {
 
         fetchData();
     }, []);
-    
-    const img = data.length ? `/assets/images/course/${data[0][0]}` : '/assets/images/about/about-01.jpg';
 
+    const img = data.length ? `/assets/images/course/${data[0][0]}` : '/assets/images/about/about-01.jpg';
+    debugger;
     return (
         <div className="gap-top-equal about-style-7">
             <div className="container gap-bottom-equal">
@@ -92,7 +92,7 @@ const AboutArea = () => {
                             <div className="section-title section-left" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                                 <h2 className="title" style={{ fontSize: '45px' }}>About <span className="color-secondary">CEO</span></h2>
                                 <span className="shape-line"><i className="icon-19"></i></span>
-                                <p style={{ textAlign: 'justify' }}>
+                                <p style={{ textAlign: 'justify', color: 'black !important' }}>
                                     {data.length && data[0][1]}
                                 </p>
                             </div>
