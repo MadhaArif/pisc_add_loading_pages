@@ -1,13 +1,14 @@
 import React from 'react';
 import { Footer, Header, HeaderTwo } from '../../layout';
-import CourseBreadcrumb from '../breadcrumb/breadcrumb-5';
+import BreadcrumbThree from '../breadcrumb/breadcrumb-3';
 import CourseDetailsArea from './course-details-area';
 
-const index = ({course}) => {
+const index = ({ course }) => {
     return (
         <div className='sticky-header'>
             <div id="main-wrapper" className="main-wrapper">
                 <HeaderTwo no_top_bar={true} />
+                <BreadcrumbThree title={course?.title} subtitle={course?.sub_title} isVideo={false} />
                 <CourseDetailsArea course={course} />
                 <Footer />
             </div>

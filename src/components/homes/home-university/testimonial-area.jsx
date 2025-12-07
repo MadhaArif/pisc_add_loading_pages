@@ -1,7 +1,11 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper";
+import SwiperCore, { Autoplay } from "swiper";
+import "swiper/css";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+
+// Install Swiper modules
+SwiperCore.use([Autoplay]);
 
 export default function TestimonialArea() {
     const [loop, setLoop] = useState(false);
@@ -52,7 +56,6 @@ export default function TestimonialArea() {
                             spaceBetween={0}
                             loop={loop}
                             className="home-one-testimonial-activator swiper "
-                            modules={[Autoplay]}
                             pagination={false}
                             grabCursor={true}
                             speed={1500}

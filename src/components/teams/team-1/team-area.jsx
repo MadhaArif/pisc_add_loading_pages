@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Autoplay } from "swiper";
+import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from 'swiper/react';
+import "swiper/css";
+
+// Install Swiper modules
+SwiperCore.use([Autoplay]);
 
 const TeamArea = () => {
     const [data, setData] = useState([]);
@@ -41,7 +45,6 @@ const TeamArea = () => {
                         spaceBetween={0}
                         loop={true}
                         className="home-one-testimonial-activator swiper"
-                        modules={[Autoplay]}
                         pagination={false}
                         grabCursor={true}
                         speed={1500}

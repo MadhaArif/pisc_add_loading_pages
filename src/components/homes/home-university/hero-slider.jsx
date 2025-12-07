@@ -1,10 +1,16 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, EffectFade, Autoplay } from "swiper";
+import SwiperCore, { Autoplay, EffectFade, Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
+// Install Swiper modules
+SwiperCore.use([Autoplay, EffectFade, Navigation]);
+
 const HeroSlider = () => {
-    const [loop, setLoop] = useState(false);
+    const [loop, setLoop] = useState(true);
     const [slider, setSlider] = useState([]);
     const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
     const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
@@ -26,23 +32,25 @@ const HeroSlider = () => {
 
         fetchData();
     }, []);
-    useEffect(() => setLoop(true), [])
+    useEffect(() => {
+        if (slider.length > 0) {
+            setLoop(true);
+        }
+    }, [slider]);
 
     return (
         <div className="hero-banner hero-style-3 bg-image">
             <Swiper
                 slidesPerView={1}
                 spaceBetween={0}
-                loop={loop}
+                loop={true}  // Always enable loop for infinite cycling
                 grabCursor={true}
                 draggable={true}
-                modules={[Autoplay, EffectFade, Navigation]}
                 effect="fade"
                 className="swiper university-activator"
                 speed={300}  // faster fade animation
                 autoplay={{
-                    delay: 300,  // faster slide switching
-                    disableOnInteraction: false
+                    delay: 4000
                 }}
                 navigation={{
                     nextEl: ".slide-next",
@@ -53,13 +61,13 @@ const HeroSlider = () => {
                 //     loadPrevNextAmount: 1
                 // }}
             >
-                {slider.map((item) => {
+                {slider.map((item, ind) => {
                     const [id, src, subtitle, title, sm_text, btn_text] = item;
                     const img = `/assets/images/course/${src}`;
 
                     return (
-                        <SwiperSlide key={id}>
-                            <img data-transform-origin='center center' src={img} className="" alt="image" />
+                        <SwiperSlide key={ind}>
+                            <img data-transform-origin='center center' src={img} alt="image" style={{height: '80vh'}} />
 
                             <div className="thumbnail-bg-content">
                                 <div className="container edublink-animated-shape">

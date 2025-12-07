@@ -38,7 +38,7 @@ const ContactUsArea = () => {
                 <div className="row g-5">
                     <div className="col-xl-6 col-lg-6">
                         <div className="contact-us-info">
-                            <h3 className="heading-title" style={{fontSize: '45px'}}>{"We're"} Always Eager to Hear From You!</h3>
+                            <h3 className="heading-title" style={{fontSize: '35px'}}>Need guidance on courses, admissions & online classes? Contact us now!</h3>
                             <ul className="address-list">
                                 <li>
                                     <h5 className="title" style={{fontSize: '25px'}}>Address</h5>

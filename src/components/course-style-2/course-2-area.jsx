@@ -4,6 +4,7 @@ import CourseTypeSix from '../course/course-type-six';
 const CourseTwoArea = () => {
     const [courses, setCourses] = useState([]);            // Original data
     const [filteredCourses, setFilteredCourses] = useState([]); // Filtered data
+    const [displayedCoursesCount, setDisplayedCoursesCount] = useState(6); // Track number of courses to display
     const [searchTerm, setSearchTerm] = useState('');
     const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
     const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
@@ -21,7 +22,7 @@ const CourseTwoArea = () => {
                 if (data.length > 1) {
                     const actualCourses = data.slice(1); // remove header
                     setCourses(actualCourses);
-                    setFilteredCourses(actualCourses);
+                    setFilteredCourses(actualCourses.slice(0, 6)); // Display first 6 courses initially
                 }
             } catch (error) {
                 console.error("Error fetching data: ", error);
@@ -36,18 +37,34 @@ const CourseTwoArea = () => {
         setSearchTerm(value);
 
         if (value.trim() === '') {
-            setFilteredCourses(courses);
+            setFilteredCourses(courses.slice(0, displayedCoursesCount));
         } else {
             const filtered = courses.filter(course =>
                 course[1]?.toLowerCase().includes(value.toLowerCase())
             );
-            setFilteredCourses(filtered);
+            setFilteredCourses(filtered.slice(0, displayedCoursesCount));
         }
     };
 
     const handleReset = () => {
         setSearchTerm('');
-        setFilteredCourses(courses);
+        setDisplayedCoursesCount(6); // Reset to show only first 6 courses
+        setFilteredCourses(courses.slice(0, 6));
+    };
+
+    const handleShowMore = () => {
+        const newDisplayCount = displayedCoursesCount + 6;
+        setDisplayedCoursesCount(newDisplayCount);
+
+        // Update filtered courses based on current search term
+        if (searchTerm.trim() === '') {
+            setFilteredCourses(courses.slice(0, newDisplayCount));
+        } else {
+            const filtered = courses.filter(course =>
+                course[1]?.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            setFilteredCourses(filtered.slice(0, newDisplayCount));
+        }
     };
 
     return (
@@ -125,6 +142,35 @@ const CourseTwoArea = () => {
                         <p>No courses found matching your search.</p>
                     )}
                 </div>
+
+                {/* Show More Button */}
+                {filteredCourses.length > 0 && (
+                    <div className="row">
+                        <div className="col-md-12 text-center">
+                            {(searchTerm.trim() === ''
+                                ? courses.length > filteredCourses.length
+                                : courses.filter(course => course[1]?.toLowerCase().includes(searchTerm.toLowerCase())).length > filteredCourses.length
+                            ) && (
+                                <button
+                                    style={{
+                                        background: 'var(--color-primary)',
+                                        color: 'white',
+                                        fontWeight: '500',
+                                        padding: '12px 30px',
+                                        borderRadius: '5px',
+                                        border: 'none',
+                                        cursor: 'pointer',
+                                        fontSize: '16px',
+                                        marginTop: '30px'
+                                    }}
+                                    onClick={handleShowMore}
+                                >
+                                    Show More
+                                </button>
+                            )}
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );

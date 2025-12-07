@@ -18,7 +18,7 @@ const tabs = {
         {
             show:true,
             id:'about-edu',
-            desc:"PISC is your gateway to mastering in-demand tech skills through expertly designed computer short courses. We focus on practical, up-to-date knowledge that aligns with industry needs, ensuring you stay ahead in today's competitive job market. Our experienced instructors bring real-world expertise and hands-on learning to every session, making complex concepts easy to understand and apply. Whether you're looking to boost your career, switch industries, or gain new digital skills, PISC provides the tools, guidance, and support to help you succeed.",
+            desc:"At Professional IT Skills College, Shadbagh Lahore, we offer IT courses in Lahore designed to transform your career and boost your confidence in the digital world. Our practical, hands-on training ensures you gain real-world experience with the latest software, tools, and technologies. Whether you’re starting fresh or looking to advance your skills, our career-oriented programs help you succeed not only in Lahore but also across Pakistan and internationally.",
             feature_list: []
         },
         {
@@ -32,7 +32,7 @@ const tabs = {
         },
         {
             id:'about-vision',
-            desc:"We envision a future where technology education is universally accessible, empowering individuals with the digital skills necessary to thrive in an ever-evolving world. Our aim is to become a pioneering institution in computer education, seamlessly connecting academic learning with real-world industry needs through innovative, practical, and career-driven training.",
+            desc:"Our vision is to become the leading center for IT education in Lahore, Pakistan, and beyond, recognized for innovative, career-focused computer training. We aspire to make technology education accessible to everyone, equipping students with the latest digital skills and industry-ready experience to thrive in a rapidly evolving global job market. By fostering a dynamic, inclusive, and future-ready learning environment, we aim to shape a generation of professionals who excel locally, nationally, and globally.",
             feature_list: [
                 'Making technology education accessible to everyone.',
                 'Preparing students for successful careers by providing industry-relevant knowledge and mentorship.'

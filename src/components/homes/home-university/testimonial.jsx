@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay,Pagination } from "swiper";
+import SwiperCore, { Autoplay, Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
 import { motion } from 'framer-motion';
 import { useMouseMoveUI } from '../../../contexts/mouse-move-context';
+
+// Install Swiper modules
+SwiperCore.use([Autoplay, Pagination]);
 
 const contents = {
     pre_title: 'Testimonials',
@@ -67,7 +72,6 @@ const Testimonial = ( { about_p_2 } ) => {
                     className="testimonial-activation swiper"
                     slidesPerView={1}
                     spaceBetween={0}
-                    modules={[Autoplay, Pagination]}
                     loop={loop}
                     grabCursor={true}
                     speed={1000}

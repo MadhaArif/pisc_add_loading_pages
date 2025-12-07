@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Footer, HeaderTwo } from '../../../layout';
 import CounterArea from './counter-area';
 import AboutArea from './about-area';
@@ -43,7 +43,7 @@ const index = () => {
         <CounterArea home_3={true} />
         <CoursesArea />
 
-        <div
+        {data.length && data[0][3] && <div
           style={{
             width: '100%',
             height: '500px',
@@ -53,7 +53,8 @@ const index = () => {
             backgroundPosition: 'center',
             backgroundAttachment: 'fixed'
           }}
-        ></div>
+        />}
+
         <TestimonialArea />
         <AdBanner />
         <BrandArea />

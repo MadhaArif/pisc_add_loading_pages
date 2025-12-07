@@ -2,12 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 
 const CourseTypeSix = ({ course, color }) => {
-    const [id, title, category, level, course_outline, duration, lesson, img, short_desc, instructor, language, certificate, course_desc, course_desc_2, learn_list, course_desc_3, timing, form_link, detail_img, detail_img_2] = course || []
+    const [id, title, category, level, course_outline, duration, lesson, img, short_desc, instructor, language, certificate, course_desc, course_desc_2, learn_list, course_desc_3, timing, form_link, detail_img, detail_img_2, sub_title] = course || []
 
     return (
         <Link href={{
             pathname: `/course-details`, query: {
-                id, title, category, level, course_outline, duration, lesson, img, short_desc, instructor, language, certificate, course_desc, course_desc_2, learn_list, course_desc_3, timing, form_link, detail_img, detail_img_2
+                id, title, category, level, course_outline, duration, lesson, img, short_desc, instructor, language, certificate, course_desc, course_desc_2, learn_list, course_desc_3, timing, form_link, detail_img, detail_img_2, sub_title
             }
         }}>
             <div className={`edu-course course-style-3`}>

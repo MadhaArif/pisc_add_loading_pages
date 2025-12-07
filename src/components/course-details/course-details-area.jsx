@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import CourseDetailsSidebar from '../common/sidebar/course-details-sidebar';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const CourseDetailsArea = ({ course }) => {
   const {
@@ -67,16 +68,8 @@ const CourseDetailsArea = ({ course }) => {
             </div>
           </div>
 
-          <div className='col-lg-4'>
+          <div className='col-lg-4 mb--60'>
             <CourseDetailsSidebar course={course} />
-          </div>
-
-          <div className='col-12' style={{ margin: '70px 0' }}>
-            <img
-              style={{ height: '500px' }}
-              src={`assets/images/course/${detail_img}`}
-              alt='Event'
-            />
           </div>
 
           <div className='col-lg-12'>
@@ -121,6 +114,13 @@ const CourseDetailsArea = ({ course }) => {
                       src={`assets/images/course/${detail_img_2}`}
                       alt=''
                     />
+
+                    <div className='text-center mt-5' data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+                      <Link href="/course">
+                        <a className="edu-btn">View all courses<i className="icon-4"></i>
+                        </a>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>

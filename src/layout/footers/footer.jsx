@@ -3,7 +3,7 @@ import Link from "next/link";
 import FooterSocial from "./component/footer-social";
 
 const { desc, widgets } = {
-    desc: "We envision a future where technology education is accessible to everyone, empowering individuals with the digital skills needed to thrive in the modern world. We strive to be a leading institution in computer education, bridging the gap between learning and industry demands through innovative, practical, and career-oriented training. we aim to provide practical and up-to-date knowledge that helps our students stay ahead in today's competitive job market",
+    desc: `At Professional IT Skills College, Shadbagh Lahore, we provide practical, career-focused IT courses that prepare you for real-world success in today’s digital era. Our hands-on training, expert instructors, and supportive learning environment help you build in-demand digital and professional skills. Whether you're starting your IT journey or upgrading your expertise, our industry-relevant programs empower you to excel in Lahore, across Pakistan, and internationally. Join us today and take the first confident step toward a successful, future-ready tech career.`,
     widgets: [
         {
             col: '2',
