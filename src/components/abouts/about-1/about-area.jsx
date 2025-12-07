@@ -34,7 +34,7 @@ const AboutArea = ({ imgage }) => {
                         <div style={{ paddingRight: '0' }} className="about-content">
                             <div className="section-title section-left" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                                 <span className="pre-title">About us</span>
-                                <h2 className="title" style={{ fontSize: '45px' }}>Who We Are</h2>
+                                <h2 className="title" style={{ fontSize: '45px' }}>Inside PISC</h2>
                                 <span className="shape-line"><i className="icon-19"></i></span>
                                 <p style={{ textAlign: 'justify' }}>
                                     At Professional IT Skills College, Shadbagh Lahore, we are dedicated to transforming careers through high-quality IT education and practical training. Our mission is to make IT courses in Lahore accessible to everyone, empowering students with the digital, computer, and professional skills needed to succeed in today's competitive job market. We provide hands-on, career-focused programs that give learners real-world experience with the latest software, tools, and technologies. Whether you are starting fresh or aiming to advance your skills, our experienced instructors and supportive learning environment ensure every student is prepared to excel locally, nationally, and internationally. We also offer flexible scheduling, personalized guidance, industry-relevant certifications, and continuous support to help graduates confidently enter the technology sector. Join us at Professional IT Skills College and take the first step toward a successful tech career, staying ahead in a rapidly evolving global digital world.
