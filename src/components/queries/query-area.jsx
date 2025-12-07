@@ -3,7 +3,9 @@ import { collection, getDocs, getFirestore, query, orderBy } from "firebase/fire
 import firebaseApp from "../../firebase";
 
 const QueryArea = () => {
-    const [data, setData] = useState([]); // State to hold the data array
+    const [allData, setAllData] = useState([]); // State to hold all data
+    const [displayedData, setDisplayedData] = useState([]); // State to hold displayed data
+    const [displayedCount, setDisplayedCount] = useState(12); // State to track number of items to display
 
     const readCollection = async () => {
         const db = getFirestore(firebaseApp);
@@ -17,31 +19,58 @@ const QueryArea = () => {
             id: doc.id, // Add document ID
             ...doc.data(), // Spread document fields
         }));
-        setData(dataList); // Set the extracted data in state
+
+        setAllData(dataList); // Set all data in state
+        setDisplayedData(dataList.slice(0, displayedCount)); // Show first 12 items initially
     };
 
     useEffect(() => {
         readCollection();
     }, []);
 
+    const handleShowMore = () => {
+        const newDisplayedCount = displayedCount + 12;
+        setDisplayedCount(newDisplayedCount);
+        setDisplayedData(allData.slice(0, newDisplayedCount));
+    };
+
     return (
         <section className="edu-section-gap faq-page-area">
             <div className="container">
                 <div className="row">
-                    {data.length > 0 ? data.map((user) => (
-                        <div className="col-lg-4">
-                            <p key={user.id}>
-                                <strong>Name:</strong> {user.name} <br />
-                                <strong>Email:</strong> {user.email} <br />
-                                <strong>Phone:</strong> {user.phone} <br />
-                                <strong>Message:</strong> {user.message} <br />
+                    {allData.length > 0 ? displayedData.map((user) => (
+                        <div className="col-lg-4" key={user.id}>
+                            <div className="query-card p-4 mb-4 border rounded">
+                                <p>
+                                    <strong>Name:</strong> {user.name} <br />
+                                    <strong>Email:</strong> {user.email} <br />
+                                    <strong>Phone:</strong> {user.phone} <br />
+                                    <strong>Message:</strong> {user.message} <br />
+                                    {user.createdAt && (
+                                        <><strong>Date:</strong> {user.createdAt?.toDate ? user.createdAt.toDate().toLocaleDateString() : user.createdAt} <br /></>
+                                    )}
+                                </p>
                                 <hr />
-                            </p>
+                            </div>
                         </div>
                     )) : (
                         <p>Loading...</p>
                     )}
                 </div>
+
+                {/* Show More Button */}
+                {allData.length > 0 && allData.length > displayedData.length && (
+                    <div className="row mt-4">
+                        <div className="col-12 text-center">
+                            <button
+                                className="edu-btn btn-secondary"
+                                onClick={handleShowMore}
+                            >
+                                Show More
+                            </button>
+                        </div>
+                    </div>
+                )}
             </div>
         </section>
     );
