@@ -6,6 +6,7 @@ const SEO = ({ pageTitle, font }) => (
       {pageTitle &&
         `${pageTitle} || Professional IT Skills College Education Platform For Innovative Learning`}
     </title>
+    <meta name="google-site-verification" content="T7BWEO1iZVWv6u9HvDhNTuHMuyCl0wx4B3oAq7Onals" />
     <meta httpEquiv='x-ua-compatible' content='ie=edge' />
     <meta
       name='viewport'
