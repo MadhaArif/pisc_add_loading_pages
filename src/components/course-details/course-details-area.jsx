@@ -48,8 +48,8 @@ const CourseDetailsArea = ({ course }) => {
                 >
                   <div className='course-overview'>
                     <h3
-                      className='heading-title'
-                      style={{ fontSize: '45px', fontWeight: '500' }}
+                      className='heading-title sub-heading'
+                      style={{ fontWeight: '500' }}
                       dangerouslySetInnerHTML={{
                         __html: emphasizeInitials(title)
                       }}
@@ -110,6 +110,7 @@ const CourseDetailsArea = ({ course }) => {
                     {course_desc_3 && <p>{course_desc_3}</p>}
 
                     <img
+                    className='d-none d-md-block'
                       style={{ width: '100%', height: '250px' }}
                       src={`assets/images/course/${detail_img_2}`}
                       alt=''

@@ -125,8 +125,8 @@ const HeroSlider = () => {
                           {subtitle}
                         </span>
                         <h1
-                          style={{ fontWeight: 700, fontSize: "65px" }}
-                          className="title"
+                          style={{ fontWeight: 700}}
+                          className="title heading"
                           data-sal-delay="100"
                           data-sal="slide-up"
                           data-sal-duration="200"

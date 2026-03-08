@@ -24,8 +24,7 @@ const BreadcrumbFour = ({ title, date, time, category, location }) => {
                             {/* Title */}
                             {title && (
                                 <h1
-                                    className="display-5 fw-bold text-white mb-4"
-                                    style={{ fontSize: '45px' }}
+                                    className="display-5 fw-bold text-white mb-4 sub-heading"
                                 >
                                     {title}
                                 </h1>

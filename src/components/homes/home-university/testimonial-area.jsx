@@ -40,7 +40,7 @@ export default function TestimonialArea() {
                         <div className="testimonial-heading-area">
                             <div className="section-title section-left" style={{marginBottom: '0'}} data-sal-delay="50" data-sal="slide-up" data-sal-duration="800">
                                 <span className="pre-title">Testimonials</span>
-                                <h2 className="title" style={{ fontSize: '45px' }}>What Our Students Have To Say</h2>
+                                <h2 className="title sub-heading">What Our Students Have To Say</h2>
                                 <span className="shape-line"><i className="icon-19"></i></span>
                                 <p>Discover how PISC has helped transform careers through practical, industry-relevant training. Our students share their experiences of gaining valuable digital skills.</p>
                                 <Link href="/gallery">

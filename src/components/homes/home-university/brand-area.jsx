@@ -43,7 +43,7 @@ const BrandArea = () => {
                         <div className="brand-section-heading">
                             <div className="section-title section-left" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                                 <span className="pre-title">{pre_title}</span>
-                                <h2 className="title" style={{ fontSize: '45px' }}>{title}</h2>
+                                <h2 className="title sub-heading">{title}</h2>
                                 <span className="shape-line"><i className="icon-19"></i></span>
                                 <p>{text}</p>
                             </div>
@@ -51,9 +51,9 @@ const BrandArea = () => {
                     </div>
 
                     <div className="col-lg-7">
-                        <div className="d-flex gap-4">
-                            {brands.map((b, i) => (
-                                <img style={{ width: '130px' }} src={`/assets/images/course/${b}`} alt="Brand Logo" />
+                        <div className="d-flex gap-4 flex-wrap">
+                            {brands.map((b) => (
+                                <img key={b} className="img-fluid brand-img" src={`/assets/images/course/${b}`} alt="Brand Logo" />
                             ))}
                         </div>
                     </div>

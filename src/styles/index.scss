@@ -10,3 +10,35 @@
 @import '../../public/assets/css/vendor/icomoon.css';
 @import '../../public/assets/css/vendor/remixicon.css';
 @import '../../public/assets/scss/app.scss';
+
+.heading {
+  font-size: 65px !important;
+
+  @media (max-width: 768px) {
+    font-size: 40px !important;
+  }
+}
+
+.sub-heading {
+  font-size: 45px !important;
+
+  @media (max-width: 768px) {
+    font-size: 35px !important;
+  }
+}
+
+.brand-img {
+  width: 130px;
+  
+  @media (max-width: 576px) {
+    width: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slide-prev,
+  .slide-next {
+    display: none !important;
+  }
+}
+

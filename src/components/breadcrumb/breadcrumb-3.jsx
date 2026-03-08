@@ -6,7 +6,7 @@ const BreadcrumbThree = ({ title, subtitle, isVideo = true }) => {
                     <div className="container">
                         <div className="row justify-content-center text-center">
                             <div className="col-lg-8">
-                                {title && <h1 className="display-4 fw-bold text-white" style={{fontSize: '45px'}}>{title}</h1>}
+                                {title && <h1 className="display-4 fw-bold text-white sub-heading">{title}</h1>}
                                 {subtitle && <h2 className="display-4 fw-bold text-white" style={{fontSize: '25px'}}>{subtitle}</h2>}
                             </div>
                         </div>
@@ -28,7 +28,7 @@ const BreadcrumbThree = ({ title, subtitle, isVideo = true }) => {
                         <div className="container">
                             <div className="row justify-content-center text-center">
                                 <div className="col-lg-8">
-                                    {title && <h1 className="display-4 fw-bold text-white" style={{fontSize: '45px'}}>{title}</h1>}
+                                    {title && <h1 className="display-4 fw-bold text-white sub-heading">{title}</h1>}
                                     {subtitle && <h2 className="display-4 fw-bold text-white" style={{fontSize: '25px'}}>{subtitle}</h2>}
                                 </div>
                             </div>

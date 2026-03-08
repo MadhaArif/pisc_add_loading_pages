@@ -50,7 +50,7 @@ const AboutArea = ({img, img2}) => {
                         <div className="about-content">
                             <div className="section-title section-left">
                                 <span className="pre-title">About Us</span>
-                                <h2 className="title" style={{fontSize: '45px'}}>We Equip You with Top Digital Skills.</h2>
+                                <h2 className="title sub-heading">We Equip You with Top Digital Skills.</h2>
                                 <span className="shape-line">
                                     <i className="icon-19"></i>
                                 </span>

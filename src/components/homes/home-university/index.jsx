@@ -43,7 +43,7 @@ const index = () => {
         <CounterArea home_3={true} />
         <CoursesArea />
 
-        {data.length && data[0][3] && <div
+        {data.length && data[0][3] && <div className='d-none d-md-block'
           style={{
             width: '100%',
             height: '500px',
