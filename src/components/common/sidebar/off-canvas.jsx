@@ -44,7 +44,7 @@ const OffCanvas = ({ isOpen, setIsOpen }) => {
                                     {!menu.mobile_pages_menu &&
                                         <ul className={navTitle === menu?.title ? "sub-menu active" : "sub-menu"}>
                                             {menu?.submenus?.map((sub,i) => (
-                                                <li key={i}><Link href={`${sub.link}`}>{sub.title}</Link></li>
+                                                <li key={i}><Link href={sub.link}>{sub.title}</Link></li>
                                             ))}
                                         </ul>
                                     }
