@@ -26,14 +26,14 @@ const EventDetailsArea = ({ event }) => {
                                 {event?.sm_desc_2 && <p>{event?.sm_desc_2}</p>}
 
                                 <ul>
-                                    {event?.bullets && JSON.parse(event?.bullets?.replace(/'/g, '"'))?.length && JSON.parse(event?.bullets.replace(/'/g, '"'))?.map(bullet => <li>{bullet}</li>)}
+                                    {event?.bullets && JSON.parse(event?.bullets?.replace(/'/g, '"'))?.length && JSON.parse(event?.bullets.replace(/'/g, '"'))?.map((bullet, index) => <li key={index}>{bullet}</li>)}
                                 </ul>
 
                                 {/* it will be static */}
                                 <h3>Event Location</h3>
                                 <ul className="event-meta">
                                     {event?.location && <li><i className="icon-40"></i>{event?.location}</li>}
-                                    {event?.contact && JSON.parse(event?.contact?.replace(/'/g, '"'))?.length && JSON.parse(event?.contact.replace(/'/g, '"'))?.map(contact => <li><i className="icon-71"></i>{contact}</li>)}
+                                    {event?.contact && JSON.parse(event?.contact?.replace(/'/g, '"'))?.length && JSON.parse(event?.contact.replace(/'/g, '"'))?.map((contact, index) => <li key={index}><i className="icon-71"></i>{contact}</li>)}
                                 </ul>
 
                                 <div className="gmap_canvas">
@@ -41,7 +41,7 @@ const EventDetailsArea = ({ event }) => {
                                 </div>
 
                                 <div className="read-more-btn">
-                                    <a href={event?.form_link || '#'} target='_blank' className="edu-btn" style={{ width: '100%', marginTop: '40px', cursor: 'pointer' }}>Join Now <i className="icon-4"></i></a>
+                                    <a href={event?.form_link || '#'} target='_blank' rel='noreferrer' className="edu-btn" style={{ width: '100%', marginTop: '40px', cursor: 'pointer' }}>Join Now <i className="icon-4"></i></a>
                                 </div>
                             </div>
                         </div>

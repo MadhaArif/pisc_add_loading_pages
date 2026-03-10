@@ -6,7 +6,7 @@ const SkilledLecturersTwo = () => {
       {/* <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --> */}
       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 44 44" style={{ enableBackground: "new 0 0 44 44" }} xmlSpace="preserve">
-        <style type="text/css" jsx>
+        <style type="text/css">
           {`.st0{fill:none;stroke:#1ab69d;stroke-width:2;stroke-miterlimit:10;}
 	.st1{fill:none;stroke:#1ab69d;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;}
 	.st2{fill:none;stroke:#1ab69d;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}`}

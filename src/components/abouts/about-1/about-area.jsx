@@ -53,7 +53,7 @@ const AboutArea = ({ imgage }) => {
                   education and practical training. Our mission is to make IT
                   courses in Lahore accessible to everyone, empowering students
                   with the digital, computer, and professional skills needed to
-                  succeed in today's competitive job market. We provide
+                  succeed in today&apos;s competitive job market. We provide
                   hands-on, career-focused programs that give learners
                   real-world experience with the latest software, tools, and
                   technologies. Whether you are starting fresh or aiming to

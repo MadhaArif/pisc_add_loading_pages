@@ -15,7 +15,7 @@ const TeamArea = ({ team }) => {
                                 <li><a href="#"><i className="icon-share-alt"></i></a></li>
                                 {team?.social_links?.map((social, i) => (
                                     <li key={i}>
-                                        <a href={social.link} target={social.target ? social.target : ''}>
+                                        <a href={social.link} target={social.target ? social.target : ''} rel="noreferrer">
                                             <i className={social.icon}></i>
                                         </a>
                                     </li>

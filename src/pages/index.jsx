@@ -45,7 +45,7 @@ export default function Home() {
           style={{ margin: "100px 0 0" }}
           className="modal fade"
           id="exampleModal"
-          tabindex="-1"
+          tabIndex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
