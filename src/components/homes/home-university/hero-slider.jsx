@@ -89,14 +89,17 @@ const HeroSlider = () => {
       </button>
 
       <Swiper
+        key={slider.length}
         slidesPerView={1}
         spaceBetween={0}
         loop={slider.length > 1}
         grabCursor={true}
+        observer={true}
+        observeParents={true}
         effect="fade"
         speed={800}
         autoplay={{
-          delay: 30000,           // ✅ 30 seconds
+          delay: 4000,           // ✅ 4 seconds
           disableOnInteraction: false,
         }}
         navigation={{
