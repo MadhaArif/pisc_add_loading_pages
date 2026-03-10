@@ -18,19 +18,21 @@ const MainMenu = () => {
         <ul className="mainmenu">
             {menuItems.map(({ name, path }) => (
                 <li key={path}>
-                    <Link href={path} style={{
-                        color:
-                            router.pathname === path
-                                ? 'var(--color-secondary)'
-                                : 'var(--color-primary)',
-                        fontWeight: 'bold',
-                        textDecoration: 'none',
-                        borderTop: router.pathname === path
-                            && '5px solid var(--color-secondary)',     
-                        position: router.pathname === path && 'relative',
-                        top: router.pathname === path && '-5px',
-                    }}>
-                        {name}
+                    <Link href={path}>
+                        <a style={{
+                            color:
+                                router.pathname === path
+                                    ? 'var(--color-secondary)'
+                                    : 'var(--color-primary)',
+                            fontWeight: 'bold',
+                            textDecoration: 'none',
+                            borderTop: router.pathname === path
+                                && '5px solid var(--color-secondary)',     
+                            position: router.pathname === path && 'relative',
+                            top: router.pathname === path && '-5px',
+                        }}>
+                            {name}
+                        </a>
                     </Link>
                 </li>
             ))}

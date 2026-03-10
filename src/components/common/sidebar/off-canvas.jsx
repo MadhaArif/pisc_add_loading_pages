@@ -44,7 +44,7 @@ const OffCanvas = ({ isOpen, setIsOpen }) => {
                                     {!menu.mobile_pages_menu &&
                                         <ul className={navTitle === menu?.title ? "sub-menu active" : "sub-menu"}>
                                             {menu?.submenus?.map((sub,i) => (
-                                                <li key={i}><Link href={sub.link}>{sub.title}</Link></li>
+                                                <li key={i}><Link href={sub.link}><a>{sub.title}</a></Link></li>
                                             ))}
                                         </ul>
                                     }
@@ -52,12 +52,12 @@ const OffCanvas = ({ isOpen, setIsOpen }) => {
                                     {menu.mobile_pages_menu &&
                                         <ul className={navTitle === menu?.title ? "sub-menu active" : "sub-menu"}>
                                             {menu?.mobile_pages_menu?.map((sub,i) => (
-                                                <li key={i}><Link href={`${sub.link}`}>{sub.title}</Link></li>
+                                                <li key={i}><Link href={sub.link}><a>{sub.title}</a></Link></li>
                                             ))}
                                         </ul>
                                     }
                                     
-                                    {!menu.submenus && <Link href={menu.link}>{menu.title}</Link>}
+                                    {!menu.submenus && <Link href={menu.link}><a>{menu.title}</a></Link>}
                                 </li>
                             ))}
                         </ul>
