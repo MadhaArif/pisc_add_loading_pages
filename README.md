@@ -1,2 +1,2 @@
-# pact-college
+# PISE College
  
