@@ -34,7 +34,7 @@ import Head from 'next/head';
            "streetAddress": "Shadbagh", 
            "addressLocality": "Lahore", 
            "addressRegion": "Punjab", 
-           "postalCode": "54600", 
+           "postalCode": "54000", 
            "addressCountry": "PK" 
          }, 
          "geo": { 
