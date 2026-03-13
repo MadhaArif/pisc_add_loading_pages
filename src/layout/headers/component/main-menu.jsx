@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 const MainMenu = () => {
     const router = useRouter();
+    const [currentPath, setCurrentPath] = useState('');
+
+    useEffect(() => {
+        setCurrentPath(router.pathname);
+    }, [router.pathname]);
 
     const menuItems = [
         { name: 'Home', path: '/' },
@@ -21,15 +26,16 @@ const MainMenu = () => {
                     <Link href={path}>
                         <a style={{
                             color:
-                                router.pathname === path
+                                currentPath === path
                                     ? 'var(--color-secondary)'
                                     : 'var(--color-primary)',
                             fontWeight: 'bold',
                             textDecoration: 'none',
-                            borderTop: router.pathname === path
-                                && '5px solid var(--color-secondary)',     
-                            position: router.pathname === path && 'relative',
-                            top: router.pathname === path && '-5px',
+                            borderTop: currentPath === path
+                                ? '5px solid var(--color-secondary)'
+                                : 'none',     
+                            position: currentPath === path ? 'relative' : 'static',
+                            top: currentPath === path ? '-5px' : '0',
                         }}>
                             {name}
                         </a>

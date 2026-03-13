@@ -9,7 +9,10 @@ const ErrorPage = () => {
     const { mouseDirection, mouseReverse } = useMouseMoveUI();
     return (
         <Wrapper>
-            <SEO pageTitle={'404 Page'} />
+            <SEO 
+                pageTitle="Page Not Found" 
+                pageDescription="The page you are looking for might have been removed, had its name changed, or is temporarily unavailable." 
+            />
             <HeaderTwo no_top_bar={true} />
             <BreadcrumbThree title="Error-404" />
             

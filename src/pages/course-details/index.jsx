@@ -10,7 +10,11 @@ const CourseDetails = () => {
 
     return (
         <Wrapper>
-            <SEO pageTitle={'Course Details'} />
+            <SEO 
+                pageTitle={course?.title ? `${course.title} Course` : "Course Details"} 
+                pageDescription={course?.short_desc || "Explore detailed information about our IT courses at PISC Lahore. Join our hands-on training programs."}
+                pageUrl={`/course-details/${course?.id || ""}`}
+            />
             <CourseDetailsMain course={course} />
         </Wrapper>
     )

@@ -9,7 +9,11 @@ const EventDetails = () => {
 
     return (
         <Wrapper>
-            <SEO pageTitle={'Event Details'} />
+            <SEO 
+                pageTitle={event?.title || "Event Details"} 
+                pageDescription={event?.short_desc || "Learn more about the exciting events and workshops at Professional IT Skills College (PISC) Lahore."}
+                pageUrl={`/event-details/${event?.id || ""}`}
+            />
             <EventDetailsMain event={event} />
         </Wrapper>
     )

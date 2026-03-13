@@ -75,7 +75,11 @@ export default function Home() {
         </div>
       )}
 
-      <SEO pageTitle={"Home"} />
+      <SEO 
+        pageTitle="Home" 
+        pageDescription="Professional IT Skills College (PISC) in Shadbagh, Lahore offers affordable, hands-on IT courses including web development, graphic design, digital marketing, and more. Enroll now for career-ready training in Pakistan." 
+        pageUrl="/" 
+      />
       <HomeUniversity />
     </Wrapper>
   );
