@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { ToastContainer } from 'react-toastify';
 import { get_cart_courses } from '../redux/features/cart-slice';
 import { get_wishlist_products } from '../redux/features/wishlist-slice';
+import CustomCursor from '../components/common/custom-cursor';
 
 export default function Wrapper({ children }) {
     const router = useRouter();
@@ -38,6 +39,7 @@ export default function Wrapper({ children }) {
 
     return (
         <>
+            <CustomCursor />
             {loading ? (
                 <div style={{height: '100vh', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                     <img style={{ width: '200px', margin: '0 auto' }} src='/assets/images/ajax-loader.gif' />
