@@ -99,7 +99,7 @@ const HeroSlider = () => {
         effect="fade"
         speed={800}
         autoplay={{
-          delay: 4000,           // ✅ 4 seconds
+          delay: 3000,           // ✅ 3 seconds
           disableOnInteraction: false,
         }}
         navigation={{
@@ -117,18 +117,38 @@ const HeroSlider = () => {
               <img
                 src={img}
                 alt="image"
-                style={{ height: "80vh", width: "100%", objectFit: "cover" }}
+                style={{ 
+                  height: "80vh", 
+                  width: "100%", 
+                  objectFit: "cover",
+                  objectPosition: ind === 0 ? "right center" : "center center",
+                  filter: ind === 0 ? "contrast(1.05) brightness(1.05)" : "none"
+                }}
               />
               <div className="thumbnail-bg-content">
                 <div className="container edublink-animated-shape">
                   <div className="row">
                     <div className="col-7">
                       <div className="banner-content">
-                        <span className="subtitle" data-sal="slide-up" data-sal-duration="200">
+                        <span 
+                          className="subtitle" 
+                          data-sal="slide-up" 
+                          data-sal-duration="200"
+                          style={ind === 0 ? { 
+                            background: "rgba(255, 188, 7, 0.15)", 
+                            padding: "4px 12px", 
+                            borderRadius: "4px",
+                            color: "#ffbc07",
+                            fontWeight: "600"
+                          } : {}}
+                        >
                           {subtitle}
                         </span>
                         <h1
-                          style={{ fontWeight: 700}}
+                          style={{ 
+                            fontWeight: 700,
+                            textShadow: ind === 0 ? "0px 4px 10px rgba(0,0,0,0.5)" : "none"
+                          }}
                           className="title heading"
                           data-sal-delay="100"
                           data-sal="slide-up"
@@ -136,7 +156,17 @@ const HeroSlider = () => {
                         >
                           {title}
                         </h1>
-                        <p data-sal-delay="200" data-sal="slide-up" data-sal-duration="200">
+                        <p 
+                          data-sal-delay="200" 
+                          data-sal="slide-up" 
+                          data-sal-duration="200"
+                          style={ind === 0 ? { 
+                            lineHeight: "1.6", 
+                            fontSize: "18px",
+                            textShadow: "0px 2px 5px rgba(0,0,0,0.4)",
+                            color: "#ffffff"
+                          } : {}}
+                        >
                           {sm_text}
                         </p>
                         <div className="banner-btn" data-sal-delay="400" data-sal="slide-up" data-sal-duration="200">

@@ -64,11 +64,13 @@ export default function Home() {
               ></button>
 
               <div className="modal-body">
-                <img
-                  style={{ width: "100%" }}
-                  src={data.length && `/assets/images/course/${data[0][0]}`}
-                  alt=""
-                />
+                {data.length > 0 && data[0][0] && (
+                  <img
+                    style={{ width: "100%" }}
+                    src={`/assets/images/course/${data[0][0]}`}
+                    alt="Course Popup"
+                  />
+                )}
               </div>
             </div>
           </div>

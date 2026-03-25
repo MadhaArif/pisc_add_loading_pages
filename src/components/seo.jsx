@@ -7,14 +7,14 @@ import Head from 'next/head';
    const defaultDesc  = 
      "Professional IT Skills College (PISC) in Shadbagh, Lahore offers affordable, hands-on IT courses including web development, graphic design, digital marketing, and more. Enroll now for career-ready training in Pakistan."; 
    const siteUrl     = "https://www.professionalitskillscollege.com"; 
-   const logoUrl     = "https://www.professionalitskillscollege.com/assets/images/logo/logo-dark.png"; 
+   const logoUrl     = "https://www.professionalitskillscollege.com/assets/images/logo/logo-dark.svg"; 
  
    const fullTitle   = pageTitle 
      ? `${pageTitle} | PISC - Professional IT Skills College Lahore` 
      : defaultTitle; 
    const description = pageDescription || defaultDesc; 
    const canonical   = pageUrl   ? `${siteUrl}${pageUrl}` : siteUrl; 
-   const ogImage     = pageImage ? `${siteUrl}${pageImage}` : logoUrl; 
+   const ogImage     = pageImage ? `${siteUrl}${pageImage}` : "https://www.professionalitskillscollege.com/assets/images/logo/logo-dark.svg"; 
  
    // ─── JSON-LD: LocalBusiness + EducationalOrganization (GEO + AEO) ── 
    const jsonLd = { 
@@ -178,6 +178,88 @@ import Head from 'next/head';
        <link rel='icon' href='/assets/images/logo/logo-white.svg' />
        <link rel="apple-touch-icon" href="/assets/images/logo/logo-white.svg" /> 
        {font && <link href={font} rel='stylesheet' />}
+ 
+       {/* ════════════════════════════════════════════════════════════════ 
+           ── NEW TAGS ADDED BELOW (Purane tags bilkul same hain upar) ── 
+           ════════════════════════════════════════════════════════════════ */} 
+ 
+       {/* ── Advanced Robots & Crawl Control ──────────────────────────── */} 
+       <meta name="revisit-after"   content="3 days" /> 
+       <meta name="rating"          content="general" /> 
+       <meta name="googlebot"       content="index, follow, max-snippet:-1, max-image-preview:large" /> 
+       <meta name="bingbot"         content="index, follow" /> 
+ 
+       {/* ── Mobile & PWA Optimization ─────────────────────────────────── */} 
+       <meta name="theme-color"                content="#1a73e8" /> 
+       <meta name="mobile-web-app-capable"     content="yes" /> 
+       <meta name="apple-mobile-web-app-capable" content="yes" /> 
+       <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /> 
+       <meta name="apple-mobile-web-app-title" content="PISC Lahore" /> 
+       <meta name="application-name"           content="PISC - IT College Lahore" /> 
+       <meta name="msapplication-TileColor"    content="#1a73e8" /> 
+       <meta name="msapplication-TileImage"    content={logoUrl} /> 
+       <meta name="format-detection"           content="telephone=yes" /> 
+ 
+       {/* ── Extended GEO – Hyper-Local Lahore Targeting ───────────────── */} 
+       {/* Targets Shadbagh + nearby areas for maximum local visibility     */} 
+       <meta name="geo.country"     content="Pakistan" /> 
+       <meta name="geo.city"        content="Lahore" /> 
+       <meta name="geo.zipcode"     content="54000" /> 
+       <meta name="geo.district"    content="Shadbagh" /> 
+       <meta name="place:location:latitude"  content="31.5976" /> 
+       <meta name="place:location:longitude" content="74.3414" /> 
+ 
+       {/* ── AEO: Entity & Semantic Clarity (for AI search engines) ──────── */} 
+       {/* Google SGE, Perplexity, ChatGPT browsing, Bing Copilot ke liye   */} 
+       <meta name="entity-type"     content="EducationalOrganization" /> 
+       <meta name="entity-name"     content="Professional IT Skills College" /> 
+       <meta name="entity-location" content="Shadbagh, Lahore, Punjab, Pakistan" /> 
+       <meta name="entity-phone"    content="+923166474545" /> 
+       <meta name="entity-email"    content="info@professionalitskillscollege.com" /> 
+       <meta name="audience"        content="Students, Fresh Graduates, Working Professionals, Job Seekers, Freelancers" /> 
+       <meta name="educational-level" content="Beginner, Intermediate, Advanced" /> 
+       <meta name="teaches"         content="Web Development, Graphic Design, Digital Marketing, MS Office, Programming, Freelancing, UI/UX Design" /> 
+       <meta name="course-duration" content="1 Month to 6 Months" /> 
+       <meta name="course-language" content="Urdu, English" /> 
+       <meta name="certificate"     content="Yes - Industry Recognized Certificate Provided" /> 
+       <meta name="admission-open"  content="Yes" /> 
+       <meta name="tuition-fee"     content="Affordable - Contact for details" /> 
+       <meta name="study-mode"      content="On-Campus, Hands-on Training" /> 
+ 
+       {/* ── Social Proof & Trust Signals ─────────────────────────────── */} 
+       <meta name="publisher"       content="Professional IT Skills College (PISC)" /> 
+       <meta name="copyright"       content={`© ${new Date().getFullYear()} Professional IT Skills College (PISC). All Rights Reserved.`} /> 
+       <meta name="designer"        content="Cadresol - https://www.cadresol.com" /> 
+       <meta name="reply-to"        content="info@professionalitskillscollege.com" /> 
+       <meta name="owner"           content="Professional IT Skills College (PISC), Shadbagh, Lahore" /> 
+       <meta name="url"             content={canonical} /> 
+       <meta name="identifier-URL"  content={canonical} /> 
+       <meta name="directory"       content="submission" /> 
+       <meta name="pagename"        content={fullTitle} /> 
+ 
+       {/* ── LinkedIn / Article Meta ──────────────────────────────────── */} 
+       <meta property="og:locale:alternate" content="ur_PK" /> 
+       <meta property="article:publisher"   content="https://www.professionalitskillscollege.com" /> 
+       <meta property="article:tag"         content="IT Courses Lahore" /> 
+       <meta property="article:tag"         content="Computer Training Pakistan" /> 
+       <meta property="article:tag"         content="Digital Skills Lahore" /> 
+       <meta property="article:tag"         content="Web Development Course" /> 
+       <meta property="article:tag"         content="Graphic Design Course Lahore" /> 
+ 
+       {/* ── WhatsApp Deep Link (Pakistan viral sharing) ──────────────── */} 
+       <meta property="og:phone_number"  content="+923166474545" /> 
+       <meta property="og:email"         content="info@professionalitskillscollege.com" /> 
+       <meta property="og:street-address" content="Shadbagh, Lahore, Punjab, Pakistan" /> 
+       <meta property="og:locality"      content="Lahore" /> 
+       <meta property="og:region"        content="Punjab" /> 
+       <meta property="og:country-name"  content="Pakistan" /> 
+       <meta property="og:postal-code"   content="54000" /> 
+ 
+       {/* ── Preconnect / Performance (Core Web Vitals boost) ─────────── */} 
+       <link rel="preconnect" href="https://fonts.googleapis.com" /> 
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" /> 
+       <link rel="dns-prefetch" href="https://www.google-analytics.com" /> 
+       <link rel="dns-prefetch" href="https://www.googletagmanager.com" /> 
  
        {/* ── JSON-LD Structured Data (Schema.org) ──────────────────────── */} 
        <script 

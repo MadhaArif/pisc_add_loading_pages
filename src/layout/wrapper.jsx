@@ -40,7 +40,7 @@ export default function Wrapper({ children }) {
         <>
             {loading ? (
                 <div style={{height: '100vh', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                    <img style={{ width: '200px', margin: '0 auto' }} src='/assets/images/loader.gif' />
+                    <img style={{ width: '200px', margin: '0 auto' }} src='/assets/images/ajax-loader.gif' />
                 </div>
             ) : (   
                 <>
