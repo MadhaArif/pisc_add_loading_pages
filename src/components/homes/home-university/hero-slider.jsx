@@ -117,38 +117,18 @@ const HeroSlider = () => {
               <img
                 src={img}
                 alt="image"
-                style={{ 
-                  height: "80vh", 
-                  width: "100%", 
-                  objectFit: "cover",
-                  objectPosition: ind === 0 ? "right center" : "center center",
-                  filter: ind === 0 ? "contrast(1.05) brightness(1.05)" : "none"
-                }}
+                style={{ height: "80vh", width: "100%", objectFit: "cover" }}
               />
               <div className="thumbnail-bg-content">
                 <div className="container edublink-animated-shape">
                   <div className="row">
                     <div className="col-7">
                       <div className="banner-content">
-                        <span 
-                          className="subtitle" 
-                          data-sal="slide-up" 
-                          data-sal-duration="200"
-                          style={ind === 0 ? { 
-                            background: "rgba(255, 188, 7, 0.15)", 
-                            padding: "4px 12px", 
-                            borderRadius: "4px",
-                            color: "#ffbc07",
-                            fontWeight: "600"
-                          } : {}}
-                        >
+                        <span className="subtitle" data-sal="slide-up" data-sal-duration="200">
                           {subtitle}
                         </span>
                         <h1
-                          style={{ 
-                            fontWeight: 700,
-                            textShadow: ind === 0 ? "0px 4px 10px rgba(0,0,0,0.5)" : "none"
-                          }}
+                          style={{ fontWeight: 700}}
                           className="title heading"
                           data-sal-delay="100"
                           data-sal="slide-up"
@@ -156,17 +136,7 @@ const HeroSlider = () => {
                         >
                           {title}
                         </h1>
-                        <p 
-                          data-sal-delay="200" 
-                          data-sal="slide-up" 
-                          data-sal-duration="200"
-                          style={ind === 0 ? { 
-                            lineHeight: "1.6", 
-                            fontSize: "18px",
-                            textShadow: "0px 2px 5px rgba(0,0,0,0.4)",
-                            color: "#ffffff"
-                          } : {}}
-                        >
+                        <p data-sal-delay="200" data-sal="slide-up" data-sal-duration="200">
                           {sm_text}
                         </p>
                         <div className="banner-btn" data-sal-delay="400" data-sal="slide-up" data-sal-duration="200">
