@@ -219,12 +219,47 @@ const AboutArea = ({ imgage }) => {
               </div>
 
               <div className="col-lg-5">
-                <img
-                  src={img}
-                  alt="Image"
-                  className="img-fluid"
-                  style={{ width: "100%", objectFit: "cover" }}
-                />
+                <div className="about-image-gallery" style={{ padding: '0', position: 'relative' }}>
+                  <div style={{
+                    position: 'absolute',
+                    top: '-20px',
+                    right: '-20px',
+                    width: '100%',
+                    height: '100%',
+                    border: '10px solid var(--color-secondary)',
+                    borderRadius: '20px',
+                    zIndex: '-1',
+                    opacity: '0.2'
+                  }}></div>
+                  <img
+                    src={img}
+                    alt="CEO Image"
+                    className="img-fluid"
+                    style={{ 
+                      width: "100%", 
+                      objectFit: "cover", 
+                      borderRadius: "20px", 
+                      boxShadow: "0 30px 60px rgba(0,0,0,0.15)",
+                      border: "5px solid white",
+                      position: 'relative',
+                      zIndex: '1'
+                    }}
+                  />
+                  <div style={{
+                    position: 'absolute',
+                    bottom: '30px',
+                    left: '-30px',
+                    background: 'white',
+                    padding: '15px 25px',
+                    borderRadius: '10px',
+                    boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+                    zIndex: '2',
+                    borderLeft: '5px solid var(--color-secondary)'
+                  }}>
+                    <h4 style={{ margin: '0', fontSize: '18px', fontWeight: '700', color: 'var(--color-heading)' }}>Founder & CEO</h4>
+                    <p style={{ margin: '0', fontSize: '14px', color: 'var(--color-body)' }}>Professional IT Skills College</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
