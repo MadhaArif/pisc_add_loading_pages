@@ -87,7 +87,7 @@ const HeroSlider = () => {
           color: #fff;
           max-width: 800px;
           padding: 0 15px;
-          margin-top: 120px;
+          margin-top: 180px;
         }
         .hero-banner .banner-content .subtitle {
           color: #1ab69d;
