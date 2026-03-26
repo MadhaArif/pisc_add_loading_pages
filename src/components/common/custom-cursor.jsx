@@ -50,7 +50,7 @@ const CustomCursor = () => {
                     background-color: #1ab69d;
                     border-radius: 50%;
                     pointer-events: none;
-                    z-index: -1;
+                    z-index: 10001;
                     transform: translate(-50%, -50%);
                     transition: width 0.2s ease-in-out, height 0.2s ease-in-out, left 0.05s ease-out, top 0.05s ease-out;
                 }
@@ -65,8 +65,8 @@ const CustomCursor = () => {
                     border: 1.5px solid #1ab69d;
                     border-radius: 50%;
                     pointer-events: none;
-                    z-index: -1;
-                    mix-blend-mode: normal;
+                    z-index: 10000;
+                    mix-blend-mode: difference;
                     transform: translate(-50%, -50%);
                     transition: width 0.3s ease-out, height 0.3s ease-out, background-color 0.3s ease-out, border-color 0.3s ease-out, left 0.15s ease-out, top 0.15s ease-out;
                 }
