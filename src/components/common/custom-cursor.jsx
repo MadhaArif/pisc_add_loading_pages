@@ -74,7 +74,7 @@ const CustomCursor = () => {
                     width: 50px;
                     height: 50px;
                     background-color: rgba(26, 182, 157, 0.1);
-                    border-color: #ee4a62;
+                    border-color: #1ab69d;
                 }
             `}</style>
         </div>
