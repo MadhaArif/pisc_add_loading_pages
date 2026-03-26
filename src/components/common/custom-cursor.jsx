@@ -43,12 +43,6 @@ const CustomCursor = () => {
                 }}
             />
             <style jsx global>{`
-                body {
-                    cursor: none !important;
-                }
-                a, button, .cursor-pointer, input, textarea, .edu-btn {
-                    cursor: none !important;
-                }
                 .cursor-dot {
                     position: fixed;
                     width: 6px;
