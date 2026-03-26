@@ -78,8 +78,8 @@ const HeroSlider = () => {
           width: 100%;
           height: 100%;
           display: flex;
-          align-items: center;
-          padding-top: 150px;
+          align-items: flex-start;
+          padding-top: 280px;
           z-index: 5;
           background: linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
         }
@@ -87,7 +87,6 @@ const HeroSlider = () => {
           color: #fff;
           max-width: 800px;
           padding: 0 15px;
-          margin-top: 180px;
         }
         .hero-banner .banner-content .subtitle {
           color: #1ab69d;
