@@ -81,7 +81,7 @@ const HeroSlider = () => {
           height: 100%;
           display: flex;
           align-items: center;
-          padding-top: 150px;
+          padding-top: 200px;
           z-index: 5;
           background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
         }
