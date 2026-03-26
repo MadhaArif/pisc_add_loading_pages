@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import HomeUniversity from "../components/homes/home-university";
 import SEO from "../components/seo";
@@ -65,10 +66,12 @@ export default function Home() {
 
               <div className="modal-body">
                 {data.length > 0 && data[0][0] && (
-                  <img
-                    style={{ width: "100%" }}
+                  <Image
                     src={`/assets/images/course/${data[0][0]}`}
                     alt="Course Popup"
+                    width={500}
+                    height={500}
+                    layout="responsive"
                   />
                 )}
               </div>

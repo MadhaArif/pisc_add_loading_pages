@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import BreadcrumbThree from '../components/breadcrumb/breadcrumb-3';
 import SEO from '../components/seo';
@@ -20,7 +21,7 @@ const ErrorPage = () => {
                 <div className="container">
                     <div className="edu-error">
                         <div className="thumbnail">
-                            <img src="/assets/images/others/404.png" alt="404 Error" />
+                            <Image src="/assets/images/others/404.png" alt="404 Error" width={404} height={300} />
                             <ul className="shape-group">
                                 <motion.li className="shape-1 scene"
                                     animate={ {
@@ -28,7 +29,7 @@ const ErrorPage = () => {
                                         y: mouseReverse(30).y
                                     } }
                                 >
-                                    <img src="/assets/images/about/shape-25.png" alt="Shape" />
+                                    <Image src="/assets/images/about/shape-25.png" alt="Shape" width={50} height={50} />
                                 </motion.li>
                                 <motion.li className="shape-2 scene"
                                     animate={ {
@@ -36,7 +37,7 @@ const ErrorPage = () => {
                                         y: mouseDirection(30).y
                                     } }
                                 >
-                                    <img src="/assets/images/about/shape-15.png" alt="Shape" />
+                                    <Image src="/assets/images/about/shape-15.png" alt="Shape" width={50} height={50} />
                                 </motion.li>
                                 <motion.li className="shape-3 scene"
                                     animate={ {
@@ -44,7 +45,7 @@ const ErrorPage = () => {
                                         y: mouseReverse(30).y
                                     } }
                                 >
-                                    <img src="/assets/images/about/shape-13.png" alt="Shape" />
+                                    <Image src="/assets/images/about/shape-13.png" alt="Shape" width={50} height={50} />
                                 </motion.li>
                                 <motion.li className="shape-4 scene"
                                     animate={ {
@@ -52,7 +53,7 @@ const ErrorPage = () => {
                                         y: mouseDirection(30).y
                                     } }
                                 >
-                                    <img src="/assets/images/counterup/shape-02.png" alt="Shape" />
+                                    <Image src="/assets/images/counterup/shape-02.png" alt="Shape" width={50} height={50} />
                                 </motion.li>
                             </ul>
                         </div>
@@ -69,7 +70,7 @@ const ErrorPage = () => {
                 </div>
                 <ul className="shape-group">
                     <li className="shape-1">
-                        <img src="/assets/images/others/map-shape-2.png" alt="Shape" />
+                        <Image src="/assets/images/others/map-shape-2.png" alt="Shape" width={200} height={200} />
                     </li>
                 </ul>
             </section>

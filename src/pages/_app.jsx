@@ -25,7 +25,6 @@ function MyApp( { Component, pageProps } ) {
     return (
         <React.Fragment>
             <Head>
-                <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet" />
             </Head>
             <Provider store={ store }>
                 <ThemeProvider defaultTheme="light">
