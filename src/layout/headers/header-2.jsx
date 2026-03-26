@@ -23,8 +23,7 @@ const HeaderTwo = ({ style_3, no_topBar = false }) => {
                                 <div className="logo">
                                     <Link href="/">
                                         <a>
-                                            <Image className="logo-light" width={100} height={40} src={style_3 ? '/assets/images/logo/logo-white.svg' : "/assets/images/logo/logo-white.svg"} alt="Pact College Logo Light" />
-                                            <Image className="logo-dark" width={100} height={40} src={style_3 ? '/assets/images/logo/logo-dark.svg' : "/assets/images/logo/logo-dark.svg"} alt="Pact College Logo Dark" />
+                                            <Image className="logo-dark" width={180} height={70} src="/assets/images/logo/logo-dark.svg" alt="Pact College Logo" />
                                         </a>
                                     </Link>
                                 </div>
