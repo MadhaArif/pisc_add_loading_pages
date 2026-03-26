@@ -79,24 +79,24 @@ const HeroSlider = () => {
           height: 100%;
           display: flex;
           align-items: center;
-          padding-top: 250px;
+          padding-top: 150px;
           z-index: 5;
-          background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+          background: linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
         }
         .hero-banner .banner-content {
           color: #fff;
-          max-width: 850px;
+          max-width: 800px;
           padding: 0 15px;
-          margin-top: 50px;
+          margin-top: 120px;
         }
         .hero-banner .banner-content .subtitle {
           color: #1ab69d;
-          font-size: 16px;
+          font-size: 15px;
           font-weight: 600;
-          margin-bottom: 20px;
+          margin-bottom: 15px;
           display: inline-block;
           text-transform: uppercase;
-          letter-spacing: 4px;
+          letter-spacing: 3px;
           position: relative;
           padding-left: 65px;
         }
@@ -111,13 +111,12 @@ const HeroSlider = () => {
           transform: translateY(-50%);
         }
         .hero-banner .banner-content .title {
-          font-size: 72px;
-          line-height: 1.1;
-          margin-bottom: 30px;
+          font-size: 52px;
+          line-height: 1.15;
+          margin-bottom: 25px;
           color: #ffffff;
-          font-weight: 700;
-          letter-spacing: -2px;
-          text-transform: capitalize;
+          font-weight: 800;
+          text-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
         .hero-banner .banner-content p {
           font-size: 19px;
