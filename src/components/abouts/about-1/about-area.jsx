@@ -202,7 +202,7 @@ const AboutArea = ({ imgage }) => {
         <div className="gap-top-equal gap-bottom-equal">
           <div className="container">
             <div className="row gx-5 align-items-center">
-              <div className="col-lg-7">
+              <div className="col-lg-8">
                 <div className="section-title section-left">
                   <h2 className="title sub-heading mt-0">
                     About <span className="color-secondary">CEO</span>
@@ -218,7 +218,7 @@ const AboutArea = ({ imgage }) => {
                 </div>
               </div>
 
-              <div className="col-lg-5">
+              <div className="col-lg-4">
                 <div className="about-image-gallery" style={{ padding: '0', position: 'relative' }}>
                   <div style={{
                     position: 'absolute',
