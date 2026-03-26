@@ -74,7 +74,7 @@ const HeroSlider = () => {
           height: 100%;
           display: flex;
           align-items: center;
-          padding-top: 150px;
+          padding-top: 100px;
           z-index: 5;
           background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%);
         }
@@ -82,13 +82,13 @@ const HeroSlider = () => {
           color: #fff;
           max-width: 750px;
           padding: 0 15px;
-          margin-top: 50px;
+          margin-top: 80px;
         }
         .hero-banner .banner-content .subtitle {
           color: #1ab69d;
-          font-size: 18px;
+          font-size: 16px;
           font-weight: 600;
-          margin-bottom: 25px;
+          margin-bottom: 20px;
           display: inline-block;
           text-transform: uppercase;
           letter-spacing: 3px;
@@ -106,19 +106,19 @@ const HeroSlider = () => {
           transform: translateY(-50%);
         }
         .hero-banner .banner-content .title {
-          font-size: 75px;
-          line-height: 1.05;
-          margin-bottom: 30px;
+          font-size: 60px;
+          line-height: 1.1;
+          margin-bottom: 25px;
           color: #fff;
           font-weight: 800;
           text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         .hero-banner .banner-content p {
-          font-size: 20px;
-          line-height: 1.7;
-          margin-bottom: 45px;
+          font-size: 18px;
+          line-height: 1.6;
+          margin-bottom: 40px;
           color: rgba(255,255,255,0.85);
-          max-width: 600px;
+          max-width: 550px;
         }
         .hero-banner .edu-btn {
           padding: 20px 45px;
