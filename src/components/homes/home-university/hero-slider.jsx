@@ -79,7 +79,7 @@ const HeroSlider = () => {
           height: 100%;
           display: flex;
           align-items: flex-start;
-          padding-top: 320px;
+          padding-top: 350px; // Final position fix
           z-index: 5;
           background: linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
         }
