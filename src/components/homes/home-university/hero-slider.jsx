@@ -79,7 +79,7 @@ const HeroSlider = () => {
           height: 100%;
           display: flex;
           align-items: flex-start;
-          padding-top: 280px;
+          padding-top: 320px;
           z-index: 5;
           background: linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
         }
@@ -110,8 +110,8 @@ const HeroSlider = () => {
           transform: translateY(-50%);
         }
         .hero-banner .banner-content .title {
-          font-size: 52px;
-          line-height: 1.15;
+          font-size: 48px;
+          line-height: 1.2;
           margin-bottom: 25px;
           color: #ffffff;
           font-weight: 800;
