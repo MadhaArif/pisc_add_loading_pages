@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import FooterSocial from "./component/footer-social";
 
 const { desc, widgets } = {
@@ -57,13 +58,13 @@ const Footer = ({ style_2, dark_bg, home_4 }) => {
                                 <div className="logo">
                                     <Link href={'/'}>
                                         <a>
-                                            {!dark_bg && <img style={{ width: '100px' }} className="logo-light" src='/assets/images/logo/logo-dark.svg' alt="Corporate Logo" />}
+                                            {!dark_bg && <Image width={100} height={40} className="logo-light" src='/assets/images/logo/logo-dark.svg' alt="Pact College Logo Light" />}
                                         </a>
                                     </Link>
 
                                     <Link href={'/'}>
                                         <a>
-                                            {dark_bg && <img style={{ width: '100px' }} className="logo-light" src={home_4 ? '/assets/images/logo/logo-white.svg' : '/assets/images/logo/logo-white.svg'} alt="Corporate Logo" />}
+                                            {dark_bg && <Image width={100} height={40} className="logo-light" src={home_4 ? '/assets/images/logo/logo-white.svg' : '/assets/images/logo/logo-white.svg'} alt="Pact College Logo Dark" />}
                                         </a>
                                     </Link>
                                 </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import CourseTypeSix from '../../course/course-type-six';
 
 const CoursesArea = () => {
@@ -57,12 +58,12 @@ const CoursesArea = () => {
 
             <ul className="shape-group">
                 <li className="shape-1">
-                    <img className="d-block-shape-light" src="/assets/images/others/map-shape-3.png" alt="Shape" />
-                    <img className="d-none-shape-dark" src="/assets/images/others/3-Home-1.png" alt="Shape" />
+                    <Image width={500} height={500} className="d-block-shape-light" src="/assets/images/others/map-shape-3.png" alt="Map Shape Light" />
+                    <Image width={500} height={500} className="d-none-shape-dark" src="/assets/images/others/3-Home-1.png" alt="Home Shape Dark" />
                 </li>
                 <li className="shape-2">
-                    <img className="d-block-shape-light" src="/assets/images/others/map-shape-3.png" alt="Shape" />
-                    <img className="d-none-shape-dark" src="/assets/images/others/dark-map-shape-3.png" alt="Shape" />
+                    <Image width={500} height={500} className="d-block-shape-light" src="/assets/images/others/map-shape-3.png" alt="Map Shape Light" />
+                    <Image width={500} height={500} className="d-none-shape-dark" src="/assets/images/others/dark-map-shape-3.png" alt="Map Shape Dark" />
                 </li>
             </ul>
         </div>

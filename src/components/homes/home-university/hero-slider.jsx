@@ -5,6 +5,7 @@ import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 SwiperCore.use([Autoplay, EffectFade, Navigation]);
 
@@ -34,6 +35,7 @@ const HeroSlider = () => {
       {/* Custom Navigation Buttons */}
       <button
         className="slide-prev"
+        aria-label="Previous Slide"
         style={{
           position: "absolute",
           left: "20px",
@@ -62,6 +64,7 @@ const HeroSlider = () => {
 
       <button
         className="slide-next"
+        aria-label="Next Slide"
         style={{
           position: "absolute",
           right: "20px",
@@ -114,11 +117,15 @@ const HeroSlider = () => {
 
           return (
             <SwiperSlide key={ind}>
-              <img
-                src={img}
-                alt="image"
-                style={{ height: "80vh", width: "100%", objectFit: "cover" }}
-              />
+              <div style={{ position: "relative", height: "80vh", width: "100%" }}>
+                <Image
+                  src={img}
+                  alt={title || "Hero Slider Image"}
+                  layout="fill"
+                  objectFit="cover"
+                  priority={ind === 0}
+                />
+              </div>
               <div className="thumbnail-bg-content">
                 <div className="container edublink-animated-shape">
                   <div className="row">

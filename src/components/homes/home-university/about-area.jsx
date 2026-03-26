@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useMouseMoveUI } from '../../../contexts/mouse-move-context';
 
 const tabs = {
@@ -78,8 +79,8 @@ const AboutArea = ({img, img2}) => {
                     </div>
                     <div className="col-lg-6">
                         <div className="about-image-gallery">
-                            <img className="main-img-1" style={{width: '390px'}} data-sal-delay="100" data-sal="slide-up" data-sal-duration="800" src={`/assets/images/course/${img}`} alt="About Image" />
-                            <img className="main-img-2" style={{width: '230px'}} data-sal-delay="100" data-sal="slide-left" data-sal-duration="800" src={`/assets/images/course/${img2}`} alt="About Image" />
+                            <Image width={390} height={500} className="main-img-1" data-sal-delay="100" data-sal="slide-up" data-sal-duration="800" src={`/assets/images/course/${img}`} alt="About Pact College Main" />
+                            <Image width={230} height={300} className="main-img-2" data-sal-delay="100" data-sal="slide-left" data-sal-duration="800" src={`/assets/images/course/${img2}`} alt="About Pact College Secondary" />
                         </div>
                     </div>
                 </div>

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import SearchPopup from '../../components/common/popup-modal/search-popup';
@@ -22,8 +23,8 @@ const HeaderTwo = ({ style_3, no_topBar = false }) => {
                                 <div className="logo">
                                     <Link href="/">
                                         <a>
-                                            <img className="logo-light" style={{ width: '100px' }} src={style_3 ? '/assets/images/logo/logo-white.svg' : "/assets/images/logo/logo-white.svg"} alt="Corporate Logo" />
-                                            <img className="logo-dark" style={{ width: '100px' }} src={style_3 ? '/assets/images/logo/logo-dark.svg' : "/assets/images/logo/logo-dark.svg"} alt="Corporate Logo" />
+                                            <Image className="logo-light" width={100} height={40} src={style_3 ? '/assets/images/logo/logo-white.svg' : "/assets/images/logo/logo-white.svg"} alt="Pact College Logo Light" />
+                                            <Image className="logo-dark" width={100} height={40} src={style_3 ? '/assets/images/logo/logo-dark.svg' : "/assets/images/logo/logo-dark.svg"} alt="Pact College Logo Dark" />
                                         </a>
                                     </Link>
                                 </div>
@@ -47,7 +48,7 @@ const HeaderTwo = ({ style_3, no_topBar = false }) => {
 
 
                                     <li className="mobile-menu-bar d-block d-xl-none">
-                                        <button className="hamberger-button" onClick={() => setIsOpen(true)}>
+                                        <button className="hamberger-button" onClick={() => setIsOpen(true)} aria-label="Open Mobile Menu">
                                             <i className="icon-54"></i>
                                         </button>
                                     </li>
