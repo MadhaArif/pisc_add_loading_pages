@@ -31,62 +31,94 @@ const HeroSlider = () => {
   }, []);
 
   return (
-    <div className="hero-banner hero-style-3 bg-image" style={{ position: "relative" }}>
+    <div className="hero-banner hero-style-3 bg-image" style={{ position: "relative", overflow: "hidden" }}>
+      <style jsx global>{`
+        .hero-banner .swiper-slide {
+          position: relative;
+        }
+        .hero-banner .thumbnail-bg-content {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          z-index: 2;
+          background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%);
+        }
+        .hero-banner .banner-content {
+          color: #fff;
+          max-width: 650px;
+        }
+        .hero-banner .banner-content .subtitle {
+          color: #1ab69d;
+          font-size: 20px;
+          font-weight: 600;
+          margin-bottom: 20px;
+          display: block;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+        }
+        .hero-banner .banner-content .title {
+          font-size: 70px;
+          line-height: 1.1;
+          margin-bottom: 25px;
+          color: #fff;
+        }
+        .hero-banner .banner-content p {
+          font-size: 18px;
+          line-height: 1.6;
+          margin-bottom: 40px;
+          color: rgba(255,255,255,0.8);
+        }
+        .hero-banner .slide-prev, .hero-banner .slide-next {
+          width: 60px;
+          height: 60px;
+          background: rgba(255,255,255,0.1) !important;
+          border: 1px solid rgba(255,255,255,0.2) !important;
+          backdrop-filter: blur(10px);
+          border-radius: 50%;
+          color: #fff;
+          transition: all 0.3s ease;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 10;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .hero-banner .slide-prev:hover, .hero-banner .slide-next:hover {
+          background: #1ab69d !important;
+          border-color: #1ab69d !important;
+          transform: translateY(-50%) scale(1.1);
+        }
+        .hero-banner .slide-prev { left: 40px; }
+        .hero-banner .slide-next { right: 40px; }
+        
+        @media only screen and (max-width: 991px) {
+          .hero-banner .banner-content .title { font-size: 50px; }
+          .hero-banner .slide-prev { left: 20px; }
+          .hero-banner .slide-next { right: 20px; }
+        }
+        @media only screen and (max-width: 767px) {
+          .hero-banner .banner-content .title { font-size: 36px; }
+          .hero-banner .thumbnail-bg-content { background: rgba(0,0,0,0.5); }
+          .hero-banner .slide-prev, .hero-banner .slide-next { display: none; }
+        }
+      `}</style>
+
       {/* Custom Navigation Buttons */}
-      <button
-        className="slide-prev"
-        aria-label="Previous Slide"
-        style={{
-          position: "absolute",
-          left: "20px",
-          top: "50%",
-          transform: "translateY(-50%)",
-          zIndex: 10,
-          background: "rgba(255,255,255,0.25)",
-          border: "2px solid rgba(255,255,255,0.6)",
-          borderRadius: "50%",
-          width: "52px",
-          height: "52px",
-          cursor: "pointer",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          backdropFilter: "blur(4px)",
-          transition: "background 0.3s",
-        }}
-        onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.45)"}
-        onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.25)"}
-      >
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <button className="slide-prev" aria-label="Previous Slide">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="15 18 9 12 15 6" />
         </svg>
       </button>
 
-      <button
-        className="slide-next"
-        aria-label="Next Slide"
-        style={{
-          position: "absolute",
-          right: "20px",
-          top: "50%",
-          transform: "translateY(-50%)",
-          zIndex: 10,
-          background: "rgba(255,255,255,0.25)",
-          border: "2px solid rgba(255,255,255,0.6)",
-          borderRadius: "50%",
-          width: "52px",
-          height: "52px",
-          cursor: "pointer",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          backdropFilter: "blur(4px)",
-          transition: "background 0.3s",
-        }}
-        onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.45)"}
-        onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.25)"}
-      >
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <button className="slide-next" aria-label="Next Slide">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="9 18 15 12 9 6" />
         </svg>
       </button>
@@ -100,9 +132,9 @@ const HeroSlider = () => {
         observer={true}
         observeParents={true}
         effect="fade"
-        speed={800}
+        speed={1000}
         autoplay={{
-          delay: 3000,           // ✅ 3 seconds
+          delay: 5000,
           disableOnInteraction: false,
         }}
         navigation={{
@@ -117,7 +149,7 @@ const HeroSlider = () => {
 
           return (
             <SwiperSlide key={ind}>
-              <div style={{ position: "relative", height: "80vh", width: "100%" }}>
+              <div style={{ position: "relative", height: "90vh", width: "100%" }}>
                 <Image
                   src={img}
                   alt={title || "Hero Slider Image"}
@@ -127,26 +159,25 @@ const HeroSlider = () => {
                 />
               </div>
               <div className="thumbnail-bg-content">
-                <div className="container edublink-animated-shape">
+                <div className="container">
                   <div className="row">
-                    <div className="col-7">
+                    <div className="col-lg-8">
                       <div className="banner-content">
-                        <span className="subtitle" data-sal="slide-up" data-sal-duration="200">
+                        <span className="subtitle" data-sal="slide-up" data-sal-duration="800">
                           {subtitle}
                         </span>
                         <h1
-                          style={{ fontWeight: 700}}
-                          className="title heading"
+                          className="title"
                           data-sal-delay="100"
                           data-sal="slide-up"
-                          data-sal-duration="200"
+                          data-sal-duration="800"
                         >
                           {title}
                         </h1>
-                        <p data-sal-delay="200" data-sal="slide-up" data-sal-duration="200">
+                        <p data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
                           {sm_text}
                         </p>
-                        <div className="banner-btn" data-sal-delay="400" data-sal="slide-up" data-sal-duration="200">
+                        <div className="banner-btn" data-sal-delay="400" data-sal="slide-up" data-sal-duration="800">
                           <Link href="/course">
                             <a className="edu-btn btn-secondary">
                               {btn_text} <i className="icon-4"></i>
