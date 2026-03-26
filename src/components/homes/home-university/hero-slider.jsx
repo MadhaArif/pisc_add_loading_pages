@@ -7,8 +7,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-SwiperCore.use([Autoplay, EffectFade, Navigation]);
-
 const HeroSlider = () => {
   const [slider, setSlider] = useState([]);
   const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
