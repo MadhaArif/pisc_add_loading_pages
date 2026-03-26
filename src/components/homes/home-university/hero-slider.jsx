@@ -121,16 +121,28 @@ const HeroSlider = () => {
           max-width: 550px;
         }
         .hero-banner .edu-btn {
-          padding: 20px 45px;
+          padding: 18px 40px;
           font-size: 18px;
           font-weight: 600;
           border-radius: 5px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          line-height: 1;
           box-shadow: 0 10px 30px rgba(26, 182, 157, 0.3);
           transition: all 0.4s ease;
+          text-transform: capitalize;
+        }
+        .hero-banner .edu-btn i {
+          font-size: 16px;
+          margin: 0;
+          line-height: 1;
         }
         .hero-banner .edu-btn:hover {
           transform: translateY(-5px);
           box-shadow: 0 15px 35px rgba(26, 182, 157, 0.5);
+          color: #fff;
         }
         
         .hero-banner .slide-prev, .hero-banner .slide-next {
