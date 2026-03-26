@@ -17,7 +17,7 @@ const HeroSlider = () => {
 
   // Fallback slides in case Google Sheets fetch fails
   const fallbackSlider = [
-    ["1", "slider1.png", "Welcome to Pact College", "Pakistan No.1 IT Skills College", "Serving Students Across Pakistan & Internationally. On-Campus & Online Training Lahore, Pakistan.", "Find Courses"],
+    ["1", "slider1234.png", "World Class IT Training", "Pakistan No.1 IT Skills College", "Expert-led courses in Web Dev, AI, Graphic Design & IELTS Preparation.", "Find Courses"],
     ["2", "slider2.png", "Join Our Community", "Professional IT Training & IELTS Preparation", "Practical & Hands-On Training. 10,000+ Students Trained Successfully.", "Learn More"]
   ];
 
@@ -66,6 +66,13 @@ const HeroSlider = () => {
           width: 100%;
           overflow: hidden;
         }
+        .hero-banner .swiper-slide-active .image-container {
+          animation: kenburns 20s infinite alternate;
+        }
+        @keyframes kenburns {
+          from { transform: scale(1); }
+          to { transform: scale(1.15); }
+        }
         .hero-banner .thumbnail-bg-content {
           position: absolute;
           top: 0;
@@ -74,85 +81,76 @@ const HeroSlider = () => {
           height: 100%;
           display: flex;
           align-items: center;
-          padding-top: 80px;
+          padding-top: 50px;
           z-index: 5;
-          background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.1) 100%);
+          background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
         }
         .hero-banner .banner-content {
           color: #fff;
-          max-width: 800px;
+          max-width: 850px;
           padding: 0 15px;
-          margin-top: 0;
         }
         .hero-banner .banner-content .subtitle {
           color: #1ab69d;
           font-size: 16px;
           font-weight: 600;
-          margin-bottom: 15px;
+          margin-bottom: 20px;
           display: inline-block;
           text-transform: uppercase;
-          letter-spacing: 3px;
+          letter-spacing: 4px;
           position: relative;
-          padding-left: 60px;
+          padding-left: 65px;
         }
         .hero-banner .banner-content .subtitle::before {
           content: "";
           position: absolute;
           left: 0;
           top: 50%;
-          width: 45px;
+          width: 50px;
           height: 2px;
           background: #1ab69d;
           transform: translateY(-50%);
         }
         .hero-banner .banner-content .title {
-          font-size: 55px;
-          line-height: 1.15;
-          margin-bottom: 25px;
+          font-size: 72px;
+          line-height: 1.1;
+          margin-bottom: 30px;
           color: #ffffff;
-          font-weight: 800;
-          text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+          font-weight: 700;
+          letter-spacing: -2px;
+          text-transform: capitalize;
         }
         .hero-banner .banner-content p {
-          font-size: 18px;
-          line-height: 1.8;
-          margin-bottom: 40px;
+          font-size: 19px;
+          line-height: 1.7;
+          margin-bottom: 45px;
           color: rgba(255,255,255,0.9);
-          max-width: 650px;
+          max-width: 600px;
+          font-weight: 400;
         }
         .hero-banner .edu-btn {
-          padding: 16px 35px;
-          font-size: 16px;
+          padding: 18px 40px;
+          font-size: 17px;
           font-weight: 600;
-          border-radius: 5px;
+          border-radius: 4px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
           gap: 12px;
-          line-height: 1;
-          box-shadow: 0 10px 25px rgba(26, 182, 157, 0.3);
+          box-shadow: 0 10px 30px rgba(26, 182, 157, 0.2);
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          text-transform: capitalize;
-        }
-        .hero-banner .edu-btn i {
-          font-size: 14px;
-          margin: 0;
-          transition: transform 0.3s ease;
-        }
-        .hero-banner .edu-btn:hover i {
-          transform: translateX(5px);
         }
         .hero-banner .edu-btn:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 15px 30px rgba(26, 182, 157, 0.45);
+          transform: translateY(-5px);
+          box-shadow: 0 15px 35px rgba(26, 182, 157, 0.4);
           color: #fff;
         }
         
         .hero-banner .slide-prev, .hero-banner .slide-next {
-          width: 50px;
-          height: 50px;
-          background: rgba(255,255,255,0.1) !important;
-          border: 1px solid rgba(255,255,255,0.2) !important;
+          width: 55px;
+          height: 55px;
+          background: rgba(255,255,255,0.05) !important;
+          border: 1px solid rgba(255,255,255,0.1) !important;
           backdrop-filter: blur(10px);
           border-radius: 50%;
           color: #fff;
@@ -174,24 +172,18 @@ const HeroSlider = () => {
         .hero-banner .slide-prev { left: 20px; }
         .hero-banner .slide-next { right: 20px; }
         
-        @media only screen and (max-width: 1399px) {
-          .hero-banner .banner-content .title { font-size: 65px; }
-          .hero-banner .slide-prev { left: 30px; }
-          .hero-banner .slide-next { right: 30px; }
-        }
         @media only screen and (max-width: 1199px) {
           .hero-banner .banner-content .title { font-size: 55px; }
-          .hero-banner .university-activator { height: 85vh; }
+          .hero-banner .university-activator { height: 80vh; }
         }
         @media only screen and (max-width: 991px) {
-          .hero-banner .banner-content .title { font-size: 48px; }
-          .hero-banner .banner-content p { font-size: 18px; }
-          .hero-banner .slide-prev, .hero-banner .slide-next { width: 50px; height: 50px; }
+          .hero-banner .banner-content .title { font-size: 45px; }
+          .hero-banner .banner-content p { font-size: 17px; }
         }
         @media only screen and (max-width: 767px) {
-          .hero-banner .banner-content .title { font-size: 38px; }
-          .hero-banner .university-activator { height: 75vh; }
-          .hero-banner .thumbnail-bg-content { background: rgba(0,0,0,0.65); }
+          .hero-banner .banner-content .title { font-size: 36px; }
+          .hero-banner .university-activator { height: 70vh; }
+          .hero-banner .thumbnail-bg-content { background: rgba(0,0,0,0.7); }
           .hero-banner .slide-prev, .hero-banner .slide-next { display: none !important; }
         }
       `}</style>
@@ -235,7 +227,7 @@ const HeroSlider = () => {
 
           return (
             <SwiperSlide key={ind}>
-              <div style={{ position: "relative", height: "100%", width: "100%", background: "#000" }}>
+              <div className="image-container" style={{ position: "relative", height: "100%", width: "100%", background: "#000" }}>
                 <Image
                   src={img}
                   alt={title || "Hero Slider Image"}
@@ -243,6 +235,7 @@ const HeroSlider = () => {
                   objectFit="cover"
                   priority={ind === 0}
                   loading={ind === 0 ? "eager" : "lazy"}
+                  style={{ filter: "brightness(0.8) contrast(1.1)" }}
                 />
               </div>
               <div className="thumbnail-bg-content">
