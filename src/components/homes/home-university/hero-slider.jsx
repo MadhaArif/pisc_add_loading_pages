@@ -15,6 +15,12 @@ const HeroSlider = () => {
   const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
   const RANGE = "slider";
 
+  // Fallback slides in case Google Sheets fetch fails
+  const fallbackSlider = [
+    ["1", "slider1.png", "Welcome to Pact College", "Pakistan No.1 IT Skills College", "Serving Students Across Pakistan & Internationally. On-Campus & Online Training Lahore, Pakistan.", "Find Courses"],
+    ["2", "slider2.png", "Join Our Community", "Professional IT Training & IELTS Preparation", "Practical & Hands-On Training. 10,000+ Students Trained Successfully.", "Learn More"]
+  ];
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -22,27 +28,43 @@ const HeroSlider = () => {
           `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`
         );
         const result = await response.json();
-        if (result?.values) {
-          const data = result.values;
+        if (result?.values && result.values.length > 1) {
+          const data = [...result.values];
           data.shift(); // Remove header row
           setSlider(data);
+        } else {
+          // If no data or empty values, use fallback
+          setSlider(fallbackSlider);
         }
       } catch (error) {
         console.error("Error fetching data: ", error);
+        setSlider(fallbackSlider);
       }
     };
     fetchData();
   }, []);
 
+  // Show nothing until we have some data (either from API or fallback)
+  if (slider.length === 0) {
+    return (
+      <div style={{ height: "90vh", width: "100%", background: "#000", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <h3 style={{ color: "#fff" }}>Loading Slider...</h3>
+      </div>
+    );
+  }
+
   return (
-    <div className="hero-banner hero-style-3 bg-image" style={{ position: "relative", overflow: "hidden", minHeight: "80vh" }}>
+    <div className="hero-banner hero-style-3 bg-image" style={{ position: "relative", overflow: "hidden", minHeight: "80vh", zIndex: 1 }}>
       <style jsx global>{`
         .hero-banner .university-activator {
           height: 90vh;
+          width: 100%;
         }
         .hero-banner .swiper-slide {
           position: relative;
           height: 100%;
+          width: 100%;
+          overflow: hidden;
         }
         .hero-banner .thumbnail-bg-content {
           position: absolute;
@@ -52,12 +74,13 @@ const HeroSlider = () => {
           height: 100%;
           display: flex;
           align-items: center;
-          z-index: 2;
-          background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%);
+          z-index: 5;
+          background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);
         }
         .hero-banner .banner-content {
           color: #fff;
-          max-width: 650px;
+          max-width: 700px;
+          padding-left: 15px;
         }
         .hero-banner .banner-content .subtitle {
           color: #1ab69d;
@@ -69,32 +92,33 @@ const HeroSlider = () => {
           letter-spacing: 2px;
         }
         .hero-banner .banner-content .title {
-          font-size: 70px;
+          font-size: 65px;
           line-height: 1.1;
           margin-bottom: 25px;
           color: #fff;
+          font-weight: 800;
         }
         .hero-banner .banner-content p {
           font-size: 18px;
           line-height: 1.6;
           margin-bottom: 40px;
-          color: rgba(255,255,255,0.8);
+          color: rgba(255,255,255,0.9);
         }
         .hero-banner .slide-prev, .hero-banner .slide-next {
-          width: 60px;
-          height: 60px;
-          background: rgba(255,255,255,0.1) !important;
-          border: 1px solid rgba(255,255,255,0.2) !important;
-          backdrop-filter: blur(10px);
+          width: 55px;
+          height: 55px;
+          background: rgba(255,255,255,0.15) !important;
+          border: 1.5px solid rgba(255,255,255,0.3) !important;
+          backdrop-filter: blur(8px);
           border-radius: 50%;
           color: #fff;
-          transition: all 0.3s ease;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          z-index: 10;
+          z-index: 100;
           cursor: pointer;
-          display: flex;
+          display: flex !important;
           align-items: center;
           justify-content: center;
         }
@@ -102,31 +126,37 @@ const HeroSlider = () => {
           background: #1ab69d !important;
           border-color: #1ab69d !important;
           transform: translateY(-50%) scale(1.1);
+          box-shadow: 0 0 20px rgba(26, 182, 157, 0.4);
         }
-        .hero-banner .slide-prev { left: 40px; }
-        .hero-banner .slide-next { right: 40px; }
+        .hero-banner .slide-prev { left: 30px; }
+        .hero-banner .slide-next { right: 30px; }
         
+        @media only screen and (max-width: 1199px) {
+          .hero-banner .banner-content .title { font-size: 55px; }
+          .hero-banner .university-activator { height: 80vh; }
+        }
         @media only screen and (max-width: 991px) {
-          .hero-banner .banner-content .title { font-size: 50px; }
-          .hero-banner .slide-prev { left: 20px; }
-          .hero-banner .slide-next { right: 20px; }
+          .hero-banner .banner-content .title { font-size: 45px; }
+          .hero-banner .slide-prev { left: 15px; }
+          .hero-banner .slide-next { right: 15px; }
         }
         @media only screen and (max-width: 767px) {
-          .hero-banner .banner-content .title { font-size: 36px; }
-          .hero-banner .thumbnail-bg-content { background: rgba(0,0,0,0.5); }
-          .hero-banner .slide-prev, .hero-banner .slide-next { display: none; }
+          .hero-banner .banner-content .title { font-size: 34px; }
+          .hero-banner .university-activator { height: 70vh; }
+          .hero-banner .thumbnail-bg-content { background: rgba(0,0,0,0.6); }
+          .hero-banner .slide-prev, .hero-banner .slide-next { display: none !important; }
         }
       `}</style>
 
       {/* Custom Navigation Buttons */}
       <button className="slide-prev" aria-label="Previous Slide">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="15 18 9 12 15 6" />
         </svg>
       </button>
 
       <button className="slide-next" aria-label="Next Slide">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="9 18 15 12 9 6" />
         </svg>
       </button>
@@ -151,65 +181,51 @@ const HeroSlider = () => {
         }}
         className="swiper university-activator"
       >
-        {slider.length > 0 ? (
-          slider.map((item, ind) => {
-            const [id, src, subtitle, title, sm_text, btn_text] = item;
-            const img = `/assets/images/course/${src}`;
+        {slider.map((item, ind) => {
+          const [id, src, subtitle, title, sm_text, btn_text] = item;
+          const img = `/assets/images/course/${src}`;
 
-            return (
-              <SwiperSlide key={ind}>
-                <div style={{ position: "relative", height: "100%", width: "100%" }}>
-                  <Image
-                    src={img}
-                    alt={title || "Hero Slider Image"}
-                    layout="fill"
-                    objectFit="cover"
-                    priority={ind === 0}
-                  />
-                </div>
-                <div className="thumbnail-bg-content">
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-lg-8">
-                        <div className="banner-content">
-                          <span className="subtitle" data-sal="slide-up" data-sal-duration="800">
-                            {subtitle}
-                          </span>
-                          <h1
-                            className="title"
-                            data-sal-delay="100"
-                            data-sal="slide-up"
-                            data-sal-duration="800"
-                          >
-                            {title}
-                          </h1>
-                          <p data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
-                            {sm_text}
-                          </p>
-                          <div className="banner-btn" data-sal-delay="400" data-sal-duration="800">
-                            <Link href="/course">
-                              <a className="edu-btn btn-secondary">
-                                {btn_text} <i className="icon-4"></i>
-                              </a>
-                            </Link>
-                          </div>
+          return (
+            <SwiperSlide key={ind}>
+              <div style={{ position: "relative", height: "100%", width: "100%", background: "#000" }}>
+                <Image
+                  src={img}
+                  alt={title || "Hero Slider Image"}
+                  layout="fill"
+                  objectFit="cover"
+                  priority={ind === 0}
+                  loading={ind === 0 ? "eager" : "lazy"}
+                />
+              </div>
+              <div className="thumbnail-bg-content">
+                <div className="container">
+                  <div className="row">
+                    <div className="col-lg-10 col-xl-8">
+                      <div className="banner-content">
+                        <span className="subtitle animated fadeInDown">
+                          {subtitle}
+                        </span>
+                        <h1 className="title animated fadeInUp">
+                          {title}
+                        </h1>
+                        <p className="animated fadeInUp">
+                          {sm_text}
+                        </p>
+                        <div className="banner-btn animated fadeInUp">
+                          <Link href="/course">
+                            <a className="edu-btn btn-secondary">
+                              {btn_text || "Get Started"} <i className="icon-4"></i>
+                            </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </SwiperSlide>
-            );
-          })
-        ) : (
-          <SwiperSlide>
-            <div style={{ height: "100%", width: "100%", display: "flex", alignItems: "center", justifyContent: "center", background: "#f0f2f5" }}>
-              <div className="text-center">
-                <h3>Loading Slider...</h3>
               </div>
-            </div>
-          </SwiperSlide>
-        )}
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );
