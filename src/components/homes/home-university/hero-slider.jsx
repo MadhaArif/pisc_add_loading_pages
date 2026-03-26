@@ -74,21 +74,21 @@ const HeroSlider = () => {
           height: 100%;
           display: flex;
           align-items: center;
-          padding-top: 100px;
+          padding-top: 80px;
           z-index: 5;
-          background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%);
+          background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.1) 100%);
         }
         .hero-banner .banner-content {
           color: #fff;
-          max-width: 750px;
+          max-width: 800px;
           padding: 0 15px;
-          margin-top: 80px;
+          margin-top: 0;
         }
         .hero-banner .banner-content .subtitle {
           color: #1ab69d;
           font-size: 16px;
           font-weight: 600;
-          margin-bottom: 20px;
+          margin-bottom: 15px;
           display: inline-block;
           text-transform: uppercase;
           letter-spacing: 3px;
@@ -106,54 +106,57 @@ const HeroSlider = () => {
           transform: translateY(-50%);
         }
         .hero-banner .banner-content .title {
-          font-size: 60px;
-          line-height: 1.1;
+          font-size: 55px;
+          line-height: 1.15;
           margin-bottom: 25px;
-          color: #fff;
+          color: #ffffff;
           font-weight: 800;
-          text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+          text-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
         .hero-banner .banner-content p {
           font-size: 18px;
-          line-height: 1.6;
+          line-height: 1.8;
           margin-bottom: 40px;
-          color: rgba(255,255,255,0.85);
-          max-width: 550px;
+          color: rgba(255,255,255,0.9);
+          max-width: 650px;
         }
         .hero-banner .edu-btn {
-          padding: 18px 40px;
-          font-size: 18px;
+          padding: 16px 35px;
+          font-size: 16px;
           font-weight: 600;
           border-radius: 5px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          gap: 10px;
+          gap: 12px;
           line-height: 1;
-          box-shadow: 0 10px 30px rgba(26, 182, 157, 0.3);
-          transition: all 0.4s ease;
+          box-shadow: 0 10px 25px rgba(26, 182, 157, 0.3);
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
           text-transform: capitalize;
         }
         .hero-banner .edu-btn i {
-          font-size: 16px;
+          font-size: 14px;
           margin: 0;
-          line-height: 1;
+          transition: transform 0.3s ease;
+        }
+        .hero-banner .edu-btn:hover i {
+          transform: translateX(5px);
         }
         .hero-banner .edu-btn:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 15px 35px rgba(26, 182, 157, 0.5);
+          transform: translateY(-3px);
+          box-shadow: 0 15px 30px rgba(26, 182, 157, 0.45);
           color: #fff;
         }
         
         .hero-banner .slide-prev, .hero-banner .slide-next {
-          width: 65px;
-          height: 65px;
-          background: rgba(255,255,255,0.08) !important;
-          border: 1px solid rgba(255,255,255,0.15) !important;
-          backdrop-filter: blur(15px);
+          width: 50px;
+          height: 50px;
+          background: rgba(255,255,255,0.1) !important;
+          border: 1px solid rgba(255,255,255,0.2) !important;
+          backdrop-filter: blur(10px);
           border-radius: 50%;
           color: #fff;
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: all 0.3s ease;
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
@@ -167,10 +170,9 @@ const HeroSlider = () => {
           background: #1ab69d !important;
           border-color: #1ab69d !important;
           transform: translateY(-50%) scale(1.1);
-          box-shadow: 0 0 30px rgba(26, 182, 157, 0.4);
         }
-        .hero-banner .slide-prev { left: 50px; }
-        .hero-banner .slide-next { right: 50px; }
+        .hero-banner .slide-prev { left: 20px; }
+        .hero-banner .slide-next { right: 20px; }
         
         @media only screen and (max-width: 1399px) {
           .hero-banner .banner-content .title { font-size: 65px; }
