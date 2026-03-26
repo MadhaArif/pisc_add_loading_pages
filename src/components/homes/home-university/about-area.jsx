@@ -79,8 +79,24 @@ const AboutArea = ({img, img2}) => {
                     </div>
                     <div className="col-lg-6">
                         <div className="about-image-gallery">
-                            <Image width={390} height={500} className="main-img-1" data-sal-delay="100" data-sal="slide-up" data-sal-duration="800" src={`/assets/images/course/${img}`} alt="About Pact College Main" />
-                            <Image width={230} height={300} className="main-img-2" data-sal-delay="100" data-sal="slide-left" data-sal-duration="800" src={`/assets/images/course/${img2}`} alt="About Pact College Secondary" />
+                            <img 
+                                className="main-img-1" 
+                                data-sal-delay="100" 
+                                data-sal="slide-up" 
+                                data-sal-duration="800" 
+                                src={`/assets/images/course/${img}`} 
+                                alt="About Pact College Main" 
+                                style={{ width: '390px', borderRadius: '10px' }}
+                            />
+                            <img 
+                                className="main-img-2" 
+                                data-sal-delay="100" 
+                                data-sal="slide-left" 
+                                data-sal-duration="800" 
+                                src={`/assets/images/course/${img2}`} 
+                                alt="About Pact College Secondary" 
+                                style={{ width: '230px', borderRadius: '10px', position: 'absolute', bottom: '-20px', right: '0', boxShadow: '0 30px 60px rgba(0,0,0,0.15)' }}
+                            />
                         </div>
                     </div>
                 </div>
