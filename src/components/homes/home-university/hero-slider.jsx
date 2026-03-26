@@ -22,7 +22,11 @@ const HeroSlider = () => {
           `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`
         );
         const result = await response.json();
-        result?.values.shift() && setSlider(result?.values);
+        if (result?.values) {
+          const data = result.values;
+          data.shift(); // Remove header row
+          setSlider(data);
+        }
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
@@ -31,10 +35,14 @@ const HeroSlider = () => {
   }, []);
 
   return (
-    <div className="hero-banner hero-style-3 bg-image" style={{ position: "relative", overflow: "hidden" }}>
+    <div className="hero-banner hero-style-3 bg-image" style={{ position: "relative", overflow: "hidden", minHeight: "80vh" }}>
       <style jsx global>{`
+        .hero-banner .university-activator {
+          height: 90vh;
+        }
         .hero-banner .swiper-slide {
           position: relative;
+          height: 100%;
         }
         .hero-banner .thumbnail-bg-content {
           position: absolute;
@@ -143,55 +151,65 @@ const HeroSlider = () => {
         }}
         className="swiper university-activator"
       >
-        {slider.map((item, ind) => {
-          const [id, src, subtitle, title, sm_text, btn_text] = item;
-          const img = `/assets/images/course/${src}`;
+        {slider.length > 0 ? (
+          slider.map((item, ind) => {
+            const [id, src, subtitle, title, sm_text, btn_text] = item;
+            const img = `/assets/images/course/${src}`;
 
-          return (
-            <SwiperSlide key={ind}>
-              <div style={{ position: "relative", height: "90vh", width: "100%" }}>
-                <Image
-                  src={img}
-                  alt={title || "Hero Slider Image"}
-                  layout="fill"
-                  objectFit="cover"
-                  priority={ind === 0}
-                />
-              </div>
-              <div className="thumbnail-bg-content">
-                <div className="container">
-                  <div className="row">
-                    <div className="col-lg-8">
-                      <div className="banner-content">
-                        <span className="subtitle" data-sal="slide-up" data-sal-duration="800">
-                          {subtitle}
-                        </span>
-                        <h1
-                          className="title"
-                          data-sal-delay="100"
-                          data-sal="slide-up"
-                          data-sal-duration="800"
-                        >
-                          {title}
-                        </h1>
-                        <p data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
-                          {sm_text}
-                        </p>
-                        <div className="banner-btn" data-sal-delay="400" data-sal="slide-up" data-sal-duration="800">
-                          <Link href="/course">
-                            <a className="edu-btn btn-secondary">
-                              {btn_text} <i className="icon-4"></i>
-                            </a>
-                          </Link>
+            return (
+              <SwiperSlide key={ind}>
+                <div style={{ position: "relative", height: "100%", width: "100%" }}>
+                  <Image
+                    src={img}
+                    alt={title || "Hero Slider Image"}
+                    layout="fill"
+                    objectFit="cover"
+                    priority={ind === 0}
+                  />
+                </div>
+                <div className="thumbnail-bg-content">
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-lg-8">
+                        <div className="banner-content">
+                          <span className="subtitle" data-sal="slide-up" data-sal-duration="800">
+                            {subtitle}
+                          </span>
+                          <h1
+                            className="title"
+                            data-sal-delay="100"
+                            data-sal="slide-up"
+                            data-sal-duration="800"
+                          >
+                            {title}
+                          </h1>
+                          <p data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+                            {sm_text}
+                          </p>
+                          <div className="banner-btn" data-sal-delay="400" data-sal-duration="800">
+                            <Link href="/course">
+                              <a className="edu-btn btn-secondary">
+                                {btn_text} <i className="icon-4"></i>
+                              </a>
+                            </Link>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+              </SwiperSlide>
+            );
+          })
+        ) : (
+          <SwiperSlide>
+            <div style={{ height: "100%", width: "100%", display: "flex", alignItems: "center", justifyContent: "center", background: "#f0f2f5" }}>
+              <div className="text-center">
+                <h3>Loading Slider...</h3>
               </div>
-            </SwiperSlide>
-          );
-        })}
+            </div>
+          </SwiperSlide>
+        )}
       </Swiper>
     </div>
   );
