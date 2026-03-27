@@ -2,29 +2,33 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import CourseTypeSix from '../../course/course-type-six';
+import LoadingSkeleton from '../../common/loading-skeleton';
+import { fetchWithFallback } from '../../../utils/google-sheets';
 
 const CoursesArea = () => {
     const [courses, setCourses] = useState([]);
-    const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
-    const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const RANGE = "courses";
 
     // get data from google excel sheet
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(
-                    `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`
-                );
-                const result = await response.json();
-                result?.values?.shift()
-                setCourses(result?.values?.splice(0, 3));
-            } catch (error) {
-                console.error("Error fetching data: ", error);
+        const loadData = async () => {
+            setLoading(true);
+            setError(null);
+            
+            const { data, error } = await fetchWithFallback(RANGE);
+            
+            if (error) {
+                setError(error);
+            } else {
+                data.shift(); // Remove header
+                setCourses(data.splice(0, 3));
             }
+            setLoading(false);
         };
 
-        fetchData();
+        loadData();
     }, []);
 
     return (
@@ -38,7 +42,29 @@ const CoursesArea = () => {
 
                 <div className="isotope-wrapper">
                     <div className="row g-5" data-sal-delay="100" data-sal="slide-up" data-sal-duration="800">
-                        {courses && courses.length > 0 ? (
+                        {loading ? (
+                            // Show skeleton loaders while loading
+                            <>
+                                <div className="col-md-6 col-lg-4">
+                                    <LoadingSkeleton type="card" />
+                                </div>
+                                <div className="col-md-6 col-lg-4">
+                                    <LoadingSkeleton type="card" />
+                                </div>
+                                <div className="col-md-6 col-lg-4">
+                                    <LoadingSkeleton type="card" />
+                                </div>
+                            </>
+                        ) : error ? (
+                            // Show error state
+                            <div className="col-12 text-center">
+                                <div style={{ padding: '40px', background: '#fff5f5', borderRadius: '10px', border: '1px solid #fed7d7' }}>
+                                    <h4 style={{ color: '#c53030', marginBottom: '10px' }}>Unable to load courses</h4>
+                                    <p style={{ color: '#718096' }}>Please try again later.</p>
+                                </div>
+                            </div>
+                        ) : courses && courses.length > 0 ? (
+                            // Show courses
                             courses.map((course) => {
                                 return (
                                     <div key={course[0]} className="col-md-6 col-lg-4">

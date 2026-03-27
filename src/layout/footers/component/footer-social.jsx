@@ -8,8 +8,8 @@ const FooterSocial = ({ black = false }) => {
         youtube: null,
         instagram: null,
     });
-    const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
-    const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
+    const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_API_KEY;
+    const SPREADSHEET_ID = process.env.NEXT_PUBLIC_GOOGLE_SPREADSHEET_ID;
     const RANGE = "social-icon";
 
     // get data from google excel sheet
@@ -28,7 +28,7 @@ const FooterSocial = ({ black = false }) => {
                     });
                 }
             } catch (error) {
-                console.error("Error fetching data: ", error);
+                console.error("FooterSocial - Error fetching data: ", error);
             }
         };
 

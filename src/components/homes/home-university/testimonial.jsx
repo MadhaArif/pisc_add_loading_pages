@@ -53,8 +53,7 @@ const { desc, pre_title, testimonial_items, title } = contents;
 
 const Testimonial = ( { about_p_2 } ) => {
     const { mouseDirection, mouseReverse } = useMouseMoveUI();
-    const [loop, setLoop] = useState( false );
-    useEffect( () => setLoop(true), [])
+    const [loop, setLoop] = useState( true );
     return (
         <div className={`testimonial-area-2 ${about_p_2?'edu-section-gap':'section-gap-large'}`}>
             <div className="container edublink-animated-shape">

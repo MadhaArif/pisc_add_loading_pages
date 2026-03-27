@@ -10,8 +10,8 @@ const BrandArea = () => {
 
     const { pre_title, title, text, brands } = data;
 
-    const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
-    const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
+    const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_API_KEY;
+    const SPREADSHEET_ID = process.env.NEXT_PUBLIC_GOOGLE_SPREADSHEET_ID;
     const RANGE = "partner";
 
     // get data from google excel sheet
@@ -28,7 +28,7 @@ const BrandArea = () => {
                     brands: [...result?.values?.splice(0, 3)]
                     });
             } catch (error) {
-                console.error("Error fetching data: ", error);
+                console.error("BrandArea - Error fetching data: ", error);
             }
         };
 

@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 
 const AboutArea = ({ imgage }) => {
   const [data, setData] = useState([]);
-  const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
-  const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
+  const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_API_KEY;
+  const SPREADSHEET_ID = process.env.NEXT_PUBLIC_GOOGLE_SPREADSHEET_ID;
   const RANGE = "ceo";
 
   // get data from google excel sheet
@@ -72,12 +72,30 @@ const AboutArea = ({ imgage }) => {
           </div>
           <div className="col-lg-6">
             <div className="about-image-gallery">
-              <img
-                style={{ width: "100%" }}
-                className="main-img-1"
-                src={`/assets/images/course/${imgage}`}
-                alt="About Image"
-              />
+              {imgage ? (
+                <img
+                  style={{ width: "100%" }}
+                  className="main-img-1"
+                  src={`/assets/images/course/${imgage}`}
+                  alt="About PISC"
+                  onError={(e) => {
+                    e.target.src = '/assets/images/about/default-about.jpg';
+                    e.target.alt = 'PISC Campus';
+                  }}
+                />
+              ) : (
+                <div style={{ 
+                  width: '100%', 
+                  height: '300px', 
+                  background: '#f0f0f0',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRadius: '8px'
+                }}>
+                  <span style={{ color: '#999' }}>Image not available</span>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -105,19 +123,22 @@ const AboutArea = ({ imgage }) => {
                 <span className="shape-line">
                   <i className="icon-19"></i>
                 </span>
-                <p style={{ textAlign: "justify" }}>
-                  At Professional IT Skills College, Shadbagh Lahore, our
-                  mission is to deliver high-quality, affordable, and practical
-                  IT courses that empower students with digital, computer, and
-                  professional skills. Through hands-on training, real-world
-                  projects, and expert mentorship, we prepare learners to solve
-                  problems, think critically, and succeed in today’s competitive
-                  tech industry. Our programs are designed for beginners and
-                  professionals alike, ensuring every student gains the
-                  confidence and knowledge to achieve career growth locally,
-                  nationally, and internationally.
-                  <br /> <br />
-                  We aim to achieve this by&colon;
+                <div style={{ textAlign: "justify" }}>
+                  <p>
+                    At Professional IT Skills College, Shadbagh Lahore, our
+                    mission is to deliver high-quality, affordable, and practical
+                    IT courses that empower students with digital, computer, and
+                    professional skills. Through hands-on training, real-world
+                    projects, and expert mentorship, we prepare learners to solve
+                    problems, think critically, and succeed in today's competitive
+                    tech industry. Our programs are designed for beginners and
+                    professionals alike, ensuring every student gains the
+                    confidence and knowledge to achieve career growth locally,
+                    nationally, and internationally.
+                  </p>
+                  <p>
+                    We aim to achieve this by&colon;
+                  </p>
                   <ul>
                     <li>
                       Delivering practical IT courses in Lahore tailored to
@@ -140,7 +161,7 @@ const AboutArea = ({ imgage }) => {
                       tech sectors.
                     </li>
                   </ul>
-                </p>
+                </div>
               </div>
             </div>
 

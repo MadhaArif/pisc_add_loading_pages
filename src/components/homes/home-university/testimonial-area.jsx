@@ -8,10 +8,10 @@ import Link from "next/link";
 SwiperCore.use([Autoplay]);
 
 export default function TestimonialArea() {
-    const [loop, setLoop] = useState(false);
+    const [loop, setLoop] = useState(true);
     const [testimonial, setTestimonial] = useState([]);
-    const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
-    const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
+    const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_API_KEY;
+    const SPREADSHEET_ID = process.env.NEXT_PUBLIC_GOOGLE_SPREADSHEET_ID;
     const RANGE = "testimonial";
 
     // get data from google excel sheet
@@ -22,16 +22,20 @@ export default function TestimonialArea() {
                     `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`
                 );
                 const result = await response.json();
-                setTestimonial(result?.values);
+                // Remove header row without mutating original
+                const testData = result?.values ? [...result.values] : [];
+                if (testData.length > 0) {
+                    testData.shift(); // Remove header from copy
+                }
+                setTestimonial(testData);
             } catch (error) {
-                console.error("Error fetching data: ", error);
+                console.error("TestimonialArea - Error fetching data: ", error);
             }
         };
 
         fetchData();
     }, []);
 
-    useEffect(() => setLoop(true), [])
     return (
         <div style={{ background: 'var(--color-smoke)'}} className="testimonial-area-1 section-gap-equal">
             <div className="container">
@@ -68,7 +72,7 @@ export default function TestimonialArea() {
                                 }
                             }}
                         >
-                            {testimonial.shift() && testimonial.map((item, i) => {
+                            {testimonial.length > 0 && testimonial.map((item, i) => {
                                 const [id, img, desc, ratings, name, title] = item;
                                 const imgsrc = `/assets/images/course/${img}`;
                                 

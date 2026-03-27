@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 const HeaderTopRight = () => {
     const [contact, setContact] = useState({ address: null, phone: null, phone_2: null, email: null, timing: null });
-    const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
-    const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
+    const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_API_KEY;
+    const SPREADSHEET_ID = process.env.NEXT_PUBLIC_GOOGLE_SPREADSHEET_ID;
     const RANGE = "contact-info";
 
     // get data from google excel sheet
@@ -20,7 +20,7 @@ const HeaderTopRight = () => {
                     setContact({ address, phone, phone_2, email, timing });
                 }
             } catch (error) {
-                console.error("Error fetching data: ", error);
+                console.error("HeaderTopRight - Error fetching data: ", error);
             }
         };
 

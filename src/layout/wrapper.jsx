@@ -242,7 +242,15 @@ export default function Wrapper({ children }) {
             ) : (   
                 <>
                     { children }
-                        <img onClick={handleWhatsAppClick} style={{zIndex: 100, width: '70px', cursor: 'pointer', position: 'fixed', bottom: '50px', right: '30px'}} src="/assets/images/whatsapp.svg" />
+                        <img 
+                            onClick={handleWhatsAppClick} 
+                            style={{zIndex: 100, width: '70px', cursor: 'pointer', position: 'fixed', bottom: '50px', right: '30px'}} 
+                            src="/assets/images/whatsapp.svg" 
+                            alt="Chat on WhatsApp"
+                            role="button"
+                            tabIndex={0}
+                            onKeyDown={(e) => e.key === 'Enter' && handleWhatsAppClick()}
+                        />
                     <ToastContainer />
                 </>
             )}

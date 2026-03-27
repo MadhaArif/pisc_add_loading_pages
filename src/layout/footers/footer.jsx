@@ -23,8 +23,8 @@ const { desc, widgets } = {
 
 const Footer = ({ style_2, dark_bg, home_4 }) => {
     const [contact, setContact] = useState({ address: null, phone: null, phone_2: null, email: null });
-    const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
-    const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
+    const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_API_KEY;
+    const SPREADSHEET_ID = process.env.NEXT_PUBLIC_GOOGLE_SPREADSHEET_ID;
     const RANGE = "contact-info";
 
     // get data from google excel sheet
@@ -41,7 +41,7 @@ const Footer = ({ style_2, dark_bg, home_4 }) => {
                     setContact({ address, phone, phone_2, email });
                 }
             } catch (error) {
-                console.error("Error fetching data: ", error);
+                console.error("Footer - Error fetching data: ", error);
             }
         };
 

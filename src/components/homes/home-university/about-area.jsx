@@ -86,8 +86,6 @@ const AboutArea = ({img, img2}) => {
                                 data-sal-duration="800" 
                                 src={`/assets/images/course/${img}`}
                                 alt="About PISC"
-                                onLoad={() => console.log('✓ Image 1 loaded:', `/assets/images/course/${img}`)}
-                                onError={(e) => console.error('✗ Image 1 failed:', `/assets/images/course/${img}`, e)}
                             />
                             <img 
                                 className="main-img-2" 
@@ -97,8 +95,6 @@ const AboutArea = ({img, img2}) => {
                                 data-sal-duration="800" 
                                 src={`/assets/images/course/${img2}`}
                                 alt="About PISC Secondary"
-                                onLoad={() => console.log('✓ Image 2 loaded:', `/assets/images/course/${img2}`)}
-                                onError={(e) => console.error('✗ Image 2 failed:', `/assets/images/course/${img2}`, e)}
                             />
                         </div>
                     </div>
