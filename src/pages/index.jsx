@@ -10,18 +10,31 @@ export default function Home() {
   const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
   const RANGE = "other";
 
-  // get data from google excel sheet
+  // get data from google excel sheet - ensure it runs on mount
   useEffect(() => {
     const fetchData = async () => {
       try {
+        console.log("[Homepage] Fetching data...");
         const response = await fetch(
           `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`,
         );
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const result = await response.json();
-        result?.values?.shift();
-        setData(result?.values?.splice(0, 3));
+        console.log("[Homepage] Raw data:", result);
+        
+        if (result?.values && result.values.length > 0) {
+          result.values.shift(); // Remove header row
+          setData(result.values); // Set ALL data, don't limit to 3
+          console.log("[Homepage] All data:", result.values);
+        } else {
+          console.warn("[Homepage] No data found in sheet");
+        }
       } catch (error) {
-        console.error("Error fetching data: ", error);
+        console.error("[Homepage] Error fetching data: ", error.message);
       }
     };
 
@@ -85,7 +98,16 @@ export default function Home() {
         pageDescription="Professional IT Skills College (PISC) in Shadbagh, Lahore offers affordable, hands-on IT courses including web development, graphic design, digital marketing, and more. Enroll now for career-ready training in Pakistan." 
         pageUrl="/" 
       />
-      <HomeUniversity />
+      {/* Only render HomeUniversity when data is available */}
+      {data.length > 0 ? (
+        <HomeUniversity data={data} />
+      ) : (
+        <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      )}
     </Wrapper>
   );
 }

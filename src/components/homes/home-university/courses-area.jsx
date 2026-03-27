@@ -38,13 +38,60 @@ const CoursesArea = () => {
 
                 <div className="isotope-wrapper">
                     <div className="row g-5" data-sal-delay="100" data-sal="slide-up" data-sal-duration="800">
-                        {courses.map((course) => {
-                            return (
-                                <div key={course[0]} className="col-md-6 col-lg-4">
-                                    <CourseTypeSix course={course} />
+                        {courses && courses.length > 0 ? (
+                            courses.map((course) => {
+                                return (
+                                    <div key={course[0]} className="col-md-6 col-lg-4">
+                                        <CourseTypeSix course={course} />
+                                    </div>
+                                )
+                            })
+                        ) : (
+                            // Fallback content when no courses data
+                            <>
+                                <style jsx>{`
+                                    .course-card-placeholder {
+                                        background: #f8f9fa;
+                                        padding: 30px;
+                                        border-radius: 10px;
+                                        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                                        min-height: 300px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: center;
+                                        align-items: center;
+                                        text-align: center;
+                                    }
+                                    .course-card-placeholder h4 {
+                                        color: var(--color-heading);
+                                        margin-bottom: 15px;
+                                        font-size: 22px;
+                                    }
+                                    .course-card-placeholder p {
+                                        color: var(--color-body);
+                                        line-height: 1.6;
+                                    }
+                                `}</style>
+                                <div className="col-md-6 col-lg-4">
+                                    <div className="course-card-placeholder">
+                                        <h4>Web Development</h4>
+                                        <p>Learn modern web technologies and frameworks</p>
+                                    </div>
                                 </div>
-                            )
-                        })}
+                                <div className="col-md-6 col-lg-4">
+                                    <div className="course-card-placeholder">
+                                        <h4>Mobile App Development</h4>
+                                        <p>Build iOS and Android applications</p>
+                                    </div>
+                                </div>
+                                <div className="col-md-6 col-lg-4">
+                                    <div className="course-card-placeholder">
+                                        <h4>Data Science</h4>
+                                        <p>Master data analysis and machine learning</p>
+                                    </div>
+                                </div>
+                            </>
+                        )}
                     </div>
                 </div>
 

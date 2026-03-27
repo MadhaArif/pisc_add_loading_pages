@@ -20,11 +20,13 @@ const FooterSocial = ({ black = false }) => {
                     `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`
                 );
                 const result = await response.json();
-                result?.values.shift();
-                const [facebook, twitter, linked_in, youtube, instagram, tiktok] = result?.values[0];
-                setSocial({
-                    facebook, twitter, instagram, linked_in, youtube, tiktok
-                });
+                if (result?.values && result.values.length > 0) {
+                    result.values.shift();
+                    const [facebook, twitter, linked_in, youtube, instagram, tiktok] = result?.values[0];
+                    setSocial({
+                        facebook, twitter, instagram, linked_in, youtube, tiktok
+                    });
+                }
             } catch (error) {
                 console.error("Error fetching data: ", error);
             }

@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { useMouseMoveUI } from '../../../contexts/mouse-move-context';
 
 const tabs = {
@@ -81,21 +80,25 @@ const AboutArea = ({img, img2}) => {
                         <div className="about-image-gallery">
                             <img 
                                 className="main-img-1" 
+                                style={{width: '390px', borderRadius: '10px'}} 
                                 data-sal-delay="100" 
                                 data-sal="slide-up" 
                                 data-sal-duration="800" 
-                                src={`/assets/images/course/${img}`} 
-                                alt="About Pact College Main" 
-                                style={{ width: '390px', borderRadius: '10px' }}
+                                src={`/assets/images/course/${img}`}
+                                alt="About PISC"
+                                onLoad={() => console.log('✓ Image 1 loaded:', `/assets/images/course/${img}`)}
+                                onError={(e) => console.error('✗ Image 1 failed:', `/assets/images/course/${img}`, e)}
                             />
                             <img 
                                 className="main-img-2" 
+                                style={{width: '230px', borderRadius: '10px'}} 
                                 data-sal-delay="100" 
                                 data-sal="slide-left" 
                                 data-sal-duration="800" 
-                                src={`/assets/images/course/${img2}`} 
-                                alt="About Pact College Secondary" 
-                                style={{ width: '230px', borderRadius: '10px', position: 'absolute', bottom: '-20px', right: '0', boxShadow: '0 30px 60px rgba(0,0,0,0.15)' }}
+                                src={`/assets/images/course/${img2}`}
+                                alt="About PISC Secondary"
+                                onLoad={() => console.log('✓ Image 2 loaded:', `/assets/images/course/${img2}`)}
+                                onError={(e) => console.error('✗ Image 2 failed:', `/assets/images/course/${img2}`, e)}
                             />
                         </div>
                     </div>

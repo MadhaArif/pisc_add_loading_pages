@@ -3,155 +3,189 @@ import SwiperCore, { Autoplay, EffectFade, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 const HeroSlider = () => {
-  const [slider, setSlider] = useState([]);
-  const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
-  const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
-  const RANGE = "slider";
-
-  // Fallback slides in case Google Sheets fetch fails
-  const fallbackSlider = [
-    ["1", "slider1234.png", "World Class IT Training", "Pakistan No.1 IT Skills College", "Expert-led courses in Web Dev, AI, Graphic Design & IELTS Preparation.", "Find Courses"],
-    ["2", "slider2.png", "Join Our Community", "Professional IT Training & IELTS Preparation", "Practical & Hands-On Training. 10,000+ Students Trained Successfully.", "Learn More"]
+  const slides = [
+    {
+      id: 1,
+      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&q=80",
+      subtitle: "Welcome to PISC",
+      title: "Transform Your Future with IT Excellence",
+      description: "Join Pakistan's leading IT training institute. Expert-led courses in Web Development, AI, Graphic Design & IELTS with 10,000+ successful graduates.",
+      buttonText: "Explore Programs"
+    },
+    {
+      id: 2,
+      image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1920&q=80",
+      subtitle: "Learn from Industry Experts",
+      title: "Practical Skills for Real Success",
+      description: "Hands-on training with modern technologies. Get certified, build projects, and launch your tech career with confidence.",
+      buttonText: "Start Learning"
+    },
+    {
+      id: 3,
+      image: "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=1920&q=80",
+      subtitle: "Build Your Dream Career",
+      title: "Industry-Ready Professional Programs",
+      description: "Comprehensive courses in coding, design & digital marketing. Flexible schedules, job placement support, internationally recognized certifications.",
+      buttonText: "View Courses"
+    }
   ];
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`
-        );
-        const result = await response.json();
-        if (result?.values && result.values.length > 1) {
-          const data = [...result.values];
-          data.shift(); // Remove header row
-          setSlider(data);
-        } else {
-          // If no data or empty values, use fallback
-          setSlider(fallbackSlider);
-        }
-      } catch (error) {
-        console.error("Error fetching data: ", error);
-        setSlider(fallbackSlider);
-      }
-    };
-    fetchData();
-  }, []);
-
-  // Show nothing until we have some data (either from API or fallback)
-  if (slider.length === 0) {
-    return (
-      <div style={{ height: "90vh", width: "100%", background: "#000", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <h3 style={{ color: "#fff" }}>Loading Slider...</h3>
-      </div>
-    );
-  }
-
   return (
-    <div className="hero-banner hero-style-3 bg-image" style={{ position: "relative", overflow: "hidden", minHeight: "85vh", zIndex: 1 }}>
+    <div className="hero-banner hero-style-modern" style={{ position: "relative", minHeight: "90vh", overflow: "hidden" }}>
       <style jsx global>{`
-        .hero-banner .university-activator {
-          height: 90vh;
-          width: 100%;
-        }
         .hero-banner .swiper-slide {
           position: relative;
-          height: 100%;
+          height: 95vh;
           width: 100%;
-          overflow: hidden;
+        }
+        .hero-banner .image-container {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
         }
         .hero-banner .swiper-slide-active .image-container {
           animation: kenburns 20s infinite alternate;
         }
         @keyframes kenburns {
           from { transform: scale(1); }
-          to { transform: scale(1.15); }
+          to { transform: scale(1.1); }
         }
-        .hero-banner .thumbnail-bg-content {
+        .hero-banner .slide-content {
           position: absolute;
           top: 0;
           left: 0;
           width: 100%;
           height: 100%;
           display: flex;
-          align-items: flex-start;
-          padding-top: 360px; /* Final vertical position fix */
-          z-index: 5;
-          background: linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
-        }
-        .hero-banner .banner-content {
-          color: #fff;
-          max-width: 800px;
-          padding: 0 15px;
-        }
-        .hero-banner .banner-content .subtitle {
-          color: #1ab69d;
-          font-size: 15px;
-          font-weight: 600;
-          margin-bottom: 15px;
-          display: inline-block;
-          text-transform: uppercase;
-          letter-spacing: 3px;
-          position: relative;
-          padding-left: 65px;
-        }
-        .hero-banner .banner-content .subtitle::before {
-          content: "";
-          position: absolute;
-          left: 0;
-          top: 50%;
-          width: 50px;
-          height: 2px;
-          background: #1ab69d;
-          transform: translateY(-50%);
-        }
-        .hero-banner .banner-content .title {
-          font-size: 48px;
-          line-height: 1.2;
-          margin-bottom: 25px;
-          color: #ffffff;
-          font-weight: 800;
-          text-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
-        .hero-banner .banner-content p {
-          font-size: 19px;
-          line-height: 1.7;
-          margin-bottom: 45px;
-          color: rgba(255,255,255,0.9);
-          max-width: 600px;
-          font-weight: 400;
-        }
-        .hero-banner .edu-btn {
-          padding: 18px 40px;
-          font-size: 17px;
-          font-weight: 600;
-          border-radius: 4px;
-          display: inline-flex;
           align-items: center;
           justify-content: center;
-          gap: 12px;
-          box-shadow: 0 10px 30px rgba(26, 182, 157, 0.2);
+          z-index: 10;
+          background: linear-gradient(135deg, rgba(0, 33, 71, 0.7) 0%, rgba(0, 33, 71, 0.45) 100%);
+        }
+        .hero-banner .content-box {
+          max-width: 900px;
+          padding: 55px 65px;
+          background: rgba(0, 33, 71, 0.88);
+          backdrop-filter: blur(30px);
+          border-radius: 28px;
+          border: 2px solid rgba(248, 184, 31, 0.45);
+          box-shadow: 0 30px 80px rgba(0, 33, 71, 0.6), 
+                      0 0 50px rgba(248, 184, 31, 0.25),
+                      inset 0 0 30px rgba(255, 255, 255, 0.05);
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+          animation: gentleFloat 6s ease-in-out infinite;
+        }
+        @keyframes gentleFloat {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+        .hero-banner .content-box::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          background: linear-gradient(90deg, #f8b81f 0%, #002147 50%, #f8b81f 100%);
+          box-shadow: 0 2px 10px rgba(248, 184, 31, 0.5);
+        }
+        .hero-banner .subtitle {
+          color: var(--color-secondary);
+          font-size: 15px;
+          font-weight: 700;
+          margin-bottom: 24px;
+          display: inline-block;
+          text-transform: uppercase;
+          letter-spacing: 4.5px;
+          position: relative;
+          padding-bottom: 14px;
+        }
+        .hero-banner .subtitle::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 70px;
+          height: 3px;
+          background: linear-gradient(90deg, transparent, var(--color-secondary), transparent);
+          border-radius: 2px;
+          box-shadow: 0 2px 8px rgba(248, 184, 31, 0.4);
+        }
+        .hero-banner .title {
+          font-size: 54px;
+          line-height: 1.18;
+          margin-bottom: 30px;
+          color: var(--color-white);
+          font-weight: 800;
+          letter-spacing: -0.8px;
+          text-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+        }
+        .hero-banner .description {
+          font-size: 18px;
+          line-height: 1.85;
+          margin-bottom: 42px;
+          color: rgba(255, 255, 255, 0.95);
+          max-width: 740px;
+          font-weight: 400;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        .hero-banner .cta-button {
+          padding: 19px 52px;
+          font-size: 16px;
+          font-weight: 700;
+          border-radius: 50px;
+          display: inline-flex;
+          align-items: center;
+          gap: 13px;
+          background: linear-gradient(135deg, var(--color-secondary) 0%, #f8b71f 100%);
+          color: var(--color-primary);
+          text-decoration: none;
+          box-shadow: 0 12px 35px rgba(248, 184, 31, 0.5), 
+                      0 0 25px rgba(248, 184, 31, 0.35);
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          border: 2px solid transparent;
+          position: relative;
+          overflow: hidden;
         }
-        .hero-banner .edu-btn:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 15px 35px rgba(26, 182, 157, 0.4);
-          color: #fff;
+        .hero-banner .cta-button::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.35) 50%, transparent 100%);
+          transition: left 0.65s ease;
         }
-        
+        .hero-banner .cta-button:hover::before {
+          left: 100%;
+        }
+        .hero-banner .cta-button:hover {
+          background: linear-gradient(135deg, var(--color-white) 0%, #f0f4f5 100%);
+          transform: translateY(-6px) scale(1.08);
+          box-shadow: 0 16px 45px rgba(255, 255, 255, 0.6), 
+                      0 0 35px rgba(248, 184, 31, 0.5);
+          border-color: var(--color-white);
+          color: var(--color-primary);
+        }
         .hero-banner .slide-prev, .hero-banner .slide-next {
-          width: 55px;
-          height: 55px;
-          background: rgba(255,255,255,0.05) !important;
-          border: 1px solid rgba(255,255,255,0.1) !important;
-          backdrop-filter: blur(10px);
+          width: 65px;
+          height: 65px;
+          background: rgba(255, 255, 255, 0.15) !important;
+          border: 2px solid rgba(255, 255, 255, 0.5) !important;
+          backdrop-filter: blur(20px);
           border-radius: 50%;
           color: #fff;
-          transition: all 0.3s ease;
+          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
@@ -160,28 +194,61 @@ const HeroSlider = () => {
           display: flex !important;
           align-items: center;
           justify-content: center;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+                      inset 0 2px 0 rgba(255, 255, 255, 0.2);
         }
         .hero-banner .slide-prev:hover, .hero-banner .slide-next:hover {
-          background: #1ab69d !important;
-          border-color: #1ab69d !important;
-          transform: translateY(-50%) scale(1.1);
+          background: linear-gradient(135deg, #f8b81f 0%, #f8b71f 100%) !important;
+          border-color: #f8b81f !important;
+          transform: translateY(-50%) scale(1.2) rotate(0deg);
+          box-shadow: 0 15px 40px rgba(248, 184, 31, 0.6),
+                      0 0 30px rgba(248, 184, 31, 0.4),
+                      inset 0 2px 0 rgba(255, 255, 255, 0.3);
         }
-        .hero-banner .slide-prev { left: 20px; }
-        .hero-banner .slide-next { right: 20px; }
+        .hero-banner .slide-prev { left: 45px; }
+        .hero-banner .slide-next { right: 45px; }
+        
+        /* Decorative elements */
+        .hero-banner::before {
+          content: '';
+          position: absolute;
+          top: -8%;
+          right: '-4%';
+          width: 550px;
+          height: 550px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(248, 184, 31, 0.12) 0%, rgba(248, 184, 31, 0.04) 60%, transparent 70%);
+          z-index: 5;
+          pointer-events: none;
+        }
+        .hero-banner::after {
+          content: '';
+          position: absolute;
+          bottom: -12%;
+          left: '-8%';
+          width: 700px;
+          height: 700px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(0, 33, 71, 0.1) 0%, rgba(0, 51, 102, 0.04) 60%, transparent 70%);
+          z-index: 5;
+          pointer-events: none;
+        }
         
         @media only screen and (max-width: 1199px) {
-          .hero-banner .banner-content .title { font-size: 55px; }
-          .hero-banner .university-activator { height: 80vh; }
+          .hero-banner .title { font-size: 46px; }
+          .hero-banner .content-box { padding: 50px 55px; }
         }
         @media only screen and (max-width: 991px) {
-          .hero-banner .banner-content .title { font-size: 45px; }
-          .hero-banner .banner-content p { font-size: 17px; }
+          .hero-banner .title { font-size: 38px; }
+          .hero-banner .description { font-size: 16px; }
+          .hero-banner .content-box { padding: 45px 50px; }
         }
         @media only screen and (max-width: 767px) {
-          .hero-banner .banner-content .title { font-size: 36px; }
-          .hero-banner .university-activator { height: 70vh; }
-          .hero-banner .thumbnail-bg-content { background: rgba(0,0,0,0.7); }
+          .hero-banner .title { font-size: 30px; }
+          .hero-banner .description { font-size: 15px; }
           .hero-banner .slide-prev, .hero-banner .slide-next { display: none !important; }
+          .hero-banner .content-box { padding: 40px 30px; border-radius: 20px; }
+          .hero-banner .subtitle { font-size: 12px; letter-spacing: 3px; }
         }
       `}</style>
 
@@ -199,17 +266,16 @@ const HeroSlider = () => {
       </button>
 
       <Swiper
-        key={slider.length}
         slidesPerView={1}
         spaceBetween={0}
-        loop={slider.length > 1}
+        loop={true}
         grabCursor={true}
         observer={true}
         observeParents={true}
         effect="fade"
         speed={1000}
         autoplay={{
-          delay: 5000,
+          delay: 6000,
           disableOnInteraction: false,
         }}
         navigation={{
@@ -218,52 +284,38 @@ const HeroSlider = () => {
         }}
         className="swiper university-activator"
       >
-        {slider.map((item, ind) => {
-          const [id, src, subtitle, title, sm_text, btn_text] = item;
-          const img = `/assets/images/course/${src}`;
-
-          return (
-            <SwiperSlide key={ind}>
-              <div className="image-container" style={{ position: "relative", height: "100%", width: "100%", background: "#000" }}>
-                <Image
-                  src={img}
-                  alt={title || "Hero Slider Image"}
-                  layout="fill"
-                  objectFit="cover"
-                  priority={ind === 0}
-                  loading={ind === 0 ? "eager" : "lazy"}
-                  style={{ filter: "brightness(0.8) contrast(1.1)" }}
-                />
-              </div>
-              <div className="thumbnail-bg-content">
-                <div className="container">
-                  <div className="row">
-                    <div className="col-lg-10 col-xl-8">
-                      <div className="banner-content">
-                        <span className="subtitle animated fadeInDown">
-                          {subtitle}
-                        </span>
-                        <h1 className="title animated fadeInUp">
-                          {title}
-                        </h1>
-                        <p className="animated fadeInUp">
-                          {sm_text}
-                        </p>
-                        <div className="banner-btn animated fadeInUp">
-                          <Link href="/course">
-                            <a className="edu-btn btn-secondary">
-                              {btn_text || "Get Started"} <i className="icon-4"></i>
-                            </a>
-                          </Link>
-                        </div>
-                      </div>
+        {slides.map((slide) => (
+          <SwiperSlide key={slide.id}>
+            <div className="image-container">
+              <Image
+                src={slide.image}
+                alt={slide.title}
+                layout="fill"
+                objectFit="cover"
+                priority={true}
+                style={{ filter: "brightness(0.65) contrast(1.05)" }}
+              />
+            </div>
+            <div className="slide-content">
+              <div className="container">
+                <div className="row justify-content-center">
+                  <div className="col-lg-10">
+                    <div className="content-box animated fadeInUp">
+                      <span className="subtitle">{slide.subtitle}</span>
+                      <h1 className="title">{slide.title}</h1>
+                      <p className="description">{slide.description}</p>
+                      <Link href="/course">
+                        <a className="cta-button">
+                          {slide.buttonText} <i className="icon-4"></i>
+                        </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
               </div>
-            </SwiperSlide>
-          );
-        })}
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

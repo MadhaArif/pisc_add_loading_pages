@@ -9,29 +9,21 @@ import TestimonialArea from './testimonial-area';
 import AdBanner from './ad-banner';
 import BrandArea from './brand-area';
 
-const HomeUniversityIndex = () => {
-  const [data, setData] = useState([]);
-  const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
-  const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
-  const RANGE = "other";
+const HomeUniversityIndex = ({ data = [] }) => {
+  // Use parent data directly, no local state needed
+  const displayData = data && data.length > 0 ? data : [];
 
-  // get data from google excel sheet
+  // Only fetch if no parent data (client-side only)
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`
-        );
-        const result = await response.json();
-        result?.values?.shift()
-        setData(result?.values?.splice(0, 3));
-      } catch (error) {
-        console.error("Error fetching data: ", error);
-      }
-    };
-
-    fetchData();
-  }, []);
+    console.log("[HomeUniversity] Received data from parent:", data);
+    console.log("[HomeUniversity] Data length:", data?.length);
+    console.log("[HomeUniversity] First row:", data?.[0]);
+    
+    if (data && data.length > 0) {
+      console.log("[HomeUniversity] Using parent data - no fetch needed");
+    }
+    // No fallback fetch needed - parent always provides data
+  }, [data]); // Re-run only when parent data changes
 
   return (
     <div className='sticky-header'>
@@ -39,15 +31,23 @@ const HomeUniversityIndex = () => {
         <HeaderTwo no_topBar />
         <HeroSlider />
         <CategoryArea />
-        <AboutArea img={data.length && data[0][4]} img2={data.length && data[0][5]} />
+        {console.log("[Render Debug] displayData:", displayData)}
+        {console.log("[Render Debug] AboutArea img:", displayData.length > 0 ? displayData[0][4] : null)}
+        {console.log("[Render Debug] AboutArea img2:", displayData.length > 0 ? displayData[0][5] : null)}
+        <AboutArea img={displayData.length > 0 ? displayData[0][4] : null} img2={displayData.length > 0 ? displayData[0][5] : null} />
+        {console.log("[AboutArea Rendered] Images passed:", {
+          img: displayData.length > 0 ? displayData[0][4] : null,
+          img2: displayData.length > 0 ? displayData[0][5] : null,
+          fullData: displayData
+        })}
         <CounterArea home_3={true} />
         <CoursesArea />
 
-        {data.length && data[0][3] && <div className='d-none d-md-block'
+        {displayData.length > 0 && displayData[0][3] && <div className='d-none d-md-block'
           style={{
             width: '100%',
             height: '500px',
-            backgroundImage: data.length && `url(/assets/images/course/${data[0][3]})`,
+            backgroundImage: `url(/assets/images/course/${displayData[0][3]})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'contain',
             backgroundPosition: 'center',

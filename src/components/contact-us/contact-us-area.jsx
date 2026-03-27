@@ -19,9 +19,11 @@ const ContactUsArea = () => {
                         `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`
                     );
                     const result = await response.json();
-                    result.values.shift();
-                    const [address, phone, phone_2, email] = result?.values[0]
-                    setContact({ address, phone, phone_2, email });
+                    if (result?.values && result.values.length > 0) {
+                        result.values.shift();
+                        const [address, phone, phone_2, email] = result?.values[0]
+                        setContact({ address, phone, phone_2, email });
+                    }
                 } catch (error) {
                     console.error("Error fetching data: ", error);
                 }

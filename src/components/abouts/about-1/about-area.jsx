@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 
 const AboutArea = ({ imgage }) => {
   const [data, setData] = useState([]);
+  const [loaded, setLoaded] = useState(false);
   const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
   const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
   const RANGE = "ceo";
 
-  // get data from google excel sheet
+  // Fetch CEO data immediately
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -14,19 +15,24 @@ const AboutArea = ({ imgage }) => {
           `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`,
         );
         const result = await response.json();
-        result?.values.shift() && setData(result?.values);
+        if (result?.values) {
+          result.values.shift();
+          setData(result?.values);
+        }
       } catch (error) {
         console.error("Error fetching data: ", error);
+      } finally {
+        setLoaded(true);
       }
     };
 
     fetchData();
   }, []);
 
-  const img = data.length
+  const img = data.length > 0
     ? `/assets/images/course/${data[0][0]}`
     : "/assets/images/about/about-01.jpg";
-  const detail = data.length
+  const detail = data.length > 0
     ? data[0][1]
     : "CEO details not available at the moment.";
 
@@ -111,14 +117,17 @@ const AboutArea = ({ imgage }) => {
                   IT courses that empower students with digital, computer, and
                   professional skills. Through hands-on training, real-world
                   projects, and expert mentorship, we prepare learners to solve
-                  problems, think critically, and succeed in today’s competitive
+                  problems, think critically, and succeed in today's competitive
                   tech industry. Our programs are designed for beginners and
                   professionals alike, ensuring every student gains the
                   confidence and knowledge to achieve career growth locally,
                   nationally, and internationally.
-                  <br /> <br />
+                </p>
+                <br />
+                <p style={{ textAlign: "justify" }}>
                   We aim to achieve this by:
-                  <ul>
+                </p>
+                <ul>
                     <li>
                       Delivering practical IT courses in Lahore tailored to
                       industry demands.
@@ -140,7 +149,6 @@ const AboutArea = ({ imgage }) => {
                       tech sectors.
                     </li>
                   </ul>
-                </p>
               </div>
             </div>
 
@@ -167,31 +175,33 @@ const AboutArea = ({ imgage }) => {
                   dynamic, inclusive, and future-ready learning environment, we
                   aim to shape a generation of professionals who excel locally,
                   nationally, and globally.
-                  <br /> <br />
-                  We aim to achieve this by:
-                  <ul>
-                    <li>
-                      Providing cutting-edge IT courses in Lahore that meet
-                      industry demands.
-                    </li>
-                    <li>
-                      Offering hands-on, practical training for real-world
-                      career readiness.
-                    </li>
-                    <li>
-                      Encouraging creativity, critical thinking, and
-                      problem-solving skills.
-                    </li>
-                    <li>
-                      Fostering a dynamic, inclusive, and supportive learning
-                      environment.
-                    </li>
-                    <li>
-                      Preparing students for success locally, nationally, and
-                      globally in the digital era.
-                    </li>
-                  </ul>
                 </p>
+                <br />
+                <p style={{ textAlign: "justify" }}>
+                  We aim to achieve this by:
+                </p>
+                <ul>
+                  <li>
+                    Providing cutting-edge IT courses in Lahore that meet
+                    industry demands.
+                  </li>
+                  <li>
+                    Offering hands-on, practical training for real-world
+                    career readiness.
+                  </li>
+                  <li>
+                    Encouraging creativity, critical thinking, and
+                    problem-solving skills.
+                  </li>
+                  <li>
+                    Fostering a dynamic, inclusive, and supportive learning
+                    environment.
+                  </li>
+                  <li>
+                    Preparing students for success locally, nationally, and
+                    globally in the digital era.
+                  </li>
+                </ul>
               </div>
             </div>
           </div>

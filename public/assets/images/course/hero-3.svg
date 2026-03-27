@@ -1,0 +1,87 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Modern Career/Professional Theme Background -->
+  <defs>
+    <linearGradient id="heroGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f2027;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#203a43;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2c5364;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1ab69d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06ffa5;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="radialGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#1ab69d;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#1ab69d;stop-opacity:0" />
+    </radialGradient>
+    <filter id="glow3">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Base Gradient -->
+  <rect width="1920" height="1080" fill="url(#heroGrad3)"/>
+  
+  <!-- Radial Glow Effects -->
+  <circle cx="800" cy="400" r="400" fill="url(#radialGlow)" filter="url(#glow3)"/>
+  <circle cx="1500" cy="700" r="300" fill="url(#radialGlow)" opacity="0.5"/>
+  
+  <!-- Tech Grid Pattern -->
+  <g stroke="url(#accent3)" stroke-width="1" opacity="0.08">
+    <line x1="100" y1="0" x2="100" y2="1080"/>
+    <line x1="300" y1="0" x2="300" y2="1080"/>
+    <line x1="500" y1="0" x2="500" y2="1080"/>
+    <line x1="700" y1="0" x2="700" y2="1080"/>
+    <line x1="900" y1="0" x2="900" y2="1080"/>
+    <line x1="1100" y1="0" x2="1100" y2="1080"/>
+    <line x1="1300" y1="0" x2="1300" y2="1080"/>
+    <line x1="1500" y1="0" x2="1500" y2="1080"/>
+    <line x1="1700" y1="0" x2="1700" y2="1080"/>
+    <line x1="1900" y1="0" x2="1900" y2="1080"/>
+    
+    <line x1="0" y1="150" x2="1920" y2="150"/>
+    <line x1="0" y1="300" x2="1920" y2="300"/>
+    <line x1="0" y1="450" x2="1920" y2="450"/>
+    <line x1="0" y1="600" x2="1920" y2="600"/>
+    <line x1="0" y1="750" x2="1920" y2="750"/>
+    <line x1="0" y1="900" x2="1920" y2="900"/>
+    <line x1="0" y1="1050" x2="1920" y2="1050"/>
+  </g>
+  
+  <!-- Abstract Arrow/Growth Symbol -->
+  <path d="M1600 200 L1700 100 L1800 200" stroke="url(#accent3)" stroke-width="3" fill="none" opacity="0.3" filter="url(#glow3)"/>
+  <path d="M1650 250 L1700 200 L1750 250" stroke="url(#accent3)" stroke-width="2" fill="none" opacity="0.2"/>
+  
+  <!-- Connected Dots Network -->
+  <g fill="#1ab69d" opacity="0.4">
+    <circle cx="200" cy="300" r="4"/>
+    <circle cx="400" cy="250" r="4"/>
+    <circle cx="600" cy="350" r="4"/>
+    <circle cx="800" cy="280" r="4"/>
+    <circle cx="1000" cy="320" r="4"/>
+  </g>
+  <g stroke="#1ab69d" stroke-width="1" opacity="0.2">
+    <line x1="200" y1="300" x2="400" y2="250"/>
+    <line x1="400" y1="250" x2="600" y2="350"/>
+    <line x1="600" y1="350" x2="800" y2="280"/>
+    <line x1="800" y1="280" x2="1000" y2="320"/>
+  </g>
+  
+  <!-- Corner Accents -->
+  <path d="M0 0 L300 0 L0 200 Z" fill="#1ab69d" opacity="0.05"/>
+  <path d="M1920 1080 L1620 1080 L1920 880 Z" fill="#1ab69d" opacity="0.08"/>
+  
+  <!-- Floating Particles -->
+  <g fill="#ffffff">
+    <circle cx="1200" cy="150" r="2" opacity="0.3"/>
+    <circle cx="1250" cy="180" r="2" opacity="0.4"/>
+    <circle cx="1180" cy="200" r="2" opacity="0.3"/>
+    <circle cx="500" cy="800" r="2" opacity="0.3"/>
+    <circle cx="550" cy="850" r="2" opacity="0.4"/>
+    <circle cx="480" cy="820" r="2" opacity="0.3"/>
+  </g>
+</svg>
