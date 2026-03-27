@@ -24,6 +24,11 @@ export default function Home() {
         console.log("[Homepage] Spreadsheet ID:", SPREADSHEET_ID || "Missing");
         console.log("[Homepage] Range:", RANGE);
         
+        // Check if env vars are missing
+        if (!API_KEY || !SPREADSHEET_ID) {
+          throw new Error("Environment variables not configured! Please check Vercel dashboard.");
+        }
+        
         const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`;
         console.log("[Homepage] Fetching URL:", url);
         
@@ -49,14 +54,14 @@ export default function Home() {
           console.log("[Homepage] Data set successfully!");
         } else {
           console.warn("[Homepage] No data found in sheet");
-          setError("No data available");
+          setError("No data available in Google Sheet");
         }
       } catch (error) {
         console.error("[Homepage] Error fetching data: ", error.message);
         setError(error.message);
       } finally {
         setLoading(false);
-        console.log("[Homepage] Loading complete. Error:", error);
+        console.log("[Homepage] Loading complete.");
       }
     };
 
