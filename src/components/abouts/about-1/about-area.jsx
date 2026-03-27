@@ -2,12 +2,11 @@ import { useEffect, useState } from "react";
 
 const AboutArea = ({ imgage }) => {
   const [data, setData] = useState([]);
-  const [loaded, setLoaded] = useState(false);
   const API_KEY = "AIzaSyCm3_Cs0m__byx-jAF2fVna5wU7oHh8p7o";
   const SPREADSHEET_ID = "1ofS_nOKGHmZbt3-VbMiofhcB5xbdY1EvfBdqUOXqFR4";
   const RANGE = "ceo";
 
-  // Fetch CEO data immediately
+  // get data from google excel sheet
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -15,24 +14,19 @@ const AboutArea = ({ imgage }) => {
           `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`,
         );
         const result = await response.json();
-        if (result?.values) {
-          result.values.shift();
-          setData(result?.values);
-        }
+        result?.values.shift() && setData(result?.values);
       } catch (error) {
         console.error("Error fetching data: ", error);
-      } finally {
-        setLoaded(true);
       }
     };
 
     fetchData();
   }, []);
 
-  const img = data.length > 0
+  const img = data.length
     ? `/assets/images/course/${data[0][0]}`
     : "/assets/images/about/about-01.jpg";
-  const detail = data.length > 0
+  const detail = data.length
     ? data[0][1]
     : "CEO details not available at the moment.";
 
@@ -117,17 +111,14 @@ const AboutArea = ({ imgage }) => {
                   IT courses that empower students with digital, computer, and
                   professional skills. Through hands-on training, real-world
                   projects, and expert mentorship, we prepare learners to solve
-                  problems, think critically, and succeed in today's competitive
+                  problems, think critically, and succeed in today’s competitive
                   tech industry. Our programs are designed for beginners and
                   professionals alike, ensuring every student gains the
                   confidence and knowledge to achieve career growth locally,
                   nationally, and internationally.
-                </p>
-                <br />
-                <p style={{ textAlign: "justify" }}>
-                  We aim to achieve this by:
-                </p>
-                <ul>
+                  <br /> <br />
+                  We aim to achieve this by&colon;
+                  <ul>
                     <li>
                       Delivering practical IT courses in Lahore tailored to
                       industry demands.
@@ -149,6 +140,7 @@ const AboutArea = ({ imgage }) => {
                       tech sectors.
                     </li>
                   </ul>
+                </p>
               </div>
             </div>
 
@@ -175,33 +167,31 @@ const AboutArea = ({ imgage }) => {
                   dynamic, inclusive, and future-ready learning environment, we
                   aim to shape a generation of professionals who excel locally,
                   nationally, and globally.
+                  <br /> <br />
+                  We aim to achieve this by&colon;
+                  <ul>
+                    <li>
+                      Providing cutting-edge IT courses in Lahore that meet
+                      industry demands.
+                    </li>
+                    <li>
+                      Offering hands-on, practical training for real-world
+                      career readiness.
+                    </li>
+                    <li>
+                      Encouraging creativity, critical thinking, and
+                      problem-solving skills.
+                    </li>
+                    <li>
+                      Fostering a dynamic, inclusive, and supportive learning
+                      environment.
+                    </li>
+                    <li>
+                      Preparing students for success locally, nationally, and
+                      globally in the digital era.
+                    </li>
+                  </ul>
                 </p>
-                <br />
-                <p style={{ textAlign: "justify" }}>
-                  We aim to achieve this by:
-                </p>
-                <ul>
-                  <li>
-                    Providing cutting-edge IT courses in Lahore that meet
-                    industry demands.
-                  </li>
-                  <li>
-                    Offering hands-on, practical training for real-world
-                    career readiness.
-                  </li>
-                  <li>
-                    Encouraging creativity, critical thinking, and
-                    problem-solving skills.
-                  </li>
-                  <li>
-                    Fostering a dynamic, inclusive, and supportive learning
-                    environment.
-                  </li>
-                  <li>
-                    Preparing students for success locally, nationally, and
-                    globally in the digital era.
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
@@ -212,7 +202,7 @@ const AboutArea = ({ imgage }) => {
         <div className="gap-top-equal gap-bottom-equal">
           <div className="container">
             <div className="row gx-5 align-items-center">
-              <div className="col-lg-8">
+              <div className="col-lg-7">
                 <div className="section-title section-left">
                   <h2 className="title sub-heading mt-0">
                     About <span className="color-secondary">CEO</span>
@@ -228,48 +218,13 @@ const AboutArea = ({ imgage }) => {
                 </div>
               </div>
 
-              <div className="col-lg-4">
-                <div className="about-image-gallery" style={{ padding: '0', position: 'relative' }}>
-                  <div style={{
-                    position: 'absolute',
-                    top: '-20px',
-                    right: '-20px',
-                    width: '100%',
-                    height: '100%',
-                    border: '10px solid var(--color-secondary)',
-                    borderRadius: '20px',
-                    zIndex: '-1',
-                    opacity: '0.2'
-                  }}></div>
-                  <img
-                    src={img}
-                    alt="CEO Image"
-                    className="img-fluid"
-                    style={{ 
-                      width: "100%", 
-                      objectFit: "cover", 
-                      borderRadius: "20px", 
-                      boxShadow: "0 30px 60px rgba(0,0,0,0.15)",
-                      border: "5px solid white",
-                      position: 'relative',
-                      zIndex: '1'
-                    }}
-                  />
-                  <div style={{
-                    position: 'absolute',
-                    bottom: '30px',
-                    left: '-30px',
-                    background: 'white',
-                    padding: '15px 25px',
-                    borderRadius: '10px',
-                    boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                    zIndex: '2',
-                    borderLeft: '5px solid var(--color-secondary)'
-                  }}>
-                    <h4 style={{ margin: '0', fontSize: '18px', fontWeight: '700', color: 'var(--color-heading)' }}>Founder & CEO</h4>
-                    <p style={{ margin: '0', fontSize: '14px', color: 'var(--color-body)' }}>Professional IT Skills College</p>
-                  </div>
-                </div>
+              <div className="col-lg-5">
+                <img
+                  src={img}
+                  alt="Image"
+                  className="img-fluid"
+                  style={{ width: "100%", objectFit: "cover" }}
+                />
               </div>
             </div>
           </div>
